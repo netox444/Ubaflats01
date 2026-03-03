@@ -1,171 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ubaflats</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-body{
-font-family:'Inter',sans-serif;
-
-/* Fundo com foto visível */
-background:
-linear-gradient(rgba(255,255,255,0.55),rgba(255,255,255,0.65)),
-url('ubaflats_montanha.jpg');
-
-background-size:cover;
-background-position:center;
-min-height:100vh;
-}
-
-/* Container */
-
-.container{
-max-width:1000px;
-margin:auto;
-padding:40px 20px 120px;
-}
-
-/* HERO */
-
-.hero{
-text-align:center;
-padding:80px 20px;
-border-radius:28px;
-background:rgba(255,255,255,0.65);
-backdrop-filter:blur(14px);
-box-shadow:0 15px 40px rgba(0,0,0,.1);
-}
-
-.hero h1{
-font-family:'Playfair Display',serif;
-font-size:48px;
-margin-bottom:20px;
-}
-
-.hero p{
-max-width:600px;
-margin:auto;
-color:#444;
-line-height:1.6;
-}
-
-/* MENU */
-
-.menu-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-margin-top:40px;
-}
-
-.menu-card{
-background:rgba(255,255,255,.75);
-backdrop-filter:blur(14px);
-padding:28px;
-border-radius:26px;
-text-align:center;
-cursor:pointer;
-transition:.35s;
-box-shadow:0 10px 30px rgba(0,0,0,.08);
-}
-
-.menu-card:hover{
-transform:translateY(-6px) scale(1.04);
-}
-
-/* MODAL */
-
-.modal{
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.55);
-
-display:none;
-justify-content:center;
-align-items:center;
-
-animation:fadeIn .35s ease;
-}
-
-.modal-content{
-background:white;
-width:90%;
-max-width:420px;
-padding:30px;
-border-radius:28px;
-
-animation:slideIn .4s cubic-bezier(.22,1,.36,1);
-box-shadow:0 15px 40px rgba(0,0,0,.25);
-}
-
-@keyframes fadeIn{
-from{opacity:0}
-to{opacity:1}
-}
-
-@keyframes slideIn{
-from{
-opacity:0;
-transform:translateX(120px);
-}
-to{
-opacity:1;
-transform:translateX(0);
-}
-}
-
-.close{
-margin-top:30px;
-width:100%;
-padding:14px;
-border:none;
-border-radius:16px;
-background:#111;
-color:white;
-cursor:pointer;
-}
-
-/* FOOTER */
-
-footer{
-margin-top:80px;
-text-align:center;
-padding:40px;
-font-size:14px;
-color:#555;
-}
-
-.whats{
-display:block;
-margin-top:20px;
-background:#111;
-color:white;
-padding:16px;
-border-radius:18px;
-text-decoration:none;
-}
-
-/* MOBILE */
-
-@media(max-width:600px){
-.hero h1{
-font-size:32px;
-}
-}
-
-</style>
-</head>
+<!-- CONTINUE A PARTIR DO BODY -->
 
 <body>
 
@@ -262,23 +95,19 @@ Endereço: Rua Goiás 291
 </div>
 </div>
 
-<footer>
-📞 WhatsApp direto para reservas
-
-<a class="whats" href="https://wa.me/5512982034767">
-Reserve agora
-</a>
-
-<p style="margin-top:30px">
-Ubaflats • Seu refúgio a 500m do mar
-</p>
-</footer>
-
 </div>
 
-<script>
+<!-- BARRA INFERIOR WHATSAPP (RESTAURADA) -->
 
-/* MODAL CONTROLLER */
+<div class="bottom-bar">
+<a href="https://wa.me/5512982034767" target="_blank">
+Falar no WhatsApp 📞
+</a>
+</div>
+
+<!-- SCRIPT -->
+
+<script>
 
 function openModal(id){
 document.getElementById(id).style.display="flex";
@@ -289,8 +118,6 @@ function closeModal(id){
 document.getElementById(id).style.display="none";
 document.body.style.overflow="auto";
 }
-
-/* FECHAR CLICANDO FORA */
 
 window.addEventListener("click",e=>{
 document.querySelectorAll(".modal").forEach(modal=>{
@@ -303,4 +130,3 @@ modal.style.display="none";
 </script>
 
 </body>
-</html>
