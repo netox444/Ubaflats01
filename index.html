@@ -18,7 +18,7 @@ box-sizing:border-box;
 body{
 font-family:'Inter',sans-serif;
 
-/* FOTO DE FUNDO VISÍVEL */
+/* Fundo com foto visível */
 background:
 linear-gradient(rgba(255,255,255,0.55),rgba(255,255,255,0.65)),
 url('ubaflats_montanha.jpg');
@@ -28,7 +28,7 @@ background-position:center;
 min-height:100vh;
 }
 
-/* CONTAINER */
+/* Container */
 
 .container{
 max-width:1000px;
@@ -36,7 +36,7 @@ margin:auto;
 padding:40px 20px 120px;
 }
 
-/* BANNER */
+/* HERO */
 
 .hero{
 text-align:center;
@@ -60,7 +60,7 @@ color:#444;
 line-height:1.6;
 }
 
-/* MENU RÁPIDO */
+/* MENU */
 
 .menu-grid{
 display:grid;
@@ -84,51 +84,56 @@ box-shadow:0 10px 30px rgba(0,0,0,.08);
 transform:translateY(-6px) scale(1.04);
 }
 
-/* SEÇÃO HISTÓRIA */
+/* MODAL */
 
-.section{
-margin-top:60px;
-padding:50px;
-background:rgba(255,255,255,.7);
-border-radius:28px;
-backdrop-filter:blur(12px);
-line-height:1.7;
+.modal{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.55);
+
+display:none;
+justify-content:center;
+align-items:center;
+
+animation:fadeIn .35s ease;
 }
 
-/* GALERIA */
-
-.gallery{
-margin-top:60px;
-}
-
-.gallery-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:24px;
-margin-top:30px;
-}
-
-.flat-card{
+.modal-content{
 background:white;
-border-radius:26px;
-overflow:hidden;
-cursor:pointer;
-transition:.35s;
-box-shadow:0 10px 30px rgba(0,0,0,.08);
+width:90%;
+max-width:420px;
+padding:30px;
+border-radius:28px;
+
+animation:slideIn .4s cubic-bezier(.22,1,.36,1);
+box-shadow:0 15px 40px rgba(0,0,0,.25);
 }
 
-.flat-card:hover{
-transform:translateY(-8px);
+@keyframes fadeIn{
+from{opacity:0}
+to{opacity:1}
 }
 
-.flat-card img{
+@keyframes slideIn{
+from{
+opacity:0;
+transform:translateX(120px);
+}
+to{
+opacity:1;
+transform:translateX(0);
+}
+}
+
+.close{
+margin-top:30px;
 width:100%;
-height:200px;
-object-fit:cover;
-}
-
-.flat-card h3{
-padding:18px;
+padding:14px;
+border:none;
+border-radius:16px;
+background:#111;
+color:white;
+cursor:pointer;
 }
 
 /* FOOTER */
@@ -141,8 +146,6 @@ font-size:14px;
 color:#555;
 }
 
-/* BOTÃO WHATS */
-
 .whats{
 display:block;
 margin-top:20px;
@@ -151,7 +154,14 @@ color:white;
 padding:16px;
 border-radius:18px;
 text-decoration:none;
-text-align:center;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+.hero h1{
+font-size:32px;
+}
 }
 
 </style>
@@ -160,8 +170,6 @@ text-align:center;
 <body>
 
 <div class="container">
-
-<!-- HERO BANNER -->
 
 <div class="hero">
 <h1>Bem-vindo à sua casa em Ubatuba 🌊</h1>
@@ -172,73 +180,93 @@ Estamos a poucos passos das águas tranquilas da Lagoinha, esperando por você.
 </p>
 </div>
 
-<!-- MENU RÁPIDO -->
+<!-- MENU -->
 
 <div class="menu-grid">
 
-<div class="menu-card">🏠 Guia da Casa</div>
-<div class="menu-card">📜 Regras da Estadia</div>
-<div class="menu-card">🏖️ Guia Local</div>
+<div class="menu-card" onclick="openModal('modal1')">
+🏠 Guia da Casa
+</div>
+
+<div class="menu-card" onclick="openModal('modal2')">
+📜 Regras da Estadia
+</div>
+
+<div class="menu-card" onclick="openModal('modal3')">
+📶 Wi-Fi
+</div>
+
+<div class="menu-card" onclick="openModal('modal4')">
+📞 Contato
+</div>
 
 </div>
 
-<!-- HISTÓRIA -->
+<!-- MODAIS -->
 
-<div class="section">
-<h2>Feito por nós, para você</h2>
+<div class="modal" id="modal1">
+<div class="modal-content">
+<h2>Guia da Casa</h2>
 
 <p style="margin-top:20px">
-Olá! Somos o Neto e a Daniela. Para nós, receber pessoas não é apenas um negócio, é um prazer.
-Tudo o que você encontra aqui foi construído com nossas próprias mãos e muito amor.
+Check-in: A partir das 15h<br>
+Check-out: Até as 11h<br><br>
 
-Queremos que você desfrute da paz de Ubatuba com a mesma alegria que sentimos ao preparar este espaço.
-Sinta-se em casa, a chave está na porta e o mar logo ali na frente.
+Desligue ar-condicionado ao sair.<br>
+Mantenha portas sempre trancadas.<br>
+Retire o lixo ao final da estadia.
 </p>
-</div>
 
-<!-- GALERIA -->
-
-<div class="gallery">
-
-<h2>Conheça os Flats</h2>
-
-<div class="gallery-grid">
-
-<div class="flat-card">
-<img src="flat1.jpg">
-<h3>Flat Peixe</h3>
-</div>
-
-<div class="flat-card">
-<img src="flat2.jpg">
-<h3>Flat Estrela</h3>
-</div>
-
-<div class="flat-card">
-<img src="flat3.jpg">
-<h3>Flat Família</h3>
-</div>
-
+<button class="close" onclick="closeModal('modal1')">Fechar</button>
 </div>
 </div>
 
-<!-- JEITO UBA -->
-
-<div class="section" style="margin-top:60px">
-<h2>O Jeito Uba de Ser 🌴</h2>
+<div class="modal" id="modal2">
+<div class="modal-content">
+<h2>Regras da Estadia</h2>
 
 <p style="margin-top:20px">
-Simplicidade, pé na areia e coração aberto para quem chega.
-Aqui a pressa fica do lado de fora e a vida acontece no ritmo do mar.
+• Antes de cada check-in realizamos limpeza completa.<br><br>
+• Preserve móveis e utensílios.<br><br>
+• Evite barulhos após 22h.<br><br>
+• Desligue luzes e ar-condicionado ao sair.
 </p>
+
+<button class="close" onclick="closeModal('modal2')">Fechar</button>
+</div>
+</div>
+
+<div class="modal" id="modal3">
+<div class="modal-content">
+<h2>Wi-Fi</h2>
+
+<p style="margin-top:20px">
+Nome: ubaflatslagoinha<br>
+Senha: avidaficamelhornapraia
+</p>
+
+<button class="close" onclick="closeModal('modal3')">Fechar</button>
+</div>
+</div>
+
+<div class="modal" id="modal4">
+<div class="modal-content">
+<h2>Contato</h2>
+
+<p style="margin-top:20px">
+WhatsApp: +55 12 98203-4767<br>
+Endereço: Rua Goiás 291
+</p>
+
+<button class="close" onclick="closeModal('modal4')">Fechar</button>
+</div>
 </div>
 
 <footer>
-📞 WhatsApp: +55 12 98203-4767<br>
-📍 Rua Goiás 291<br><br>
+📞 WhatsApp direto para reservas
 
 <a class="whats" href="https://wa.me/5512982034767">
-Reserve agora pelo WhatsApp
+Reserve agora
 </a>
 
 <p style="margin-top:30px">
@@ -247,6 +275,32 @@ Ubaflats • Seu refúgio a 500m do mar
 </footer>
 
 </div>
+
+<script>
+
+/* MODAL CONTROLLER */
+
+function openModal(id){
+document.getElementById(id).style.display="flex";
+document.body.style.overflow="hidden";
+}
+
+function closeModal(id){
+document.getElementById(id).style.display="none";
+document.body.style.overflow="auto";
+}
+
+/* FECHAR CLICANDO FORA */
+
+window.addEventListener("click",e=>{
+document.querySelectorAll(".modal").forEach(modal=>{
+if(e.target===modal){
+modal.style.display="none";
+}
+});
+});
+
+</script>
 
 </body>
 </html>
