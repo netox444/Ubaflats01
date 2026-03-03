@@ -20,7 +20,7 @@ box-sizing:border-box;
 body{
 font-family:'Inter',sans-serif;
 
-/* FOTO DE FUNDO */
+/* Fundo */
 background:
 linear-gradient(rgba(255,255,255,0.55),rgba(255,255,255,0.65)),
 url('ubaflats_montanha.jpg');
@@ -28,6 +28,56 @@ url('ubaflats_montanha.jpg');
 background-size:cover;
 background-position:center;
 min-height:100vh;
+
+/* Smooth animation */
+scroll-behavior:smooth;
+}
+
+/* HEADER PREMIUM */
+
+header{
+position:fixed;
+top:0;
+width:100%;
+background:rgba(255,255,255,.85);
+backdrop-filter:blur(14px);
+box-shadow:0 5px 25px rgba(0,0,0,.08);
+z-index:1000;
+
+animation:slideDown .6s ease;
+}
+
+.header-content{
+max-width:1000px;
+margin:auto;
+padding:18px 20px;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-family:'Playfair Display',serif;
+font-size:26px;
+}
+
+/* MENU HEADER */
+
+.nav{
+display:flex;
+gap:25px;
+}
+
+.nav a{
+text-decoration:none;
+color:#222;
+font-size:14px;
+transition:.3s;
+}
+
+.nav a:hover{
+transform:translateY(-2px);
 }
 
 /* CONTAINER */
@@ -35,18 +85,20 @@ min-height:100vh;
 .container{
 max-width:1000px;
 margin:auto;
-padding:40px 20px 120px;
+padding:120px 20px 120px;
 }
 
-/* BANNER */
+/* HERO */
 
 .hero{
 text-align:center;
-padding:80px 20px;
-border-radius:28px;
-background:rgba(255,255,255,0.65);
+padding:90px 20px;
+border-radius:30px;
+background:rgba(255,255,255,0.7);
 backdrop-filter:blur(14px);
 box-shadow:0 15px 40px rgba(0,0,0,.1);
+
+animation:fadeUp 1s ease;
 }
 
 .hero h1{
@@ -55,14 +107,20 @@ font-size:48px;
 margin-bottom:20px;
 }
 
-.hero p{
-max-width:600px;
-margin:auto;
-color:#444;
-line-height:1.6;
+/* SECTIONS */
+
+.section{
+margin-top:60px;
+padding:50px;
+background:rgba(255,255,255,.7);
+border-radius:28px;
+backdrop-filter:blur(12px);
+line-height:1.7;
+
+animation:fadeUp 1s ease;
 }
 
-/* MENU RÁPIDO */
+/* MENU CARDS */
 
 .menu-grid{
 display:grid;
@@ -72,62 +130,53 @@ margin-top:40px;
 }
 
 .menu-card{
-background:rgba(255,255,255,.75);
-backdrop-filter:blur(14px);
+background:white;
 padding:28px;
 border-radius:26px;
 text-align:center;
 cursor:pointer;
 transition:.35s;
 box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+animation:fadeUp 1.1s ease;
 }
 
 .menu-card:hover{
 transform:translateY(-6px) scale(1.04);
 }
 
-/* MODAL */
+/* GALERIA */
 
-.modal{
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.55);
-display:none;
-justify-content:center;
-align-items:center;
-z-index:999;
-}
-
-.modal-content{
-background:white;
-width:90%;
-max-width:420px;
-padding:30px;
-border-radius:28px;
-animation:slideIn .4s cubic-bezier(.22,1,.36,1);
-box-shadow:0 15px 40px rgba(0,0,0,.25);
-}
-
-@keyframes slideIn{
-from{
-opacity:0;
-transform:translateX(120px);
-}
-to{
-opacity:1;
-transform:translateX(0);
-}
-}
-
-.close{
+.gallery-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:24px;
 margin-top:30px;
-width:100%;
-padding:14px;
-border:none;
-border-radius:16px;
-background:#111;
-color:white;
+}
+
+.flat-card{
+background:white;
+border-radius:26px;
+overflow:hidden;
 cursor:pointer;
+transition:.35s;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+animation:fadeUp 1.2s ease;
+}
+
+.flat-card:hover{
+transform:translateY(-8px);
+}
+
+.flat-card img{
+width:100%;
+height:200px;
+object-fit:cover;
+}
+
+.flat-card h3{
+padding:18px;
 }
 
 /* FOOTER */
@@ -140,7 +189,7 @@ font-size:14px;
 color:#555;
 }
 
-/* BOTÃO WHATS */
+/* WHATSAPP */
 
 .whats{
 display:block;
@@ -150,7 +199,49 @@ color:white;
 padding:16px;
 border-radius:18px;
 text-decoration:none;
-text-align:center;
+transition:.3s;
+}
+
+.whats:hover{
+transform:scale(1.05);
+}
+
+/* ANIMAÇÕES PREMIUM */
+
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes slideDown{
+from{
+opacity:0;
+transform:translateY(-40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+.hero h1{
+font-size:32px;
+}
+
+.nav{
+display:none;
+}
+
 }
 
 </style>
@@ -158,88 +249,90 @@ text-align:center;
 
 <body>
 
+<header>
+<div class="header-content">
+
+<div class="logo">Ubaflats 🌊</div>
+
+<nav class="nav">
+<a href="#historia">Nossa História</a>
+<a href="#flats">Flats</a>
+<a href="#jeitouba">Jeito Uba</a>
+</nav>
+
+</div>
+</header>
+
 <div class="container">
 
+<!-- HERO -->
+
 <div class="hero">
-<h1>Bem-vindo à sua casa em Ubatuba 🌊</h1>
+<h1>Seu refúgio de paz a 500m do mar 🌊</h1>
 
 <p>
 Mais do que uma hospedagem, o Ubaflats é a realização de um sonho de família.
-Estamos a poucos passos das águas tranquilas da Lagoinha, esperando por você.
+Planejamos cada detalhe para que você sinta o frescor do litoral com o aconchego de um lar.
 </p>
 </div>
 
-<!-- MENU -->
+<!-- HISTÓRIA -->
 
-<div class="menu-grid">
-
-<div class="menu-card" onclick="openModal('modal1')">
-🏠 Guia da Casa
-</div>
-
-<div class="menu-card" onclick="openModal('modal2')">
-📜 Regras da Estadia
-</div>
-
-<div class="menu-card" onclick="openModal('modal3')">
-🏖️ Guia Local
-</div>
-
-</div>
-
-<!-- MODAIS -->
-
-<div class="modal" id="modal1">
-<div class="modal-content">
-<h2>Guia da Casa</h2>
+<div class="section" id="historia">
+<h2>Feito por nós, para você</h2>
 
 <p style="margin-top:20px">
-Check-in: A partir das 15h<br>
-Check-out: Até as 11h<br><br>
+Olá! Somos o Neto e a Daniela. Para nós, receber pessoas não é apenas um negócio, é um prazer.
 
-Desligue o ar-condicionado ao sair.<br>
-Mantenha portas sempre trancadas.<br>
-Retire o lixo ao final da estadia.
+Tudo o que você encontra aqui foi construído com nossas próprias mãos e muito amor.
+Sinta-se em casa, a chave está na porta e o mar logo ali na frente.
 </p>
-
-<button class="close" onclick="closeModal('modal1')">Fechar</button>
-</div>
 </div>
 
-<div class="modal" id="modal2">
-<div class="modal-content">
-<h2>Regras da Estadia</h2>
+<!-- GALERIA -->
+
+<div class="section" id="flats">
+
+<h2>Conheça os Flats</h2>
+
+<div class="gallery-grid">
+
+<div class="flat-card">
+<img src="flat1.jpg">
+<h3>Flat Peixe</h3>
+</div>
+
+<div class="flat-card">
+<img src="flat2.jpg">
+<h3>Flat Estrela</h3>
+</div>
+
+<div class="flat-card">
+<img src="flat3.jpg">
+<h3>Flat Família</h3>
+</div>
+
+</div>
+
+</div>
+
+<!-- JEITO UBA -->
+
+<div class="section" id="jeitouba">
+
+<h2>O Jeito Uba de Ser 🌴</h2>
 
 <p style="margin-top:20px">
-• Limpeza antes de cada check-in.<br><br>
-• Preserve móveis e utensílios.<br><br>
-• Evite barulho após 22h.<br><br>
-• Desligue luzes ao sair.
+Simplicidade, pé na areia e coração aberto para quem chega.  
+Aqui a pressa fica do lado de fora e a vida acontece no ritmo do mar.
 </p>
 
-<button class="close" onclick="closeModal('modal2')">Fechar</button>
-</div>
-</div>
-
-<div class="modal" id="modal3">
-<div class="modal-content">
-<h2>Guia Local</h2>
-
-<p style="margin-top:20px">
-🏖️ Praia da Lagoinha<br>
-🌴 Trilhas próximas<br>
-🍽️ Restaurantes locais<br>
-🚶 500m do mar
-</p>
-
-<button class="close" onclick="closeModal('modal3')">Fechar</button>
-</div>
 </div>
 
 <footer>
 
 📞 WhatsApp: +55 12 98203-4767<br>
-📍 Rua Goiás 291<br><br>
+📍 Rua Goiás 291<br>
 
 <a class="whats" href="https://wa.me/5512982034767">
 Reserve agora pelo WhatsApp
@@ -252,30 +345,6 @@ Ubaflats • Seu refúgio a 500m do mar
 </footer>
 
 </div>
-
-<script>
-
-/* MODAL CONTROL */
-
-function openModal(id){
-document.getElementById(id).style.display="flex";
-document.body.style.overflow="hidden";
-}
-
-function closeModal(id){
-document.getElementById(id).style.display="none";
-document.body.style.overflow="auto";
-}
-
-window.addEventListener("click",e=>{
-document.querySelectorAll(".modal").forEach(modal=>{
-if(e.target===modal){
-modal.style.display="none";
-}
-});
-});
-
-</script>
 
 </body>
 </html>
