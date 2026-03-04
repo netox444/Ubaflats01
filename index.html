@@ -4,29 +4,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ubaflats • Praia da Lagoinha</title>
-  <link rel="icon" href="assets/favicon.ico" sizes="any">
+  <meta name="description" content="Ubaflats na Praia da Lagoinha (Ubatuba/SP). Flats para até 4 pessoas com garagem, quintal e ar-condicionado." />
+
+  <!-- Favicon (opção simples usando sua logo) -->
   <link rel="icon" type="image/png" href="assets/logo.png">
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-  <meta name="description" content="Ubaflats na Praia da Lagoinha (Ubatuba/SP). Kitnet para até 4 pessoas com garagem, quintal e ar-condicionado." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      /* Paleta (baseada na imagem enviada) */
-      --cream: #F7F0E6;      /* fundo claro */
-      --navy:  #1F2B3A;      /* texto / títulos */
-      --teal:  #2F6F6A;      /* destaque */
-      --mint:  #97C9BF;      /* fundo suave */
-      --orange:#D7771A;      /* hibisco */
+      --cream: #F7F0E6;
+      --navy:  #1F2B3A;
+      --teal:  #2F6F6A;
+      --mint:  #97C9BF;
+      --orange:#D7771A;
       --white: #FFFFFF;
 
-      --line: rgba(31,43,58,.10);
       --shadow: 0 18px 50px rgba(17,24,39,.12);
       --shadow2: 0 10px 30px rgba(17,24,39,.10);
-      --r: 22px;
       --r2: 28px;
     }
 
@@ -39,13 +36,12 @@
       background:var(--cream);
     }
     a{color:inherit;text-decoration:none}
-
     .wrap{width:min(1120px, calc(100% - 48px));margin:0 auto}
 
     /* Topbar */
     .topbar{
       position:sticky;top:0;z-index:50;
-      background:rgba(247,240,230,.82);
+      background:rgba(247,240,230,.86);
       backdrop-filter: blur(10px);
       border-bottom:1px solid rgba(31,43,58,.08);
     }
@@ -55,7 +51,7 @@
     .brand img{width:38px;height:38px;border-radius:14px;box-shadow:0 10px 25px rgba(17,24,39,.12);background:#fff;object-fit:cover}
     .brand .name{font-family:"Playfair Display",serif;font-weight:700;letter-spacing:-.02em;font-size:22px}
 
-    .nav{display:flex;align-items:center;gap:22px;font-weight:700;color:rgba(31,43,58,.78)}
+    .nav{display:flex;align-items:center;gap:22px;font-weight:800;color:rgba(31,43,58,.78)}
     .nav a{padding:10px 8px;border-radius:12px;transition:background .15s ease}
     .nav a:hover{background:rgba(31,43,58,.05)}
 
@@ -63,14 +59,14 @@
       display:inline-flex;align-items:center;justify-content:center;gap:10px;
       padding:14px 18px;border-radius:999px;
       border:1px solid transparent;
-      cursor:pointer;font-weight:800;
+      cursor:pointer;font-weight:900;
       transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
       user-select:none;white-space:nowrap
     }
     .btn:active{transform:translateY(1px) scale(.99)}
     .btn-primary{background:var(--orange);color:white;box-shadow:0 14px 40px rgba(215,119,26,.25)}
     .btn-primary:hover{background:#e18224;box-shadow:0 18px 55px rgba(215,119,26,.30)}
-    .btn-ghost{background:rgba(255,255,255,.75);border:1px solid rgba(31,43,58,.14)}
+    .btn-ghost{background:rgba(255,255,255,.78);border:1px solid rgba(31,43,58,.14)}
     .btn-ghost:hover{border-color:rgba(31,43,58,.22);box-shadow:var(--shadow2);transform:translateY(-1px)}
 
     .burger{display:none;border:1px solid rgba(31,43,58,.14);background:rgba(255,255,255,.7);border-radius:14px;padding:10px 12px;font-weight:900;cursor:pointer}
@@ -86,20 +82,38 @@
       min-height: 520px;
       background:#0b1d24;
     }
-.heroBg{
-  position:absolute;
-  inset:0;
-  background-size:cover;
-  background-position:center;
-  transform:scale(1.02);
-  filter:saturate(1.05);
-  transition: opacity .8s ease;
-  z-index:0; /* fica atrás */
-}
-.heroBgA{ opacity:1; }
-.heroBgB{ opacity:0; }
-.heroContent{ position:relative; z-index:1; } /* texto na frente */
-    .heroSub{margin:0 0 26px;max-width:580px;line-height:1.8;color:rgba(255,255,255,.85)}
+
+    /* Two layers for slideshow */
+    .heroBg{
+      position:absolute; inset:0;
+      background-size:cover;
+      background-position:center;
+      transform:scale(1.02);
+      filter:none;
+      transition: opacity .8s ease;
+      z-index:0;
+    }
+    .heroBgA{opacity:1}
+    .heroBgB{opacity:0}
+
+    .heroContent{position:relative;z-index:1;padding:56px 54px 48px;color:white;max-width:780px}
+    .pill{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:10px 14px;border-radius:999px;
+      background:rgba(151,201,191,.18);
+      border:1px solid rgba(151,201,191,.30);
+      color:rgba(255,255,255,.92);
+      font-size:12px;font-weight:900
+    }
+    .heroTitle{
+      font-family:"Playfair Display",serif;
+      font-weight:700;
+      letter-spacing:-.02em;
+      font-size:clamp(34px,4.4vw,64px);
+      line-height:1.05;
+      margin:14px 0 10px;
+    }
+    .heroSub{margin:0 0 26px;max-width:620px;line-height:1.8;color:rgba(255,255,255,.88);font-weight:600}
     .heroBtns{display:flex;gap:12px;flex-wrap:wrap}
 
     /* Sections */
@@ -111,30 +125,46 @@
     /* Story */
     .storyGrid{display:grid;grid-template-columns:1.1fr 1fr;gap:34px;align-items:center}
     .photoCard{border-radius:var(--r2);overflow:hidden;box-shadow:var(--shadow2);border:1px solid rgba(31,43,58,.06);background:var(--white);height:100%}
-    .photoCard img{width:100%;height:100%;object-fit:cover}
+    .photoCard img{width:100%;height:100%;object-fit:cover;display:block}
     .storyBox{background:var(--white);border-radius:var(--r2);border:1px solid rgba(31,43,58,.06);box-shadow:var(--shadow2);padding:34px}
     .storyBox .h2{font-size:44px;margin:12px 0 10px}
     .signature{font-family:"Playfair Display",serif;color:var(--orange);font-size:22px;margin-top:16px}
 
     /* Flats */
     .flatGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .flatCard{position:relative;border-radius:var(--r2);overflow:hidden;background:#111;box-shadow:var(--shadow2);min-height:300px;border:1px solid rgba(255,255,255,.45)}
-    .flatCard .bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:saturate(1.05) contrast(1.02);transform:scale(1.02)}
+    .flatCard{
+      position:relative;border-radius:var(--r2);overflow:hidden;background:#111;
+      box-shadow:var(--shadow2);min-height:300px;border:1px solid rgba(255,255,255,.45)
+    }
+    .flatCard .bg{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.02)}
     .flatCard .shade{position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,.62) 78%)}
-    .tag{position:absolute;top:14px;left:14px;display:inline-flex;gap:8px;align-items:center;padding:8px 10px;border-radius:999px;background:rgba(17,24,39,.55);border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.92);font-size:12px;font-weight:800;backdrop-filter: blur(8px)}
-    .badge{position:absolute;top:14px;right:14px;padding:8px 10px;border-radius:999px;background:rgba(215,119,26,.18);border:1px solid rgba(215,119,26,.35);color:rgba(255,255,255,.94);font-size:12px;font-weight:900;backdrop-filter: blur(8px)}
+    .tag{
+      position:absolute;top:14px;left:14px;display:inline-flex;gap:8px;align-items:center;
+      padding:8px 10px;border-radius:999px;background:rgba(17,24,39,.55);
+      border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.92);
+      font-size:12px;font-weight:900;backdrop-filter: blur(8px)
+    }
+    .badge{
+      position:absolute;top:14px;right:14px;padding:8px 10px;border-radius:999px;
+      background:rgba(215,119,26,.18);border:1px solid rgba(215,119,26,.35);
+      color:rgba(255,255,255,.94);font-size:12px;font-weight:900;backdrop-filter: blur(8px)
+    }
     .info{position:absolute;left:16px;right:16px;bottom:16px;color:white}
     .title{font-family:"Playfair Display",serif;font-size:28px;margin:0 0 6px;letter-spacing:-.01em}
     .meta{margin:0;color:rgba(255,255,255,.86);font-size:13px;line-height:1.6}
 
     /* Make cards clickable */
-    .flatLink{ display:block; }
-    .flatLink:focus-visible{ outline: 3px solid rgba(215,119,26,.45); outline-offset: 6px; border-radius: var(--r2); }
-    .flatLink .flatCard{ cursor:pointer; }
+    .flatLink{display:block}
+    .flatLink .flatCard{cursor:pointer}
+    .flatLink:focus-visible{outline: 3px solid rgba(215,119,26,.45); outline-offset: 6px; border-radius: var(--r2);}
 
     /* Guide tiles */
     .tiles{display:grid;gap:16px;max-width:780px;margin:0 auto}
-    .tile{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 22px;border-radius:22px;border:1px solid rgba(31,43,58,.06);box-shadow:var(--shadow2);cursor:pointer;transition:transform .18s ease, box-shadow .18s ease}
+    .tile{
+      display:flex;align-items:center;justify-content:space-between;gap:16px;
+      padding:22px 22px;border-radius:22px;border:1px solid rgba(31,43,58,.06);
+      box-shadow:var(--shadow2);cursor:pointer;transition:transform .18s ease, box-shadow .18s ease
+    }
     .tile:hover{transform:translateY(-2px);box-shadow:0 18px 45px rgba(17,24,39,.12)}
     .tileLeft{display:flex;align-items:center;gap:14px}
     .tileIcon{width:46px;height:46px;border-radius:16px;display:grid;place-items:center;background:rgba(255,255,255,.85);border:1px solid rgba(31,43,58,.06)}
@@ -149,7 +179,10 @@
     .values{background:rgba(151,201,191,.14);border-top:1px solid rgba(31,43,58,.06);border-bottom:1px solid rgba(31,43,58,.06)}
     .valuesGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:26px}
     .value{text-align:center;padding:26px 18px}
-    .valueIcon{width:56px;height:56px;margin:0 auto 12px;border-radius:18px;display:grid;place-items:center;background:rgba(215,119,26,.12);border:1px solid rgba(215,119,26,.22);color:var(--orange);font-size:26px}
+    .valueIcon{
+      width:56px;height:56px;margin:0 auto 12px;border-radius:18px;display:grid;place-items:center;
+      background:rgba(215,119,26,.12);border:1px solid rgba(215,119,26,.22);color:var(--orange);font-size:26px
+    }
     .value h3{margin:10px 0 8px}
     .value p{margin:0;color:rgba(31,43,58,.78);line-height:1.7;font-size:14px}
 
@@ -207,7 +240,7 @@
     .mobilePanel{display:none;position:fixed;inset:0;background:rgba(2,6,23,.55);z-index:110;padding:18px;align-items:flex-start;justify-content:center}
     .mobilePanel .box{width:min(520px,100%);background:var(--white);border-radius:22px;border:1px solid rgba(31,43,58,.10);box-shadow:var(--shadow);overflow:hidden}
     .mobilePanel .boxHead{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid rgba(31,43,58,.08);background:rgba(247,240,230,.70)}
-    .mobilePanel .links a{display:block;padding:14px 16px;border-bottom:1px solid rgba(31,43,58,.06);font-weight:800;color:rgba(31,43,58,.86)}
+    .mobilePanel .links a{display:block;padding:14px 16px;border-bottom:1px solid rgba(31,43,58,.06);font-weight:900;color:rgba(31,43,58,.86)}
     .mobilePanel .links a:last-child{border-bottom:none}
     .mobilePanel .links a:hover{background:rgba(31,43,58,.04)}
     .miniCta{padding:14px 16px;display:flex;gap:10px;flex-wrap:wrap}
@@ -287,8 +320,9 @@
   <main id="home" class="hero">
     <div class="wrap">
       <div class="heroCard">
-        <div class="heroBg" aria-hidden="true"></div>
+        <div class="heroBg heroBgA" aria-hidden="true"></div>
         <div class="heroBg heroBgB" aria-hidden="true"></div>
+
         <div class="heroContent">
           <span class="pill">🌺 Praia da Lagoinha • Ubatuba/SP</span>
           <h1 class="heroTitle">Seu refúgio de paz<br><span style="font-family:Inter, sans-serif;font-weight:900;">a 10 min do mar</span></h1>
@@ -310,7 +344,7 @@
     <div class="wrap">
       <div class="storyGrid">
         <div class="photoCard">
-          <img alt="Neto e Daniela" src="assets/nos1.jpg">
+          <img alt="Neto e Daniela" src="assets/nos.jpg">
         </div>
         <div class="storyBox">
           <span class="pill" style="background:rgba(215,119,26,.14);border-color:rgba(215,119,26,.25)">💛 Feito com amor</span>
@@ -341,8 +375,7 @@
       </div>
 
       <div class="flatGrid">
-
-        <!-- Card 1 - Airbnb (Peixe) -->
+        <!-- Peixe -->
         <a class="flatLink" href="https://www.airbnb.com.br/rooms/1616056749655491744?_set_bev_on_new_domain=1770500680_EAZTM2YWNkOGFjYz&set_everest_cookie_on_new_domain=1770500680.EAOGZkYzhkNGQ3YjMxND.6IKnNWgOt6ndJOu4sSM5mudu7hRBoDctYHRyiPI0f6Q&source_impression_id=p3_1772643322_P30QwWMe7guo2WNa" target="_blank" rel="noopener">
           <article class="flatCard">
             <div class="bg" style="background-image:url('assets/flat-1.jpg');"></div>
@@ -356,7 +389,7 @@
           </article>
         </a>
 
-        <!-- Card 2 - Airbnb (Estrela) -->
+        <!-- Estrela -->
         <a class="flatLink" href="https://www.airbnb.com.br/rooms/1620930999122422119?_set_bev_on_new_domain=1770500680_EAZTM2YWNkOGFjYz&set_everest_cookie_on_new_domain=1770500680.EAOGZkYzhkNGQ3YjMxND.6IKnNWgOt6ndJOu4sSM5mudu7hRBoDctYHRyiPI0f6Q&source_impression_id=p3_1772583002_P3Q3iYEZCS41n_aq" target="_blank" rel="noopener">
           <article class="flatCard">
             <div class="bg" style="background-image:url('assets/flat-2.jpg');"></div>
@@ -369,24 +402,23 @@
           </article>
         </a>
 
-        <!-- Card 3 - Google Maps (Localização) -->
+        <!-- Maps -->
         <a class="flatLink" href="https://www.google.com/maps/place/R.+Goi%C3%A1s,+291+-+Lagoinha,+Ubatuba+-+SP,+11682-510/@-23.5120635,-45.1991296,3a,75y,338.61h,90t/data=!3m4!1e1!3m2!1sRqDOqpeNqJ4GTA0VS0orzg!2e0!4m2!3m1!1s0x94cd5bc762cb1be3:0xd8084e023fce0215?sa=X&ved=1t:3780&ictx=111" target="_blank" rel="noopener">
           <article class="flatCard">
             <div class="bg" style="background-image:url('assets/flat-3.jpg');"></div>
             <div class="shade" aria-hidden="true"></div>
-            <div class="tag">🏖️ Lagoinha</div>
+            <div class="tag">📍 Lagoinha</div>
             <div class="info">
-              <h3 class="title">Pertinho do Mar</h3>
-              <p class="meta">Abrir localização no Google Maps</p>
+              <h3 class="title">Abrir no Maps</h3>
+              <p class="meta">Ver a localização exata no Google Maps</p>
             </div>
           </article>
         </a>
-
       </div>
     </div>
   </section>
 
-  <!-- Guia / Tiles -->
+  <!-- Guia -->
   <section id="guia">
     <div class="wrap">
       <div class="sectionHead">
@@ -402,7 +434,7 @@
             <div class="tileIcon">🏠</div>
             <div>
               <div class="tileTitle">Guia da Casa</div>
-              <div class="tileSub">Chaves, check-in/out, Wi-Fi e localização</div>
+              <div class="tileSub">Check-in/out, Wi-Fi e endereço</div>
             </div>
           </div>
           <div class="tileArrow">↗</div>
@@ -424,7 +456,7 @@
             <div class="tileIcon">📍</div>
             <div>
               <div class="tileTitle">Guia Local</div>
-              <div class="tileSub">Restaurantes, mercados e farmácias (adicione seus pontos)</div>
+              <div class="tileSub">Restaurantes, mercados e farmácias</div>
             </div>
           </div>
           <div class="tileArrow">↗</div>
@@ -441,7 +473,7 @@
           <span class="pill" style="background:rgba(47,111,106,.16);border-color:rgba(47,111,106,.28)">Nosso jeito de ser</span>
           <h2 class="h2" style="margin-top:10px;">Simplicidade com o pé na areia</h2>
         </div>
-        <p class="p">Criamos um espaço para você se sentir em casa, com atenção aos detalhes e carinho no atendimento.</p>
+        <p class="p">Um espaço prático, confortável e com carinho nos detalhes.</p>
       </div>
 
       <div class="valuesGrid">
@@ -508,7 +540,7 @@
           <h4>Fale Conosco</h4>
           <a class="btn btn-primary" style="display:inline-flex" href="https://wa.me/5512982034767" target="_blank" rel="noopener">WhatsApp • (12) 98203-4767</a>
           <div style="height:10px"></div>
-          <div class="footSmall">📍 Rua Goiás 291 • Lagoinha, Ubatuba - SP</div>
+          <div class="footSmall">📍 R. Goiás, 291 • Lagoinha, Ubatuba - SP</div>
         </div>
       </div>
 
@@ -538,7 +570,7 @@
           <li><span class="check">✓</span><div><strong>Check-in:</strong> a partir das <strong>15h</strong>.</div></li>
           <li><span class="check">✓</span><div><strong>Check-out:</strong> até as <strong>11h</strong>.</div></li>
           <li><span class="check">✓</span><div><strong>Wi-Fi:</strong> Nome <strong>ubaflatslagoinha</strong> • Senha <strong>avidaficamelhornapraia</strong></div></li>
-          <li><span class="check">✓</span><div><strong>Endereço:</strong> Rua Goiás 291 • Lagoinha, Ubatuba - SP</div></li>
+          <li><span class="check">✓</span><div><strong>Endereço:</strong> R. Goiás, 291 • Lagoinha, Ubatuba - SP</div></li>
           <li><span class="check">✓</span><div><strong>Acomodação:</strong> até 4 pessoas (1 cama de casal + sofá-cama que vira 2).</div></li>
           <li><span class="check">✓</span><div><strong>Diferenciais:</strong> garagem • quintal • ar-condicionado em todas as kitnets • 10–15 min a pé da praia.</div></li>
         </ul>
@@ -555,17 +587,17 @@
       <div class="modalBody">
         <p class="p">Para manter um ambiente agradável para todos, pedimos atenção às regras abaixo:</p>
         <ul class="list">
-          <li><span class="check">✓</span><div>Mantenha o silêncio após <strong>22h</strong> para respeitar o descanso dos demais hóspedes.</div></li>
-          <li><span class="check">✓</span><div>Desligue <strong>luzes</strong>, <strong>ar-condicionado</strong> e aparelhos eletrônicos ao sair do flat.</div></li>
+          <li><span class="check">✓</span><div>Mantenha o silêncio após <strong>22h</strong>.</div></li>
+          <li><span class="check">✓</span><div>Desligue <strong>luzes</strong>, <strong>ar-condicionado</strong> e aparelhos eletrônicos ao sair.</div></li>
           <li><span class="check">✓</span><div>Preserve móveis, colchões, utensílios e estrutura do espaço.</div></li>
           <li><span class="check">✓</span><div>Feche portas e janelas ao deixar o ambiente.</div></li>
           <li><span class="check">✓</span><div>Realize o descarte do lixo em local apropriado.</div></li>
           <li><span class="check">✓</span><div>Não é permitido fumar dentro dos ambientes fechados.</div></li>
           <li><span class="check">✓</span><div>Visitas externas devem ser previamente autorizadas.</div></li>
           <li><span class="check">✓</span><div>Utilize os equipamentos do flat com cuidado.</div></li>
-          <li><span class="check">✓</span><div>Evite consumir alimentos sobre camas e sofás para preservar a limpeza.</div></li>
+          <li><span class="check">✓</span><div>Evite consumir alimentos sobre camas e sofás.</div></li>
           <li><span class="check">✓</span><div>Não mova móveis pesados sem necessidade.</div></li>
-          <li><span class="check">✓</span><div>Em caso de problemas ou necessidade, fale conosco pelo WhatsApp.</div></li>
+          <li><span class="check">✓</span><div>Em caso de problemas, fale conosco pelo WhatsApp.</div></li>
         </ul>
         <div style="margin-top:16px;">
           <a class="btn btn-primary" href="https://wa.me/5512982034767" target="_blank" rel="noopener">Falar no WhatsApp</a>
@@ -581,18 +613,24 @@
         <button class="iconBtn" data-close>✕</button>
       </div>
       <div class="modalBody">
-        <p class="p">Me mande depois os nomes (restaurantes, farmácias e mercados) que eu deixo isso aqui completo e bem bonito.</p>
+        <p class="p">Me mande depois os nomes (restaurantes, farmácias e mercados) que eu deixo isso aqui completo.</p>
         <ul class="list">
           <li><span class="check">✓</span><div><strong>Restaurantes:</strong> (adicione)</div></li>
           <li><span class="check">✓</span><div><strong>Mercados:</strong> (adicione)</div></li>
           <li><span class="check">✓</span><div><strong>Farmácias:</strong> (adicione)</div></li>
           <li><span class="check">✓</span><div><strong>Passeios:</strong> trilhas, mirantes, passeios de barco (adicione)</div></li>
         </ul>
+
         <div style="margin-top:18px;">
-          <p class="p"><strong>Endereço:</strong> Rua Goiás 291 • Lagoinha, Ubatuba - SP</p>
+          <p class="p"><strong>Endereço:</strong> R. Goiás, 291 • Lagoinha, Ubatuba - SP</p>
           <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;">
-          <a class="btn btn-primary" href="https://www.google.com/maps/place/R.+Goi%C3%A1s,+291+-+Lagoinha,+Ubatuba+-+SP,+11682-510/@-23.5120635,-45.1991296,3a,75y,338.61h,90t/data=!3m4!1e1!3m2!1sRqDOqpeNqJ4GTA0VS0orzg!2e0!4m2!3m1!1s0x94cd5bc762cb1be3:0xd8084e023fce0215?sa=X&ved=1t:3780&ictx=111" target="_blank" rel="noopener"> Abrir no Google Maps </a>
-          <a class="btn btn-ghost" href="https://www.google.com/maps/dir/-21.1779584,-47.8019584/R.+Goi%C3%A1s,+291+-+Lagoinha,+Ubatuba+-+SP,+11680-000/@-23.5121517,-45.1996065,20z/data=!4m9!4m8!1m1!4e1!1m5!1m1!1s0x94cd5bc762cb1be3:0xd8084e023fce0215!2m2!1d-45.1991407!2d-23.5120375?entry=ttu&g_ep=EgoyMDI2MDMwMS4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener"> Traçar rota </a>
+            <a class="btn btn-primary"
+              href="https://www.google.com/maps/place/R.+Goi%C3%A1s,+291+-+Lagoinha,+Ubatuba+-+SP,+11682-510/@-23.5120635,-45.1991296,3a,75y,338.61h,90t/data=!3m4!1e1!3m2!1sRqDOqpeNqJ4GTA0VS0orzg!2e0!4m2!3m1!1s0x94cd5bc762cb1be3:0xd8084e023fce0215?sa=X&ved=1t:3780&ictx=111"
+              target="_blank" rel="noopener">Abrir no Google Maps</a>
+
+            <a class="btn btn-ghost"
+              href="https://www.google.com/maps/dir/-21.1779584,-47.8019584/R.+Goi%C3%A1s,+291+-+Lagoinha,+Ubatuba+-+SP,+11680-000/@-23.5121517,-45.1996065,20z/data=!4m9!4m8!1m1!4e1!1m5!1m1!1s0x94cd5bc762cb1be3:0xd8084e023fce0215!2m2!1d-45.1991407!2d-23.5120375?entry=ttu&g_ep=EgoyMDI2MDMwMS4xIKXMDSoASAFQAw%3D%3D"
+              target="_blank" rel="noopener">Traçar rota</a>
           </div>
         </div>
       </div>
@@ -633,7 +671,6 @@
       });
       document.body.style.overflow = 'hidden';
     }
-
     function closeModal(modal){
       const card = modal.querySelector('.modalCard');
       card.style.opacity = '0';
@@ -644,70 +681,60 @@
         document.body.style.overflow = '';
       }, 160);
     }
-
     document.querySelectorAll('[data-modal]').forEach(tile=>{
       const id = tile.getAttribute('data-modal');
       tile.addEventListener('click', ()=> openModal(id));
       tile.addEventListener('keydown', (e)=>{ if(e.key === 'Enter' || e.key === ' ') openModal(id); });
     });
-
     document.querySelectorAll('.modal').forEach(modal=>{
       modal.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(modal); });
       modal.querySelectorAll('[data-close]').forEach(btn=> btn.addEventListener('click', ()=> closeModal(modal)));
     });
-
     window.addEventListener('keydown', (e)=>{
       if(e.key !== 'Escape') return;
       document.querySelectorAll('.modal').forEach(m=>{ if(m.style.display === 'flex') closeModal(m); });
       if(mobilePanel.style.display === 'flex') hideMenu();
     });
-    // HERO SLIDESHOW (3 fotos, troca a cada 2s)
-(function heroSlideshow3(){
-  const a = document.querySelector('.heroBgA');
-  const b = document.querySelector('.heroBgB');
-  if(!a || !b) return;
 
-  // ✅ Coloque aqui suas 3 imagens (tem que existir em /assets)
-  const imgs = [
-    "assets/hero.jpg",
-    "assets/hero1.jpg",
-    "assets/hero2.jpg"
-  ];
+    // HERO SLIDESHOW (3 fotos, troca a cada 2s) — simples e sem "preto e branco"
+    (function heroSlideshow3(){
+      const a = document.querySelector('.heroBgA');
+      const b = document.querySelector('.heroBgB');
+      if(!a || !b) return;
 
-  const gradient = "linear-gradient(90deg, rgba(14,42,63,.65), rgba(14,42,63,.25))";
+      // ✅ suas 3 fotos do hero
+      const imgs = [
+        "assets/hero.jpg",
+        "assets/hero1.jpg",
+        "assets/hero2.jpg"
+      ];
 
-  let i = 0;
-  let showA = true;
+      // gradiente bem leve (pra não matar as cores)
+      const gradient = "linear-gradient(90deg, rgba(14,42,63,.25), rgba(14,42,63,.06))";
 
-  // inicial
-  a.style.backgroundImage = `${gradient}, url("${imgs[0]}")`;
-  b.style.backgroundImage = `${gradient}, url("${imgs[1]}")`;
+      let i = 0;
+      let showA = true;
 
-  setInterval(() => {
-    const next = imgs[(i + 1) % imgs.length];
+      a.style.backgroundImage = `${gradient}, url("${imgs[0]}")`;
+      b.style.backgroundImage = `${gradient}, url("${imgs[1]}")`;
 
-    if (showA) {
-      // prepara B com a próxima imagem e faz fade pra B
-      b.style.backgroundImage = `${gradient}, url("${next}")`;
-      b.style.opacity = "1";
-      a.style.opacity = "0";
-    } else {
-      // prepara A com a próxima imagem e faz fade pra A
-      a.style.backgroundImage = `${gradient}, url("${next}")`;
-      a.style.opacity = "1";
-      b.style.opacity = "0";
-    }
+      setInterval(() => {
+        const next = imgs[(i + 1) % imgs.length];
 
-    showA = !showA;
-    i = (i + 1) % imgs.length;
-  }, 2000);
-})();
+        if (showA) {
+          b.style.backgroundImage = `${gradient}, url("${next}")`;
+          b.style.opacity = "1";
+          a.style.opacity = "0";
+        } else {
+          a.style.backgroundImage = `${gradient}, url("${next}")`;
+          a.style.opacity = "1";
+          b.style.opacity = "0";
+        }
+
+        showA = !showA;
+        i = (i + 1) % imgs.length;
+      }, 2000);
+    })();
   </script>
 </body>
 </html>
-
-
-
-
-
-
