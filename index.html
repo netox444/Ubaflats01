@@ -86,20 +86,19 @@
       min-height: 520px;
       background:#0b1d24;
     }
-    .heroBg{
-  position:absolute; inset:0;
+.heroBg{
+  position:absolute;
+  inset:0;
   background-size:cover;
   background-position:center;
   transform:scale(1.02);
   filter:saturate(1.05);
   transition: opacity .8s ease;
+  z-index:0; /* fica atrás */
 }
-
-/* Camada A começa visível */
 .heroBgA{ opacity:1; }
-/* Camada B começa escondida */
 .heroBgB{ opacity:0; }
-}
+.heroContent{ position:relative; z-index:1; } /* texto na frente */
     .heroSub{margin:0 0 26px;max-width:580px;line-height:1.8;color:rgba(255,255,255,.85)}
     .heroBtns{display:flex;gap:12px;flex-wrap:wrap}
 
@@ -289,6 +288,7 @@
     <div class="wrap">
       <div class="heroCard">
         <div class="heroBg" aria-hidden="true"></div>
+        <div class="heroBg heroBgB" aria-hidden="true"></div>
         <div class="heroContent">
           <span class="pill">🌺 Praia da Lagoinha • Ubatuba/SP</span>
           <h1 class="heroTitle">Seu refúgio de paz<br><span style="font-family:Inter, sans-serif;font-weight:900;">a 10 min do mar</span></h1>
@@ -705,6 +705,7 @@
   </script>
 </body>
 </html>
+
 
 
 
