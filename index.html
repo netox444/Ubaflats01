@@ -57,17 +57,6 @@ font-family:'Playfair Display',serif;
 font-size:26px;
 }
 
-.nav{
-display:flex;
-gap:25px;
-}
-
-.nav a{
-text-decoration:none;
-color:#222;
-font-size:14px;
-}
-
 /* CONTAINER */
 
 .container{
@@ -85,7 +74,6 @@ border-radius:30px;
 background:rgba(255,255,255,0.7);
 backdrop-filter:blur(14px);
 box-shadow:0 15px 40px rgba(0,0,0,.1);
-animation:fadeUp 1s ease;
 }
 
 .hero h1{
@@ -103,7 +91,6 @@ background:rgba(255,255,255,.7);
 border-radius:28px;
 backdrop-filter:blur(12px);
 line-height:1.7;
-animation:fadeUp 1s ease;
 }
 
 /* MENU QUADRADO */
@@ -214,17 +201,6 @@ text-decoration:none;
 
 /* ANIMAÇÕES */
 
-@keyframes fadeUp{
-from{
-opacity:0;
-transform:translateY(30px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
 @keyframes slideIn{
 from{
 opacity:0;
@@ -272,20 +248,20 @@ Planejamos cada detalhe para que você sinta o frescor do litoral.
 
 </p>
 
-<!-- BOTÕES QUADRADOS -->
+<!-- MENU QUADRADO -->
 
 <div class="menu-grid" style="margin-top:40px">
 
-<div class="menu-card" onclick="openModal('modal_casa')">
-🏠 Conheça os Flats
+<div class="menu-card" onclick="openModal('modal_regras')">
+📜 Regras da Casa
 </div>
 
 <div class="menu-card" onclick="openModal('modal_reserva')">
 📞 Reserve agora
 </div>
 
-<div class="menu-card" onclick="openModal('modal_uba')">
-🌴 O Jeito Uba de Ser
+<div class="menu-card" onclick="openModal('modal_locais')">
+📍 Locais Próximos
 </div>
 
 </div>
@@ -338,27 +314,27 @@ Ubaflats • Seu refúgio a 500m do mar
 
 <!-- MODAIS -->
 
-<div class="modal" id="modal_casa">
+<div class="modal" id="modal_regras">
 <div class="modal-content">
-<h2>🏠 Conheça os Flats</h2>
+<h2>📜 Regras da Casa</h2>
 
-<p style="margin-top:20px">
-✔ Flat Peixe  
-✔ Flat Estrela  
-✔ Flat Família  
+<p style="margin-top:20px;line-height:1.7">
+✔ Limpeza antes do check-in  
+✔ Preserve móveis  
+✔ Evite barulho após 22h  
+✔ Desligue luzes e ar  
+✔ Mantenha portas trancadas  
 </p>
 
-<button class="close" onclick="closeModal('modal_casa')">Fechar</button>
+<button class="close" onclick="closeModal('modal_regras')">
+Fechar
+</button>
 </div>
 </div>
 
 <div class="modal" id="modal_reserva">
 <div class="modal-content">
 <h2>📞 Reserve agora</h2>
-
-<p style="margin-top:20px">
-Clique para falar conosco pelo WhatsApp.
-</p>
 
 <button class="close" onclick="window.open('https://wa.me/5512982034767')">
 Ir para WhatsApp
@@ -367,20 +343,21 @@ Ir para WhatsApp
 <button class="close" onclick="closeModal('modal_reserva')">
 Fechar
 </button>
-
 </div>
 </div>
 
-<div class="modal" id="modal_uba">
+<div class="modal" id="modal_locais">
 <div class="modal-content">
-<h2>🌴 O Jeito Uba de Ser</h2>
+<h2>📍 Locais Próximos</h2>
 
 <p style="margin-top:20px;line-height:1.7">
-Simplicidade, pé na areia e coração aberto para quem chega.<br>
-Aqui a vida acontece no ritmo do mar.
+🍽️ Restaurantes próximos  
+💊 Farmácias próximas  
+🛒 Supermercados próximos  
+🏖️ Praia da Lagoinha – 500m  
 </p>
 
-<button class="close" onclick="closeModal('modal_uba')">
+<button class="close" onclick="closeModal('modal_locais')">
 Fechar
 </button>
 </div>
