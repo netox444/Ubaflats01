@@ -1,389 +1,1028 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ubaflats</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ubaflats • Lagoinha, Ubatuba</title>
+  <meta name="description" content="Ubaflats em Ubatuba-SP (Lagoinha). Kitnet para até 4 pessoas com garagem, quintal e ar-condicionado. A poucos minutos da praia." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #fbf7f1;
+      --paper: #ffffff;
+      --text: #0f172a;
+      --muted: #52616b;
+      --navy: #173b56;
+      --navy-2:#0e2a3f;
+      --coral:#ff6b6b;
+      --coral-2:#ff7f7f;
+      --line: rgba(15, 23, 42, 0.10);
+      --shadow: 0 18px 50px rgba(17, 24, 39, .12);
+      --shadow2: 0 10px 30px rgba(17, 24, 39, .10);
+      --radius: 22px;
+      --radius2: 28px;
+    }
 
-<style>
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background: var(--bg);
+    }
+    a{ color:inherit; text-decoration:none; }
+    img{ max-width:100%; display:block; }
 
-/* RESET */
+    /* Layout helpers */
+    .wrap{ width:min(1120px, calc(100% - 48px)); margin:0 auto; }
+    .pill{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 14px;
+      border:1px solid rgba(255,107,107,.35);
+      background: rgba(255,107,107,.08);
+      color: var(--coral);
+      border-radius:999px;
+      font-size:12px; font-weight:600;
+    }
+    .h1{
+      font-family:"Playfair Display", serif;
+      font-weight:700;
+      letter-spacing:-.02em;
+      margin:0;
+    }
+    .h2{
+      font-family:"Playfair Display", serif;
+      font-weight:700;
+      margin:0;
+      letter-spacing:-.02em;
+    }
+    .p{ color:var(--muted); line-height:1.7; margin:0; }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:14px 18px;
+      border-radius:999px;
+      border:1px solid transparent;
+      cursor:pointer;
+      font-weight:700;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
+      user-select:none;
+      white-space:nowrap;
+    }
+    .btn:active{ transform: translateY(1px) scale(.99); }
+    .btn-primary{
+      background: var(--coral);
+      color:white;
+      box-shadow: 0 14px 40px rgba(255,107,107,.25);
+    }
+    .btn-primary:hover{ background: var(--coral-2); box-shadow: 0 18px 50px rgba(255,107,107,.30); }
+    .btn-ghost{
+      background: rgba(255,255,255,.85);
+      border-color: rgba(15, 23, 42, 0.12);
+      color: var(--text);
+      backdrop-filter: blur(10px);
+    }
+    .btn-ghost:hover{ border-color: rgba(15, 23, 42, 0.18); box-shadow: var(--shadow2); transform: translateY(-1px); }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+    /* Topbar */
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      background: rgba(251,247,241,.80);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+    }
+    .topbar-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:16px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-family:"Playfair Display", serif;
+      font-weight:700;
+      letter-spacing:-.02em;
+    }
+    .logoMark{
+      width:34px; height:34px; border-radius:12px;
+      background: radial-gradient(circle at 30% 30%, rgba(255,107,107,.55), rgba(23,59,86,.85));
+      box-shadow: 0 10px 25px rgba(17,24,39,.18);
+      position:relative;
+    }
+    .logoMark:after{
+      content:"";
+      position:absolute; inset:9px 10px 10px 9px;
+      border-radius:10px;
+      border:2px solid rgba(255,255,255,.65);
+    }
+    .nav{
+      display:flex; align-items:center; gap:22px;
+      font-weight:600;
+      color: rgba(15,23,42,.72);
+    }
+    .nav a{ padding:10px 8px; border-radius:12px; transition: background .15s ease; }
+    .nav a:hover{ background: rgba(15, 23, 42, 0.05); }
+    .nav-cta{ display:flex; gap:10px; align-items:center; }
 
-body{
-font-family:'Inter',sans-serif;
+    /* Mobile nav */
+    .burger{ display:none; }
+    .mobilePanel{ display:none; }
 
-/* Fundo praia */
-background:
-linear-gradient(rgba(255,255,255,0.55),rgba(255,255,255,0.65)),
-url('ubaflats_montanha.jpg');
+    /* Hero */
+    .hero{
+      padding:18px 0 40px;
+    }
+    .heroCard{
+      border-radius: var(--radius2);
+      overflow:hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255,255,255,.55);
+      background: #000;
+      position:relative;
+      min-height: 520px;
+    }
+    .heroBg{
+      position:absolute; inset:0;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,.45), rgba(0,0,0,.25)),
+        url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2000&auto=format&fit=crop");
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.02);
+      filter: saturate(1.05);
+    }
+    .heroContent{
+      position:relative;
+      padding:54px 54px 48px;
+      color:white;
+      max-width: 760px;
+    }
+    .heroTitle{
+      font-size: clamp(34px, 4.4vw, 64px);
+      line-height: 1.05;
+      margin: 14px 0 10px;
+    }
+    .heroTitle span{ display:inline-block; }
+    .heroSub{
+      font-size: 16px;
+      line-height:1.8;
+      color: rgba(255,255,255,.82);
+      margin: 0 0 26px;
+      max-width: 560px;
+    }
+    .heroBtns{ display:flex; gap:12px; flex-wrap:wrap; }
 
-background-size:cover;
-background-position:center;
-min-height:100vh;
-scroll-behavior:smooth;
-}
+    /* Sections */
+    section{ padding: 64px 0; }
+    .sectionHead{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:24px;
+      margin-bottom: 28px;
+    }
+    .sectionHead .h2{ font-size: 44px; }
+    .sectionHead .p{ max-width: 520px; }
 
-/* HEADER */
+    /* Story */
+    .storyGrid{
+      display:grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 34px;
+      align-items:center;
+    }
+    .photoCard{
+      border-radius: var(--radius2);
+      overflow:hidden;
+      box-shadow: var(--shadow2);
+      border: 1px solid rgba(15, 23, 42, 0.06);
+      background: var(--paper);
+    }
+    .photoCard img{ aspect-ratio: 4 / 5; object-fit: cover; }
+    .storyBox{
+      background: var(--paper);
+      border-radius: var(--radius2);
+      border:1px solid rgba(15, 23, 42, 0.06);
+      box-shadow: var(--shadow2);
+      padding: 34px;
+    }
+    .storyBox .h2{ font-size: 44px; margin: 12px 0 10px; }
+    .signature{
+      font-family:"Playfair Display", serif;
+      color: var(--coral);
+      font-size: 22px;
+      margin-top: 16px;
+    }
 
-header{
-position:fixed;
-top:0;
-width:100%;
-background:rgba(255,255,255,.9);
-backdrop-filter:blur(14px);
-box-shadow:0 5px 25px rgba(0,0,0,.08);
-z-index:1000;
-}
+    /* Flats */
+    .flatGrid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .flatCard{
+      position:relative;
+      border-radius: var(--radius2);
+      overflow:hidden;
+      background: #111;
+      box-shadow: var(--shadow2);
+      min-height: 300px;
+      border: 1px solid rgba(255,255,255,.45);
+    }
+    .flatCard .bg{
+      position:absolute; inset:0;
+      background-size: cover;
+      background-position:center;
+      filter: saturate(1.05) contrast(1.02);
+      transform: scale(1.02);
+    }
+    .flatCard .shade{
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(0,0,0,.55) 78%);
+    }
+    .flatCard .tag{
+      position:absolute; top:14px; left:14px;
+      display:inline-flex; gap:8px; align-items:center;
+      padding:8px 10px;
+      border-radius:999px;
+      background: rgba(17,24,39,.55);
+      border:1px solid rgba(255,255,255,.22);
+      color: rgba(255,255,255,.9);
+      font-size:12px; font-weight:700;
+      backdrop-filter: blur(8px);
+    }
+    .flatCard .badge{
+      position:absolute; top:14px; right:14px;
+      padding:8px 10px;
+      border-radius:999px;
+      background: rgba(255, 215, 0, .18);
+      border:1px solid rgba(255, 215, 0, .35);
+      color: rgba(255,255,255,.92);
+      font-size:12px; font-weight:800;
+      backdrop-filter: blur(8px);
+    }
+    .flatCard .info{
+      position:absolute; left:16px; right:16px; bottom:16px;
+      color:white;
+    }
+    .flatCard .title{
+      font-family:"Playfair Display", serif;
+      font-size: 28px;
+      margin:0 0 6px;
+      letter-spacing:-.01em;
+    }
+    .flatCard .meta{
+      margin:0;
+      color: rgba(255,255,255,.85);
+      font-size: 13px;
+      line-height: 1.6;
+    }
 
-.header-content{
-max-width:1000px;
-margin:auto;
-padding:18px 20px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
+    /* Guide tiles */
+    .tiles{
+      display:grid;
+      gap: 16px;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .tile{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:16px;
+      padding: 22px 22px;
+      border-radius: 22px;
+      border: 1px solid rgba(15, 23, 42, 0.06);
+      box-shadow: var(--shadow2);
+      cursor:pointer;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .tile:hover{ transform: translateY(-2px); box-shadow: 0 18px 45px rgba(17,24,39,.12); }
+    .tileLeft{ display:flex; align-items:center; gap:14px; }
+    .tileIcon{
+      width:46px; height:46px; border-radius: 16px;
+      display:grid; place-items:center;
+      background: rgba(255,255,255,.85);
+      border:1px solid rgba(15, 23, 42, 0.06);
+    }
+    .tileTitle{ font-weight:800; }
+    .tileSub{ color: var(--muted); font-size: 13px; margin-top: 2px; }
+    .tileArrow{
+      width:40px; height:40px; border-radius: 14px;
+      display:grid; place-items:center;
+      background: rgba(255,255,255,.75);
+      border:1px solid rgba(15, 23, 42, 0.06);
+    }
+    .tile-blue{ background: rgba(80, 165, 255, .18); }
+    .tile-green{ background: rgba(75, 222, 160, .16); }
+    .tile-pink{ background: rgba(255, 107, 107, .18); }
 
-.logo{
-font-family:'Playfair Display',serif;
-font-size:26px;
-}
+    /* Values */
+    .values{
+      background: #fff8ef;
+      border-top: 1px solid rgba(15, 23, 42, 0.06);
+      border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+    }
+    .valuesGrid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 26px;
+    }
+    .value{
+      text-align:center;
+      padding: 26px 18px;
+    }
+    .valueIcon{
+      width:56px; height:56px;
+      margin: 0 auto 12px;
+      border-radius: 18px;
+      display:grid; place-items:center;
+      background: rgba(255,107,107,.10);
+      border: 1px solid rgba(255,107,107,.20);
+      color: var(--coral);
+      font-size: 26px;
+    }
+    .value h3{ margin: 10px 0 8px; }
+    .value p{ margin:0; color: var(--muted); line-height: 1.7; font-size: 14px; }
 
-/* CONTAINER */
+    /* CTA */
+    .ctaCard{
+      background: var(--paper);
+      border-radius: 34px;
+      border: 1px solid rgba(15, 23, 42, 0.06);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .ctaImg{
+      height: 260px;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.35)),
+        url("https://images.unsplash.com/photo-1500375592092-40eb2168fd21?q=80&w=1800&auto=format&fit=crop");
+      background-size: cover;
+      background-position: center;
+    }
+    .ctaBody{
+      padding: 34px 28px 30px;
+      text-align:center;
+    }
+    .ctaTitle{
+      font-family:"Playfair Display", serif;
+      font-size: clamp(26px, 3vw, 40px);
+      margin: 0 0 18px;
+      letter-spacing:-.02em;
+    }
 
-.container{
-max-width:1000px;
-margin:auto;
-padding:120px 20px 120px;
-}
+    /* Footer */
+    .footer{
+      background: var(--navy);
+      color: rgba(255,255,255,.86);
+      padding: 46px 0 28px;
+    }
+    .footGrid{
+      display:grid;
+      grid-template-columns: 1.2fr 1fr 1fr 1fr;
+      gap: 22px;
+      align-items:start;
+    }
+    .footBrand{
+      color:white;
+      font-family:"Playfair Display", serif;
+      font-size: 28px;
+      margin:0 0 8px;
+    }
+    .footSmall{ color: rgba(255,255,255,.75); line-height:1.7; margin:0; }
+    .footCol h4{ margin: 8px 0 10px; color:white; }
+    .footCol a{
+      display:block;
+      padding: 8px 0;
+      color: rgba(255,255,255,.78);
+    }
+    .footCol a:hover{ color:white; }
+    .footBottom{
+      margin-top: 26px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,.10);
+      display:flex;
+      justify-content:space-between;
+      gap: 12px;
+      flex-wrap:wrap;
+      color: rgba(255,255,255,.70);
+      font-size: 13px;
+    }
 
-/* HERO */
+    /* Floating WhatsApp */
+    .floatChat{
+      position:fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 80;
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.88);
+      color:white;
+      border: 1px solid rgba(255,255,255,.16);
+      box-shadow: 0 14px 40px rgba(0,0,0,.18);
+      backdrop-filter: blur(10px);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .floatChat:hover{ transform: translateY(-2px); box-shadow: 0 18px 55px rgba(0,0,0,.22); }
+    .floatDot{
+      width:10px; height:10px; border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 8px rgba(34,197,94,.18);
+    }
+    .floatText{ font-weight:800; font-size: 13px; }
 
-.hero{
-text-align:center;
-padding:90px 20px;
-border-radius:30px;
-background:rgba(255,255,255,0.7);
-backdrop-filter:blur(14px);
-box-shadow:0 15px 40px rgba(0,0,0,.1);
-}
+    /* Modal (Guia/ Regras / Local) */
+    .modal{
+      position:fixed;
+      inset:0;
+      background: rgba(2, 6, 23, .62);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index: 120;
+      padding: 18px;
+    }
+    .modalCard{
+      width: min(860px, 100%);
+      background: var(--paper);
+      border-radius: 26px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      overflow:hidden;
+      transform: translateY(10px);
+      opacity: 0;
+      transition: transform .22s ease, opacity .22s ease;
+    }
+    .modalHeader{
+      padding: 18px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+      background: rgba(251,247,241,.65);
+      backdrop-filter: blur(8px);
+    }
+    .modalTitle{
+      font-family:"Playfair Display", serif;
+      font-weight:700;
+      font-size: 22px;
+      margin:0;
+    }
+    .iconBtn{
+      width:42px; height:42px;
+      border-radius: 14px;
+      border: 1px solid rgba(15,23,42,.10);
+      background: rgba(255,255,255,.9);
+      cursor:pointer;
+      font-weight:900;
+      display:grid; place-items:center;
+    }
+    .modalBody{
+      padding: 18px 20px 22px;
+      max-height: 72vh;
+      overflow:auto;
+    }
+    .list{
+      margin: 10px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .list li{
+      display:flex;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px dashed rgba(15,23,42,.10);
+      color: rgba(15,23,42,.86);
+      line-height: 1.6;
+    }
+    .list li:last-child{ border-bottom:none; }
+    .check{
+      width:22px; height:22px;
+      border-radius: 8px;
+      background: rgba(75, 222, 160, .18);
+      border: 1px solid rgba(75, 222, 160, .30);
+      display:grid; place-items:center;
+      color: #0f766e;
+      font-weight:900;
+      flex: 0 0 auto;
+      margin-top: 1px;
+    }
 
-.hero h1{
-font-family:'Playfair Display',serif;
-font-size:48px;
-margin-bottom:20px;
-}
+    /* Responsive */
+    @media (max-width: 960px){
+      .nav{ display:none; }
+      .burger{ display:inline-flex; }
+      .heroContent{ padding: 42px 22px 28px; }
+      .heroCard{ min-height: 520px; }
+      .storyGrid{ grid-template-columns: 1fr; }
+      .sectionHead{ flex-direction:column; align-items:flex-start; }
+      .flatGrid{ grid-template-columns: 1fr; }
+      .valuesGrid{ grid-template-columns: 1fr; }
+      .footGrid{ grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 560px){
+      .wrap{ width: calc(100% - 28px); }
+      .topbar-inner{ padding: 12px 0; }
+      .sectionHead .h2{ font-size: 36px; }
+      .storyBox .h2{ font-size: 36px; }
+      .heroTitle{ font-size: 40px; }
+      .footGrid{ grid-template-columns: 1fr; }
+      .floatText{ display:none; }
+    }
 
-/* SECTION */
-
-.section{
-margin-top:60px;
-padding:50px;
-background:rgba(255,255,255,.7);
-border-radius:28px;
-backdrop-filter:blur(12px);
-line-height:1.7;
-}
-
-/* MENU QUADRADO */
-
-.menu-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-margin-top:40px;
-}
-
-.menu-card{
-background:white;
-padding:28px;
-border-radius:26px;
-text-align:center;
-cursor:pointer;
-transition:.35s;
-box-shadow:0 10px 30px rgba(0,0,0,.08);
-}
-
-.menu-card:hover{
-transform:translateY(-6px) scale(1.04);
-}
-
-/* GALERIA */
-
-.gallery-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:24px;
-margin-top:30px;
-}
-
-.flat-card{
-background:white;
-border-radius:26px;
-overflow:hidden;
-box-shadow:0 10px 30px rgba(0,0,0,.08);
-transition:.35s;
-}
-
-.flat-card:hover{
-transform:translateY(-8px);
-}
-
-.flat-card img{
-width:100%;
-height:200px;
-object-fit:cover;
-}
-
-.flat-card h3{
-padding:18px;
-}
-
-/* MODAL */
-
-.modal{
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.55);
-display:none;
-justify-content:center;
-align-items:center;
-z-index:999;
-}
-
-.modal-content{
-background:white;
-width:90%;
-max-width:420px;
-padding:30px;
-border-radius:28px;
-animation:slideIn .4s cubic-bezier(.22,1,.36,1);
-}
-
-.close{
-margin-top:20px;
-width:100%;
-padding:14px;
-border:none;
-border-radius:16px;
-background:#111;
-color:white;
-cursor:pointer;
-}
-
-/* FOOTER */
-
-footer{
-margin-top:80px;
-text-align:center;
-padding:40px;
-font-size:14px;
-color:#555;
-}
-
-.whats{
-display:block;
-margin-top:20px;
-background:#111;
-color:white;
-padding:16px;
-border-radius:18px;
-text-decoration:none;
-}
-
-/* ANIMAÇÕES */
-
-@keyframes slideIn{
-from{
-opacity:0;
-transform:translateX(120px);
-}
-to{
-opacity:1;
-transform:translateX(0);
-}
-}
-
-</style>
+    /* Burger + mobile menu */
+    .burger{
+      border:1px solid rgba(15, 23, 42, 0.12);
+      background: rgba(255,255,255,.85);
+      border-radius: 14px;
+      padding: 10px 12px;
+      font-weight:900;
+      cursor:pointer;
+      backdrop-filter: blur(10px);
+    }
+    .mobilePanel{
+      display:none;
+      position: fixed;
+      inset: 0;
+      background: rgba(2, 6, 23, .55);
+      z-index: 110;
+      padding: 18px;
+      align-items:flex-start;
+      justify-content:center;
+    }
+    .mobilePanel .box{
+      width: min(520px, 100%);
+      background: var(--paper);
+      border-radius: 22px;
+      border:1px solid rgba(15,23,42,.10);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .mobilePanel .boxHead{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(15,23,42,.08);
+      background: rgba(251,247,241,.65);
+    }
+    .mobilePanel .links a{
+      display:block;
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(15,23,42,.06);
+      font-weight:700;
+      color: rgba(15,23,42,.84);
+    }
+    .mobilePanel .links a:last-child{ border-bottom:none; }
+    .mobilePanel .links a:hover{ background: rgba(15,23,42,.04); }
+    .miniCta{ padding: 14px 16px; display:flex; gap:10px; flex-wrap:wrap; }
+  </style>
 </head>
 
 <body>
+  <!-- Topbar -->
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="#home" aria-label="Ubaflats">
+        <span class="logoMark" aria-hidden="true"></span>
+        <span style="font-size:22px;">Ubaflats</span>
+      </a>
 
-<header>
-<div class="header-content">
-<div class="logo">Ubaflats 🌊</div>
-</div>
-</header>
+      <nav class="nav" aria-label="Navegação">
+        <a href="#home">Home</a>
+        <a href="#historia">Nossa História</a>
+        <a href="#flats">Flats</a>
+        <a href="#guia">Guia da Casa</a>
+        <a href="#regras">Regras</a>
+        <a href="#dicas">Dicas</a>
+      </nav>
 
-<div class="container">
+      <div class="nav-cta">
+        <button class="burger" id="openMenu" aria-label="Abrir menu">☰</button>
+        <a class="btn btn-primary" href="https://wa.me/5512982034767" target="_blank" rel="noopener">Reserve Agora</a>
+      </div>
+    </div>
+  </header>
 
-<div class="hero">
-<h1>Seu refúgio de paz a 500m do mar 🌊</h1>
+  <!-- Mobile menu -->
+  <div class="mobilePanel" id="mobilePanel" aria-hidden="true">
+    <div class="box">
+      <div class="boxHead">
+        <div class="brand" style="gap:10px;">
+          <span class="logoMark" aria-hidden="true"></span>
+          <strong style="font-family:'Playfair Display',serif;font-size:20px;">Ubaflats</strong>
+        </div>
+        <button class="iconBtn" id="closeMenu" aria-label="Fechar menu">✕</button>
+      </div>
+      <div class="links">
+        <a href="#home" class="mLink">Home</a>
+        <a href="#historia" class="mLink">Nossa História</a>
+        <a href="#flats" class="mLink">Flats</a>
+        <a href="#guia" class="mLink">Guia da Casa</a>
+        <a href="#regras" class="mLink">Regras</a>
+        <a href="#dicas" class="mLink">Dicas</a>
+      </div>
+      <div class="miniCta">
+        <a class="btn btn-primary" style="flex:1" href="https://wa.me/5512982034767" target="_blank" rel="noopener">Reserve pelo WhatsApp</a>
+        <a class="btn btn-ghost" style="flex:1" href="#contato">Contato</a>
+      </div>
+    </div>
+  </div>
 
-<p>
-Mais do que uma hospedagem, o Ubaflats é a realização de um sonho de família.
-Planejamos cada detalhe para que você sinta o frescor do litoral.
-</p>
-</div>
+  <!-- Hero -->
+  <main id="home" class="hero">
+    <div class="wrap">
+      <div class="heroCard">
+        <div class="heroBg" aria-hidden="true"></div>
+        <div class="heroContent">
+          <span class="pill">🌊 Seu refúgio em Ubatuba</span>
+          <h1 class="h1 heroTitle">
+            Seu refúgio de paz<br>
+            <span style="font-family:Inter, sans-serif; font-weight:800;">a 10 min da praia</span>
+          </h1>
+          <p class="heroSub">
+            Ubaflats na Lagoinha • Kitnet para até <strong>4 pessoas</strong> •
+            <strong>ar-condicionado</strong> em todas as unidades • <strong>garagem</strong> e <strong>quintal</strong>.
+          </p>
+          <div class="heroBtns">
+            <a class="btn btn-ghost" href="#flats">Conheça os Flats</a>
+            <a class="btn btn-primary" href="https://wa.me/5512982034767" target="_blank" rel="noopener">Reserve pelo WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
 
-<!-- HISTÓRIA -->
+  <!-- História -->
+  <section id="historia">
+    <div class="wrap">
+      <div class="storyGrid">
+        <div class="photoCard">
+          <!-- Troque por sua foto (ex: fotos/nos.jpg) -->
+          <img alt="Neto e Daniela" src="https://images.unsplash.com/photo-1520975693411-b20f8e2f4b95?q=80&w=1200&auto=format&fit=crop">
+        </div>
+        <div class="storyBox">
+          <span class="pill">💗 Feito com amor</span>
+          <h2 class="h2">Feito por nós, para você</h2>
+          <p class="p" style="margin-top:10px;">
+            Olá! Somos o <strong>Neto</strong> e a <strong>Daniela</strong>. Para nós, receber pessoas não é apenas um negócio, é um prazer.
+            Tudo o que você encontra aqui foi construído com nossas próprias mãos e muito amor.
+          </p>
+          <p class="p" style="margin-top:12px;">
+            Queremos que você desfrute da paz de Ubatuba com a mesma alegria que sentimos ao preparar este espaço.
+            Sinta-se em casa — a chave está na porta e o mar logo ali na frente.
+          </p>
+          <div class="signature">Neto &amp; Daniela</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<div class="section">
+  <!-- Flats -->
+  <section id="flats">
+    <div class="wrap">
+      <div class="sectionHead">
+        <div>
+          <h2 class="h2">Nossos Flats</h2>
+          <p class="p">Escolha seu refúgio perfeito na Lagoinha, Ubatuba.</p>
+        </div>
+        <a class="btn btn-primary" href="https://wa.me/5512982034767" target="_blank" rel="noopener">Reservar</a>
+      </div>
 
-<h2>✨ Feito por nós, para você</h2>
+      <div class="flatGrid">
+        <!-- Card 1 -->
+        <article class="flatCard">
+          <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=1600&auto=format&fit=crop');"></div>
+          <div class="shade" aria-hidden="true"></div>
+          <div class="tag">👤 4 pessoas</div>
+          <div class="badge">Mais Procurado</div>
+          <div class="info">
+            <h3 class="title">Kitnet Ubaflats</h3>
+            <p class="meta">1 cama de casal + sofá-cama (vira 2) • Ar-condicionado • Garagem • Quintal</p>
+          </div>
+        </article>
 
-<p style="margin-top:25px;font-size:17px;line-height:1.8">
+        <!-- Card 2 -->
+        <article class="flatCard">
+          <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1505693314120-0d443867891c?q=80&w=1600&auto=format&fit=crop');"></div>
+          <div class="shade" aria-hidden="true"></div>
+          <div class="tag">❄️ Ar em todas</div>
+          <div class="info">
+            <h3 class="title">Conforto & Praticidade</h3>
+            <p class="meta">Ambiente aconchegante e funcional para descansar depois de curtir a praia.</p>
+          </div>
+        </article>
 
-🌊 Olá! Somos o Neto e a Daniela.  
-🤍 Receber pessoas é um prazer para nós.  
-🏖️ Tudo foi feito com amor e cuidado.  
+        <!-- Card 3 -->
+        <article class="flatCard">
+          <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21?q=80&w=1600&auto=format&fit=crop');"></div>
+          <div class="shade" aria-hidden="true"></div>
+          <div class="tag">🏖️ Lagoinha</div>
+          <div class="info">
+            <h3 class="title">Pertinho do Mar</h3>
+            <p class="meta">Aproximadamente 10 minutos a pé até a Praia da Lagoinha.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
 
-</p>
+  <!-- Guia / Tiles -->
+  <section id="guia">
+    <div class="wrap">
+      <div class="sectionHead">
+        <div>
+          <h2 class="h2">Guia do Hóspede</h2>
+          <p class="p">Tudo o que você precisa para uma estadia tranquila e sem dúvidas.</p>
+        </div>
+      </div>
 
-<!-- MENU QUADRADO -->
+      <div class="tiles">
+        <div class="tile tile-blue" data-modal="modalCasa" role="button" tabindex="0">
+          <div class="tileLeft">
+            <div class="tileIcon">🏠</div>
+            <div>
+              <div class="tileTitle">Guia da Casa</div>
+              <div class="tileSub">Chaves, check-in/out, Wi-Fi e localização</div>
+            </div>
+          </div>
+          <div class="tileArrow">↗</div>
+        </div>
 
-<div class="menu-grid" style="margin-top:40px">
+        <div class="tile tile-green" data-modal="modalRegras" role="button" tabindex="0">
+          <div class="tileLeft">
+            <div class="tileIcon">📜</div>
+            <div>
+              <div class="tileTitle">Regras &amp; Dicas</div>
+              <div class="tileSub">Para uma convivência harmoniosa</div>
+            </div>
+          </div>
+          <div class="tileArrow">↗</div>
+        </div>
 
-<div class="menu-card" onclick="openModal('modal_regras')">
-📜 Regras da Casa
-</div>
+        <div class="tile tile-pink" data-modal="modalLocal" role="button" tabindex="0">
+          <div class="tileLeft">
+            <div class="tileIcon">📍</div>
+            <div>
+              <div class="tileTitle">Guia Local</div>
+              <div class="tileSub">O melhor da região por quem conhece</div>
+            </div>
+          </div>
+          <div class="tileArrow">↗</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<div class="menu-card" onclick="openModal('modal_reserva')">
-📞 Reserve agora
-</div>
+  <!-- Valores -->
+  <section class="values" id="dicas">
+    <div class="wrap">
+      <div class="sectionHead">
+        <div>
+          <span class="pill">Nosso jeito de ser</span>
+          <h2 class="h2" style="margin-top:10px;">Simplicidade com o pé na areia</h2>
+        </div>
+        <p class="p">Criamos um espaço para você se sentir em casa, com atenção aos detalhes e carinho no atendimento.</p>
+      </div>
 
-<div class="menu-card" onclick="openModal('modal_locais')">
-📍 Locais Próximos
-</div>
+      <div class="valuesGrid">
+        <div class="value">
+          <div class="valueIcon">❤</div>
+          <h3>Acolhimento Familiar</h3>
+          <p>Recebemos você com carinho e atenção em cada detalhe.</p>
+        </div>
+        <div class="value">
+          <div class="valueIcon">🍃</div>
+          <h3>Conexão com a Natureza</h3>
+          <p>Perto do mar, cercado pela beleza natural de Ubatuba.</p>
+        </div>
+        <div class="value">
+          <div class="valueIcon">✦</div>
+          <h3>Autenticidade</h3>
+          <p>Sem frescura: conforto real, praticidade e tranquilidade.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-</div>
+  <!-- Regras (âncora) -->
+  <section id="regras">
+    <div class="wrap">
+      <div class="ctaCard">
+        <div class="ctaImg" aria-hidden="true"></div>
+        <div class="ctaBody">
+          <h3 class="ctaTitle">Sua próxima memória feliz <span style="color:var(--navy); font-style:italic; font-family:'Playfair Display',serif;">começa aqui</span></h3>
+          <a class="btn btn-primary" href="https://wa.me/5512982034767" target="_blank" rel="noopener">Reserve pelo WhatsApp</a>
+          <p class="p" style="margin-top:14px;">E, para uma estadia perfeita, veja as regras no botão “Regras &amp; Dicas”.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-</div>
+  <!-- Footer -->
+  <footer class="footer" id="contato">
+    <div class="wrap">
+      <div class="footGrid">
+        <div>
+          <div class="brand" style="color:white;">
+            <span class="logoMark" aria-hidden="true"></span>
+            <span class="footBrand">Ubaflats<span style="opacity:.9;">.</span></span>
+          </div>
+          <p class="footSmall">Onde o mar encontra o aconchego.</p>
+        </div>
 
-<!-- GALERIA -->
+        <div class="footCol">
+          <h4>Explore</h4>
+          <a href="#flats">Flats</a>
+          <a href="#historia">Nossa História</a>
+          <a href="#home">Home</a>
+        </div>
 
-<div class="section">
+        <div class="footCol">
+          <h4>Informações</h4>
+          <a href="#guia">Guia da Casa</a>
+          <a href="#regras">Regras</a>
+          <a href="#contato">Contato</a>
+        </div>
 
-<h2>Conheça os Flats</h2>
+        <div class="footCol">
+          <h4>Fale Conosco</h4>
+          <a class="btn btn-primary" style="display:inline-flex" href="https://wa.me/5512982034767" target="_blank" rel="noopener">WhatsApp • (12) 98203-4767</a>
+          <div style="height:10px"></div>
+          <div class="footSmall">📍 Rua Goiás 291 • Lagoinha, Ubatuba - SP</div>
+        </div>
+      </div>
 
-<div class="gallery-grid">
+      <div class="footBottom">
+        <div>© 2026 Ubaflats. Todos os direitos reservados.</div>
+        <div><a href="#" style="color:rgba(255,255,255,.75);">Política de Privacidade</a></div>
+      </div>
+    </div>
+  </footer>
 
-<div class="flat-card">
-<img src="flat1.jpg">
-<h3>Flat Peixe</h3>
-</div>
+  <!-- Floating button -->
+  <a class="floatChat" href="https://wa.me/5512982034767" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+    <span class="floatDot" aria-hidden="true"></span>
+    <span class="floatText">Talk with Us</span>
+  </a>
 
-<div class="flat-card">
-<img src="flat2.jpg">
-<h3>Flat Estrela</h3>
-</div>
+  <!-- MODALS -->
+  <div class="modal" id="modalCasa" aria-hidden="true">
+    <div class="modalCard" role="dialog" aria-modal="true">
+      <div class="modalHeader">
+        <h3 class="modalTitle">Guia da Casa</h3>
+        <button class="iconBtn" data-close>✕</button>
+      </div>
+      <div class="modalBody">
+        <p class="p">
+          Informações rápidas para facilitar sua chegada e sua estadia no Ubaflats.
+        </p>
+        <ul class="list">
+          <li><span class="check">✓</span><div><strong>Check-in:</strong> a partir das <strong>15h</strong>.</div></li>
+          <li><span class="check">✓</span><div><strong>Check-out:</strong> até as <strong>11h</strong>.</div></li>
+          <li><span class="check">✓</span><div><strong>Wi-Fi:</strong> Nome <strong>ubaflatslagoinha</strong> • Senha <strong>avidaficamelhornapraia</strong></div></li>
+          <li><span class="check">✓</span><div><strong>Localização:</strong> Rua Goiás 291 • Lagoinha, Ubatuba - SP</div></li>
+          <li><span class="check">✓</span><div><strong>Sobre:</strong> Kitnet para 4 pessoas (1 cama de casal + sofá-cama que vira 2).</div></li>
+          <li><span class="check">✓</span><div><strong>Diferenciais:</strong> garagem • quintal • ar-condicionado em todas as unidades • 10 min a pé da praia.</div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-<div class="flat-card">
-<img src="flat3.jpg">
-<h3>Flat Família</h3>
-</div>
+  <div class="modal" id="modalRegras" aria-hidden="true">
+    <div class="modalCard" role="dialog" aria-modal="true">
+      <div class="modalHeader">
+        <h3 class="modalTitle">Regras de Convivência</h3>
+        <button class="iconBtn" data-close>✕</button>
+      </div>
+      <div class="modalBody">
+        <p class="p">Para manter um ambiente agradável para todos, pedimos atenção às regras abaixo:</p>
 
-</div>
+        <ul class="list">
+          <li><span class="check">✓</span><div>Mantenha o silêncio após <strong>22h</strong> para respeitar o descanso dos demais hóspedes.</div></li>
+          <li><span class="check">✓</span><div>Desligue <strong>luzes</strong>, <strong>ar-condicionado</strong> e aparelhos eletrônicos ao sair do flat.</div></li>
+          <li><span class="check">✓</span><div>Preserve móveis, colchões, utensílios e estrutura do espaço.</div></li>
+          <li><span class="check">✓</span><div>Feche portas e janelas ao deixar o ambiente.</div></li>
+          <li><span class="check">✓</span><div>Realize o descarte do lixo em local apropriado.</div></li>
+          <li><span class="check">✓</span><div>Não é permitido fumar dentro dos ambientes fechados.</div></li>
+          <li><span class="check">✓</span><div>Visitas externas devem ser previamente autorizadas.</div></li>
+          <li><span class="check">✓</span><div>Utilize os equipamentos do flat com cuidado.</div></li>
+          <li><span class="check">✓</span><div>Evite consumir alimentos sobre camas e sofás para preservar a limpeza.</div></li>
+          <li><span class="check">✓</span><div>Não mova móveis pesados sem necessidade.</div></li>
+          <li><span class="check">✓</span><div>Em caso de problemas ou necessidade, fale conosco pelo WhatsApp.</div></li>
+        </ul>
 
-</div>
+        <div style="margin-top:16px;">
+          <a class="btn btn-primary" href="https://wa.me/5512982034767" target="_blank" rel="noopener">Falar no WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<footer>
+  <div class="modal" id="modalLocal" aria-hidden="true">
+    <div class="modalCard" role="dialog" aria-modal="true">
+      <div class="modalHeader">
+        <h3 class="modalTitle">Guia Local</h3>
+        <button class="iconBtn" data-close>✕</button>
+      </div>
+      <div class="modalBody">
+        <p class="p">
+          Queremos deixar aqui um espaço “pronto” para você adicionar seus pontos favoritos (restaurantes, farmácias e mercados).
+          Se você me mandar os nomes depois, eu coloco tudo bonitinho.
+        </p>
 
-📞 WhatsApp: +55 12 98203-4767<br>
-📍 Rua Goiás 291<br>
+        <ul class="list">
+          <li><span class="check">✓</span><div><strong>Praias:</strong> Lagoinha (pertinho) • outras sugestões (adicione aqui)</div></li>
+          <li><span class="check">✓</span><div><strong>Restaurantes:</strong> (adicione seus favoritos)</div></li>
+          <li><span class="check">✓</span><div><strong>Mercados:</strong> (adicione opções próximas)</div></li>
+          <li><span class="check">✓</span><div><strong>Farmácias:</strong> (adicione opções próximas)</div></li>
+          <li><span class="check">✓</span><div><strong>Passeios:</strong> trilhas, mirantes, passeios de barco (adicione aqui)</div></li>
+        </ul>
 
-<a class="whats" href="https://wa.me/5512982034767">
-Reserve agora pelo WhatsApp
-</a>
+        <div style="margin-top:18px;">
+          <p class="p"><strong>Endereço:</strong> Rua Goiás 291 • Lagoinha, Ubatuba - SP</p>
+          <div style="margin-top:10px; border-radius:20px; overflow:hidden; border:1px solid rgba(15,23,42,.10); box-shadow: var(--shadow2);">
+            <iframe
+              title="Mapa Ubaflats"
+              src="https://www.google.com/maps?q=Rua+Goias+291+Ubatuba&output=embed"
+              style="width:100%; height:300px; border:0;"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<p style="margin-top:30px">
-Ubaflats • Seu refúgio a 500m do mar
-</p>
+  <script>
+    // Mobile menu
+    const mobilePanel = document.getElementById('mobilePanel');
+    const openMenu = document.getElementById('openMenu');
+    const closeMenu = document.getElementById('closeMenu');
 
-</footer>
+    function showMenu(){
+      mobilePanel.style.display = 'flex';
+      mobilePanel.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden';
+    }
+    function hideMenu(){
+      mobilePanel.style.display = 'none';
+      mobilePanel.setAttribute('aria-hidden','true');
+      document.body.style.overflow = '';
+    }
+    openMenu?.addEventListener('click', showMenu);
+    closeMenu?.addEventListener('click', hideMenu);
+    mobilePanel?.addEventListener('click', (e)=>{ if(e.target === mobilePanel) hideMenu(); });
+    document.querySelectorAll('.mLink').forEach(a => a.addEventListener('click', hideMenu));
 
-</div>
+    // Modals
+    function openModal(id){
+      const modal = document.getElementById(id);
+      const card = modal?.querySelector('.modalCard');
+      if(!modal || !card) return;
+      modal.style.display = 'flex';
+      modal.setAttribute('aria-hidden','false');
+      requestAnimationFrame(()=>{
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      });
+      document.body.style.overflow = 'hidden';
+    }
 
-<!-- MODAIS -->
+    function closeModal(modal){
+      const card = modal.querySelector('.modalCard');
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(10px)';
+      setTimeout(()=>{
+        modal.style.display = 'none';
+        modal.setAttribute('aria-hidden','true');
+        document.body.style.overflow = '';
+      }, 160);
+    }
 
-<div class="modal" id="modal_regras">
-<div class="modal-content">
-<h2>📜 Regras da Casa</h2>
+    document.querySelectorAll('[data-modal]').forEach(tile=>{
+      const id = tile.getAttribute('data-modal');
+      tile.addEventListener('click', ()=> openModal(id));
+      tile.addEventListener('keydown', (e)=>{ if(e.key === 'Enter' || e.key === ' ') openModal(id); });
+    });
 
-<p style="margin-top:20px;line-height:1.7">
-✔ Limpeza antes do check-in  
-✔ Preserve móveis  
-✔ Evite barulho após 22h  
-✔ Desligue luzes e ar  
-✔ Mantenha portas trancadas  
-</p>
+    document.querySelectorAll('.modal').forEach(modal=>{
+      modal.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(modal); });
+      modal.querySelectorAll('[data-close]').forEach(btn=> btn.addEventListener('click', ()=> closeModal(modal)));
+    });
 
-<button class="close" onclick="closeModal('modal_regras')">
-Fechar
-</button>
-</div>
-</div>
-
-<div class="modal" id="modal_reserva">
-<div class="modal-content">
-<h2>📞 Reserve agora</h2>
-
-<button class="close" onclick="window.open('https://wa.me/5512982034767')">
-Ir para WhatsApp
-</button>
-
-<button class="close" onclick="closeModal('modal_reserva')">
-Fechar
-</button>
-</div>
-</div>
-
-<div class="modal" id="modal_locais">
-<div class="modal-content">
-<h2>📍 Locais Próximos</h2>
-
-<p style="margin-top:20px;line-height:1.7">
-🍽️ Restaurantes próximos  
-💊 Farmácias próximas  
-🛒 Supermercados próximos  
-🏖️ Praia da Lagoinha – 500m  
-</p>
-
-<button class="close" onclick="closeModal('modal_locais')">
-Fechar
-</button>
-</div>
-</div>
-
-<script>
-
-function openModal(id){
-document.getElementById(id).style.display="flex";
-document.body.style.overflow="hidden";
-}
-
-function closeModal(id){
-document.getElementById(id).style.display="none";
-document.body.style.overflow="auto";
-}
-
-window.addEventListener("click",e=>{
-document.querySelectorAll(".modal").forEach(modal=>{
-if(e.target===modal){
-modal.style.display="none";
-}
-});
-});
-
-</script>
-
+    // ESC closes modals
+    window.addEventListener('keydown', (e)=>{
+      if(e.key !== 'Escape') return;
+      document.querySelectorAll('.modal').forEach(m=>{
+        if(m.style.display === 'flex') closeModal(m);
+      });
+      if(mobilePanel.style.display === 'flex') hideMenu();
+    });
+  </script>
 </body>
 </html>
