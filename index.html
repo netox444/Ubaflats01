@@ -3,582 +3,233 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ubaflats • Lagoinha, Ubatuba</title>
-  <meta name="description" content="Ubaflats em Ubatuba-SP (Lagoinha). Kitnet para até 4 pessoas com garagem, quintal e ar-condicionado. A poucos minutos da praia." />
+  <title>Ubaflats • Praia da Lagoinha</title>
+  <meta name="description" content="Ubaflats na Praia da Lagoinha (Ubatuba/SP). Kitnet para até 4 pessoas com garagem, quintal e ar-condicionado." />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg: #fbf7f1;
-      --paper: #ffffff;
-      --text: #0f172a;
-      --muted: #52616b;
-      --navy: #173b56;
-      --navy-2:#0e2a3f;
-      --coral:#ff6b6b;
-      --coral-2:#ff7f7f;
-      --line: rgba(15, 23, 42, 0.10);
-      --shadow: 0 18px 50px rgba(17, 24, 39, .12);
-      --shadow2: 0 10px 30px rgba(17, 24, 39, .10);
-      --radius: 22px;
-      --radius2: 28px;
+      /* Paleta (baseada na imagem enviada) */
+      --cream: #F7F0E6;      /* fundo claro */
+      --navy:  #1F2B3A;      /* texto / títulos */
+      --teal:  #2F6F6A;      /* destaque */
+      --mint:  #97C9BF;      /* fundo suave */
+      --orange:#D7771A;      /* hibisco */
+      --white: #FFFFFF;
+
+      --line: rgba(31,43,58,.10);
+      --shadow: 0 18px 50px rgba(17,24,39,.12);
+      --shadow2: 0 10px 30px rgba(17,24,39,.10);
+      --r: 22px;
+      --r2: 28px;
     }
 
-    *{ box-sizing:border-box; }
-    html{ scroll-behavior:smooth; }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color:var(--text);
-      background: var(--bg);
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--navy);
+      background:var(--cream);
     }
-    a{ color:inherit; text-decoration:none; }
-    img{ max-width:100%; display:block; }
+    a{color:inherit;text-decoration:none}
 
-    /* Layout helpers */
-    .wrap{ width:min(1120px, calc(100% - 48px)); margin:0 auto; }
-    .pill{
-      display:inline-flex; align-items:center; gap:10px;
-      padding:10px 14px;
-      border:1px solid rgba(255,107,107,.35);
-      background: rgba(255,107,107,.08);
-      color: var(--coral);
-      border-radius:999px;
-      font-size:12px; font-weight:600;
-    }
-    .h1{
-      font-family:"Playfair Display", serif;
-      font-weight:700;
-      letter-spacing:-.02em;
-      margin:0;
-    }
-    .h2{
-      font-family:"Playfair Display", serif;
-      font-weight:700;
-      margin:0;
-      letter-spacing:-.02em;
-    }
-    .p{ color:var(--muted); line-height:1.7; margin:0; }
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding:14px 18px;
-      border-radius:999px;
-      border:1px solid transparent;
-      cursor:pointer;
-      font-weight:700;
-      transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
-      user-select:none;
-      white-space:nowrap;
-    }
-    .btn:active{ transform: translateY(1px) scale(.99); }
-    .btn-primary{
-      background: var(--coral);
-      color:white;
-      box-shadow: 0 14px 40px rgba(255,107,107,.25);
-    }
-    .btn-primary:hover{ background: var(--coral-2); box-shadow: 0 18px 50px rgba(255,107,107,.30); }
-    .btn-ghost{
-      background: rgba(255,255,255,.85);
-      border-color: rgba(15, 23, 42, 0.12);
-      color: var(--text);
-      backdrop-filter: blur(10px);
-    }
-    .btn-ghost:hover{ border-color: rgba(15, 23, 42, 0.18); box-shadow: var(--shadow2); transform: translateY(-1px); }
+    .wrap{width:min(1120px, calc(100% - 48px));margin:0 auto}
 
     /* Topbar */
     .topbar{
-      position:sticky; top:0; z-index:50;
-      background: rgba(251,247,241,.80);
+      position:sticky;top:0;z-index:50;
+      background:rgba(247,240,230,.82);
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+      border-bottom:1px solid rgba(31,43,58,.08);
     }
-    .topbar-inner{
-      display:flex; align-items:center; justify-content:space-between;
-      padding:14px 0;
-      gap:16px;
-    }
-    .brand{
-      display:flex; align-items:center; gap:10px;
-      font-family:"Playfair Display", serif;
-      font-weight:700;
-      letter-spacing:-.02em;
-    }
-    .logoMark{
-      width:34px; height:34px; border-radius:12px;
-      background: radial-gradient(circle at 30% 30%, rgba(255,107,107,.55), rgba(23,59,86,.85));
-      box-shadow: 0 10px 25px rgba(17,24,39,.18);
-      position:relative;
-    }
-    .logoMark:after{
-      content:"";
-      position:absolute; inset:9px 10px 10px 9px;
-      border-radius:10px;
-      border:2px solid rgba(255,255,255,.65);
-    }
-    .nav{
-      display:flex; align-items:center; gap:22px;
-      font-weight:600;
-      color: rgba(15,23,42,.72);
-    }
-    .nav a{ padding:10px 8px; border-radius:12px; transition: background .15s ease; }
-    .nav a:hover{ background: rgba(15, 23, 42, 0.05); }
-    .nav-cta{ display:flex; gap:10px; align-items:center; }
+    .topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
 
-    /* Mobile nav */
-    .burger{ display:none; }
-    .mobilePanel{ display:none; }
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{width:38px;height:38px;border-radius:14px;box-shadow:0 10px 25px rgba(17,24,39,.12);background:#fff;object-fit:cover}
+    .brand .name{font-family:"Playfair Display",serif;font-weight:700;letter-spacing:-.02em;font-size:22px}
+
+    .nav{display:flex;align-items:center;gap:22px;font-weight:700;color:rgba(31,43,58,.78)}
+    .nav a{padding:10px 8px;border-radius:12px;transition:background .15s ease}
+    .nav a:hover{background:rgba(31,43,58,.05)}
+
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:14px 18px;border-radius:999px;
+      border:1px solid transparent;
+      cursor:pointer;font-weight:800;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
+      user-select:none;white-space:nowrap
+    }
+    .btn:active{transform:translateY(1px) scale(.99)}
+    .btn-primary{background:var(--orange);color:white;box-shadow:0 14px 40px rgba(215,119,26,.25)}
+    .btn-primary:hover{background:#e18224;box-shadow:0 18px 55px rgba(215,119,26,.30)}
+    .btn-ghost{background:rgba(255,255,255,.75);border-color:rgba(31,43,58,.14)}
+    .btn-ghost:hover{border-color:rgba(31,43,58,.22);box-shadow:var(--shadow2);transform:translateY(-1px)}
+
+    .burger{display:none;border:1px solid rgba(31,43,58,.14);background:rgba(255,255,255,.7);border-radius:14px;padding:10px 12px;font-weight:900;cursor:pointer}
 
     /* Hero */
-    .hero{
-      padding:18px 0 40px;
-    }
+    .hero{padding:18px 0 42px}
     .heroCard{
-      border-radius: var(--radius2);
+      border-radius:var(--r2);
       overflow:hidden;
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(255,255,255,.55);
-      background: #000;
+      box-shadow:var(--shadow);
+      border:1px solid rgba(255,255,255,.6);
       position:relative;
       min-height: 520px;
+      background:#0b1d24;
     }
     .heroBg{
-      position:absolute; inset:0;
+      position:absolute;inset:0;
+      /* Troque o arquivo abaixo se quiser usar sua foto no repositório */
       background:
-        linear-gradient(90deg, rgba(0,0,0,.45), rgba(0,0,0,.25)),
-        url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2000&auto=format&fit=crop");
-      background-size: cover;
-      background-position: center;
-      transform: scale(1.02);
-      filter: saturate(1.05);
+        linear-gradient(90deg, rgba(14,42,63,.65), rgba(14,42,63,.25)),
+        url("assets/hero.jpg");
+      background-size:cover;
+      background-position:center;
+      transform:scale(1.02);
+      filter:saturate(1.05);
     }
-    .heroContent{
-      position:relative;
-      padding:54px 54px 48px;
-      color:white;
-      max-width: 760px;
+    .heroContent{position:relative;padding:56px 54px 48px;color:white;max-width:780px}
+    .pill{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:10px 14px;border-radius:999px;
+      background:rgba(151,201,191,.18);
+      border:1px solid rgba(151,201,191,.30);
+      color:rgba(255,255,255,.92);
+      font-size:12px;font-weight:800
     }
     .heroTitle{
-      font-size: clamp(34px, 4.4vw, 64px);
-      line-height: 1.05;
-      margin: 14px 0 10px;
+      font-family:"Playfair Display",serif;
+      font-weight:700;
+      letter-spacing:-.02em;
+      font-size:clamp(34px,4.4vw,64px);
+      line-height:1.05;
+      margin:14px 0 10px;
     }
-    .heroTitle span{ display:inline-block; }
-    .heroSub{
-      font-size: 16px;
-      line-height:1.8;
-      color: rgba(255,255,255,.82);
-      margin: 0 0 26px;
-      max-width: 560px;
-    }
-    .heroBtns{ display:flex; gap:12px; flex-wrap:wrap; }
+    .heroSub{margin:0 0 26px;max-width:580px;line-height:1.8;color:rgba(255,255,255,.85)}
+    .heroBtns{display:flex;gap:12px;flex-wrap:wrap}
 
     /* Sections */
-    section{ padding: 64px 0; }
-    .sectionHead{
-      display:flex; align-items:flex-end; justify-content:space-between; gap:24px;
-      margin-bottom: 28px;
-    }
-    .sectionHead .h2{ font-size: 44px; }
-    .sectionHead .p{ max-width: 520px; }
+    section{padding:64px 0}
+    .sectionHead{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:28px}
+    .h2{font-family:"Playfair Display",serif;font-weight:700;letter-spacing:-.02em;margin:0;font-size:44px}
+    .p{margin:0;color:rgba(31,43,58,.78);line-height:1.75}
 
     /* Story */
-    .storyGrid{
-      display:grid;
-      grid-template-columns: 1.1fr 1fr;
-      gap: 34px;
-      align-items:center;
-    }
-    .photoCard{
-      border-radius: var(--radius2);
-      overflow:hidden;
-      box-shadow: var(--shadow2);
-      border: 1px solid rgba(15, 23, 42, 0.06);
-      background: var(--paper);
-    }
-    .photoCard img{ aspect-ratio: 4 / 5; object-fit: cover; }
-    .storyBox{
-      background: var(--paper);
-      border-radius: var(--radius2);
-      border:1px solid rgba(15, 23, 42, 0.06);
-      box-shadow: var(--shadow2);
-      padding: 34px;
-    }
-    .storyBox .h2{ font-size: 44px; margin: 12px 0 10px; }
-    .signature{
-      font-family:"Playfair Display", serif;
-      color: var(--coral);
-      font-size: 22px;
-      margin-top: 16px;
-    }
+    .storyGrid{display:grid;grid-template-columns:1.1fr 1fr;gap:34px;align-items:center}
+    .photoCard{border-radius:var(--r2);overflow:hidden;box-shadow:var(--shadow2);border:1px solid rgba(31,43,58,.06);background:var(--white)}
+    .photoCard img{aspect-ratio:4/5;object-fit:cover}
+    .storyBox{background:var(--white);border-radius:var(--r2);border:1px solid rgba(31,43,58,.06);box-shadow:var(--shadow2);padding:34px}
+    .storyBox .h2{font-size:44px;margin:12px 0 10px}
+    .signature{font-family:"Playfair Display",serif;color:var(--orange);font-size:22px;margin-top:16px}
 
     /* Flats */
-    .flatGrid{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-    .flatCard{
-      position:relative;
-      border-radius: var(--radius2);
-      overflow:hidden;
-      background: #111;
-      box-shadow: var(--shadow2);
-      min-height: 300px;
-      border: 1px solid rgba(255,255,255,.45);
-    }
-    .flatCard .bg{
-      position:absolute; inset:0;
-      background-size: cover;
-      background-position:center;
-      filter: saturate(1.05) contrast(1.02);
-      transform: scale(1.02);
-    }
-    .flatCard .shade{
-      position:absolute; inset:0;
-      background: linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(0,0,0,.55) 78%);
-    }
-    .flatCard .tag{
-      position:absolute; top:14px; left:14px;
-      display:inline-flex; gap:8px; align-items:center;
-      padding:8px 10px;
-      border-radius:999px;
-      background: rgba(17,24,39,.55);
-      border:1px solid rgba(255,255,255,.22);
-      color: rgba(255,255,255,.9);
-      font-size:12px; font-weight:700;
-      backdrop-filter: blur(8px);
-    }
-    .flatCard .badge{
-      position:absolute; top:14px; right:14px;
-      padding:8px 10px;
-      border-radius:999px;
-      background: rgba(255, 215, 0, .18);
-      border:1px solid rgba(255, 215, 0, .35);
-      color: rgba(255,255,255,.92);
-      font-size:12px; font-weight:800;
-      backdrop-filter: blur(8px);
-    }
-    .flatCard .info{
-      position:absolute; left:16px; right:16px; bottom:16px;
-      color:white;
-    }
-    .flatCard .title{
-      font-family:"Playfair Display", serif;
-      font-size: 28px;
-      margin:0 0 6px;
-      letter-spacing:-.01em;
-    }
-    .flatCard .meta{
-      margin:0;
-      color: rgba(255,255,255,.85);
-      font-size: 13px;
-      line-height: 1.6;
-    }
+    .flatGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .flatCard{position:relative;border-radius:var(--r2);overflow:hidden;background:#111;box-shadow:var(--shadow2);min-height:300px;border:1px solid rgba(255,255,255,.45)}
+    .flatCard .bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:saturate(1.05) contrast(1.02);transform:scale(1.02)}
+    .flatCard .shade{position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,.62) 78%)}
+    .tag{position:absolute;top:14px;left:14px;display:inline-flex;gap:8px;align-items:center;padding:8px 10px;border-radius:999px;background:rgba(17,24,39,.55);border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.92);font-size:12px;font-weight:800;backdrop-filter: blur(8px)}
+    .badge{position:absolute;top:14px;right:14px;padding:8px 10px;border-radius:999px;background:rgba(215,119,26,.18);border:1px solid rgba(215,119,26,.35);color:rgba(255,255,255,.94);font-size:12px;font-weight:900;backdrop-filter: blur(8px)}
+    .info{position:absolute;left:16px;right:16px;bottom:16px;color:white}
+    .title{font-family:"Playfair Display",serif;font-size:28px;margin:0 0 6px;letter-spacing:-.01em}
+    .meta{margin:0;color:rgba(255,255,255,.86);font-size:13px;line-height:1.6}
 
     /* Guide tiles */
-    .tiles{
-      display:grid;
-      gap: 16px;
-      max-width: 780px;
-      margin: 0 auto;
-    }
-    .tile{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:16px;
-      padding: 22px 22px;
-      border-radius: 22px;
-      border: 1px solid rgba(15, 23, 42, 0.06);
-      box-shadow: var(--shadow2);
-      cursor:pointer;
-      transition: transform .18s ease, box-shadow .18s ease;
-    }
-    .tile:hover{ transform: translateY(-2px); box-shadow: 0 18px 45px rgba(17,24,39,.12); }
-    .tileLeft{ display:flex; align-items:center; gap:14px; }
-    .tileIcon{
-      width:46px; height:46px; border-radius: 16px;
-      display:grid; place-items:center;
-      background: rgba(255,255,255,.85);
-      border:1px solid rgba(15, 23, 42, 0.06);
-    }
-    .tileTitle{ font-weight:800; }
-    .tileSub{ color: var(--muted); font-size: 13px; margin-top: 2px; }
-    .tileArrow{
-      width:40px; height:40px; border-radius: 14px;
-      display:grid; place-items:center;
-      background: rgba(255,255,255,.75);
-      border:1px solid rgba(15, 23, 42, 0.06);
-    }
-    .tile-blue{ background: rgba(80, 165, 255, .18); }
-    .tile-green{ background: rgba(75, 222, 160, .16); }
-    .tile-pink{ background: rgba(255, 107, 107, .18); }
+    .tiles{display:grid;gap:16px;max-width:780px;margin:0 auto}
+    .tile{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 22px;border-radius:22px;border:1px solid rgba(31,43,58,.06);box-shadow:var(--shadow2);cursor:pointer;transition:transform .18s ease, box-shadow .18s ease}
+    .tile:hover{transform:translateY(-2px);box-shadow:0 18px 45px rgba(17,24,39,.12)}
+    .tileLeft{display:flex;align-items:center;gap:14px}
+    .tileIcon{width:46px;height:46px;border-radius:16px;display:grid;place-items:center;background:rgba(255,255,255,.85);border:1px solid rgba(31,43,58,.06)}
+    .tileTitle{font-weight:900}
+    .tileSub{color:rgba(31,43,58,.72);font-size:13px;margin-top:2px}
+    .tileArrow{width:40px;height:40px;border-radius:14px;display:grid;place-items:center;background:rgba(255,255,255,.75);border:1px solid rgba(31,43,58,.06)}
+    .tile-blue{background: rgba(151, 201, 191, .30)}
+    .tile-green{background: rgba(47, 111, 106, .14)}
+    .tile-orange{background: rgba(215, 119, 26, .14)}
 
     /* Values */
-    .values{
-      background: #fff8ef;
-      border-top: 1px solid rgba(15, 23, 42, 0.06);
-      border-bottom: 1px solid rgba(15, 23, 42, 0.06);
-    }
-    .valuesGrid{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-      margin-top: 26px;
-    }
-    .value{
-      text-align:center;
-      padding: 26px 18px;
-    }
-    .valueIcon{
-      width:56px; height:56px;
-      margin: 0 auto 12px;
-      border-radius: 18px;
-      display:grid; place-items:center;
-      background: rgba(255,107,107,.10);
-      border: 1px solid rgba(255,107,107,.20);
-      color: var(--coral);
-      font-size: 26px;
-    }
-    .value h3{ margin: 10px 0 8px; }
-    .value p{ margin:0; color: var(--muted); line-height: 1.7; font-size: 14px; }
+    .values{background:rgba(151,201,191,.14);border-top:1px solid rgba(31,43,58,.06);border-bottom:1px solid rgba(31,43,58,.06)}
+    .valuesGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:26px}
+    .value{text-align:center;padding:26px 18px}
+    .valueIcon{width:56px;height:56px;margin:0 auto 12px;border-radius:18px;display:grid;place-items:center;background:rgba(215,119,26,.12);border:1px solid rgba(215,119,26,.22);color:var(--orange);font-size:26px}
+    .value h3{margin:10px 0 8px}
+    .value p{margin:0;color:rgba(31,43,58,.78);line-height:1.7;font-size:14px}
 
     /* CTA */
-    .ctaCard{
-      background: var(--paper);
-      border-radius: 34px;
-      border: 1px solid rgba(15, 23, 42, 0.06);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-    }
-    .ctaImg{
-      height: 260px;
-      background:
-        linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.35)),
-        url("https://images.unsplash.com/photo-1500375592092-40eb2168fd21?q=80&w=1800&auto=format&fit=crop");
-      background-size: cover;
-      background-position: center;
-    }
-    .ctaBody{
-      padding: 34px 28px 30px;
-      text-align:center;
-    }
-    .ctaTitle{
-      font-family:"Playfair Display", serif;
-      font-size: clamp(26px, 3vw, 40px);
-      margin: 0 0 18px;
-      letter-spacing:-.02em;
-    }
+    .ctaCard{background:var(--white);border-radius:34px;border:1px solid rgba(31,43,58,.06);box-shadow:var(--shadow);overflow:hidden}
+    .ctaImg{height:260px;background:linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.35)), url("assets/cta.jpg");background-size:cover;background-position:center}
+    .ctaBody{padding:34px 28px 30px;text-align:center}
+    .ctaTitle{font-family:"Playfair Display",serif;font-size:clamp(26px,3vw,40px);margin:0 0 18px;letter-spacing:-.02em}
 
     /* Footer */
-    .footer{
-      background: var(--navy);
-      color: rgba(255,255,255,.86);
-      padding: 46px 0 28px;
-    }
-    .footGrid{
-      display:grid;
-      grid-template-columns: 1.2fr 1fr 1fr 1fr;
-      gap: 22px;
-      align-items:start;
-    }
-    .footBrand{
-      color:white;
-      font-family:"Playfair Display", serif;
-      font-size: 28px;
-      margin:0 0 8px;
-    }
-    .footSmall{ color: rgba(255,255,255,.75); line-height:1.7; margin:0; }
-    .footCol h4{ margin: 8px 0 10px; color:white; }
-    .footCol a{
-      display:block;
-      padding: 8px 0;
-      color: rgba(255,255,255,.78);
-    }
-    .footCol a:hover{ color:white; }
-    .footBottom{
-      margin-top: 26px;
-      padding-top: 18px;
-      border-top: 1px solid rgba(255,255,255,.10);
-      display:flex;
-      justify-content:space-between;
-      gap: 12px;
-      flex-wrap:wrap;
-      color: rgba(255,255,255,.70);
-      font-size: 13px;
-    }
+    .footer{background:var(--teal);color:rgba(255,255,255,.86);padding:46px 0 28px}
+    .footGrid{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:22px;align-items:start}
+    .footBrand{color:white;font-family:"Playfair Display",serif;font-size:28px;margin:0 0 8px}
+    .footSmall{color:rgba(255,255,255,.78);line-height:1.7;margin:0}
+    .footCol h4{margin:8px 0 10px;color:white}
+    .footCol a{display:block;padding:8px 0;color:rgba(255,255,255,.78)}
+    .footCol a:hover{color:white}
+    .footBottom{margin-top:26px;padding-top:18px;border-top:1px solid rgba(255,255,255,.10);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:rgba(255,255,255,.70);font-size:13px}
 
     /* Floating WhatsApp */
     .floatChat{
-      position:fixed;
-      right: 18px;
-      bottom: 18px;
-      z-index: 80;
-      display:flex;
-      align-items:center;
-      gap: 10px;
-      padding: 12px 14px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.88);
-      color:white;
-      border: 1px solid rgba(255,255,255,.16);
-      box-shadow: 0 14px 40px rgba(0,0,0,.18);
+      position:fixed;right:18px;bottom:18px;z-index:80;
+      display:flex;align-items:center;gap:10px;
+      padding:12px 14px;border-radius:999px;
+      background: rgba(31,43,58,.90);
+      color:white;border:1px solid rgba(255,255,255,.16);
+      box-shadow:0 14px 40px rgba(0,0,0,.18);
       backdrop-filter: blur(10px);
       transition: transform .18s ease, box-shadow .18s ease;
     }
-    .floatChat:hover{ transform: translateY(-2px); box-shadow: 0 18px 55px rgba(0,0,0,.22); }
-    .floatDot{
-      width:10px; height:10px; border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 0 8px rgba(34,197,94,.18);
-    }
-    .floatText{ font-weight:800; font-size: 13px; }
+    .floatChat:hover{transform:translateY(-2px);box-shadow:0 18px 55px rgba(0,0,0,.22)}
+    .floatDot{width:10px;height:10px;border-radius:999px;background:#22c55e;box-shadow:0 0 0 8px rgba(34,197,94,.18)}
+    .floatText{font-weight:900;font-size:13px}
 
-    /* Modal (Guia/ Regras / Local) */
-    .modal{
-      position:fixed;
-      inset:0;
-      background: rgba(2, 6, 23, .62);
-      display:none;
-      align-items:center;
-      justify-content:center;
-      z-index: 120;
-      padding: 18px;
-    }
-    .modalCard{
-      width: min(860px, 100%);
-      background: var(--paper);
-      border-radius: 26px;
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(15, 23, 42, 0.08);
-      overflow:hidden;
-      transform: translateY(10px);
-      opacity: 0;
-      transition: transform .22s ease, opacity .22s ease;
-    }
-    .modalHeader{
-      padding: 18px 20px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      border-bottom: 1px solid rgba(15, 23, 42, 0.08);
-      background: rgba(251,247,241,.65);
-      backdrop-filter: blur(8px);
-    }
-    .modalTitle{
-      font-family:"Playfair Display", serif;
-      font-weight:700;
-      font-size: 22px;
-      margin:0;
-    }
-    .iconBtn{
-      width:42px; height:42px;
-      border-radius: 14px;
-      border: 1px solid rgba(15,23,42,.10);
-      background: rgba(255,255,255,.9);
-      cursor:pointer;
-      font-weight:900;
-      display:grid; place-items:center;
-    }
-    .modalBody{
-      padding: 18px 20px 22px;
-      max-height: 72vh;
-      overflow:auto;
-    }
-    .list{
-      margin: 10px 0 0;
-      padding: 0;
-      list-style: none;
-    }
-    .list li{
-      display:flex;
-      gap: 10px;
-      padding: 10px 0;
-      border-bottom: 1px dashed rgba(15,23,42,.10);
-      color: rgba(15,23,42,.86);
-      line-height: 1.6;
-    }
-    .list li:last-child{ border-bottom:none; }
-    .check{
-      width:22px; height:22px;
-      border-radius: 8px;
-      background: rgba(75, 222, 160, .18);
-      border: 1px solid rgba(75, 222, 160, .30);
-      display:grid; place-items:center;
-      color: #0f766e;
-      font-weight:900;
-      flex: 0 0 auto;
-      margin-top: 1px;
-    }
+    /* Modal */
+    .modal{position:fixed;inset:0;background:rgba(2,6,23,.62);display:none;align-items:center;justify-content:center;z-index:120;padding:18px}
+    .modalCard{width:min(860px,100%);background:var(--white);border-radius:26px;box-shadow:var(--shadow);border:1px solid rgba(31,43,58,.08);overflow:hidden;transform:translateY(10px);opacity:0;transition:transform .22s ease, opacity .22s ease}
+    .modalHeader{padding:18px 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(31,43,58,.08);background:rgba(247,240,230,.70);backdrop-filter: blur(8px)}
+    .modalTitle{font-family:"Playfair Display",serif;font-weight:700;font-size:22px;margin:0}
+    .iconBtn{width:42px;height:42px;border-radius:14px;border:1px solid rgba(31,43,58,.10);background:rgba(255,255,255,.92);cursor:pointer;font-weight:900;display:grid;place-items:center}
+    .modalBody{padding:18px 20px 22px;max-height:72vh;overflow:auto}
+    .list{margin:10px 0 0;padding:0;list-style:none}
+    .list li{display:flex;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(31,43,58,.10);color:rgba(31,43,58,.90);line-height:1.6}
+    .list li:last-child{border-bottom:none}
+    .check{width:22px;height:22px;border-radius:8px;background:rgba(151,201,191,.30);border:1px solid rgba(151,201,191,.45);display:grid;place-items:center;color:var(--teal);font-weight:900;flex:0 0 auto;margin-top:1px}
+
+    /* Mobile menu */
+    .mobilePanel{display:none;position:fixed;inset:0;background:rgba(2,6,23,.55);z-index:110;padding:18px;align-items:flex-start;justify-content:center}
+    .mobilePanel .box{width:min(520px,100%);background:var(--white);border-radius:22px;border:1px solid rgba(31,43,58,.10);box-shadow:var(--shadow);overflow:hidden}
+    .mobilePanel .boxHead{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid rgba(31,43,58,.08);background:rgba(247,240,230,.70)}
+    .mobilePanel .links a{display:block;padding:14px 16px;border-bottom:1px solid rgba(31,43,58,.06);font-weight:800;color:rgba(31,43,58,.86)}
+    .mobilePanel .links a:last-child{border-bottom:none}
+    .mobilePanel .links a:hover{background:rgba(31,43,58,.04)}
+    .miniCta{padding:14px 16px;display:flex;gap:10px;flex-wrap:wrap}
 
     /* Responsive */
     @media (max-width: 960px){
-      .nav{ display:none; }
-      .burger{ display:inline-flex; }
-      .heroContent{ padding: 42px 22px 28px; }
-      .heroCard{ min-height: 520px; }
-      .storyGrid{ grid-template-columns: 1fr; }
-      .sectionHead{ flex-direction:column; align-items:flex-start; }
-      .flatGrid{ grid-template-columns: 1fr; }
-      .valuesGrid{ grid-template-columns: 1fr; }
-      .footGrid{ grid-template-columns: 1fr 1fr; }
+      .nav{display:none}
+      .burger{display:inline-flex}
+      .heroContent{padding:42px 22px 28px}
+      .storyGrid{grid-template-columns:1fr}
+      .sectionHead{flex-direction:column;align-items:flex-start}
+      .flatGrid{grid-template-columns:1fr}
+      .valuesGrid{grid-template-columns:1fr}
+      .footGrid{grid-template-columns:1fr 1fr}
     }
     @media (max-width: 560px){
-      .wrap{ width: calc(100% - 28px); }
-      .topbar-inner{ padding: 12px 0; }
-      .sectionHead .h2{ font-size: 36px; }
-      .storyBox .h2{ font-size: 36px; }
-      .heroTitle{ font-size: 40px; }
-      .footGrid{ grid-template-columns: 1fr; }
-      .floatText{ display:none; }
+      .wrap{width:calc(100% - 28px)}
+      .h2{font-size:36px}
+      .storyBox .h2{font-size:36px}
+      .floatText{display:none}
+      .footGrid{grid-template-columns:1fr}
     }
-
-    /* Burger + mobile menu */
-    .burger{
-      border:1px solid rgba(15, 23, 42, 0.12);
-      background: rgba(255,255,255,.85);
-      border-radius: 14px;
-      padding: 10px 12px;
-      font-weight:900;
-      cursor:pointer;
-      backdrop-filter: blur(10px);
-    }
-    .mobilePanel{
-      display:none;
-      position: fixed;
-      inset: 0;
-      background: rgba(2, 6, 23, .55);
-      z-index: 110;
-      padding: 18px;
-      align-items:flex-start;
-      justify-content:center;
-    }
-    .mobilePanel .box{
-      width: min(520px, 100%);
-      background: var(--paper);
-      border-radius: 22px;
-      border:1px solid rgba(15,23,42,.10);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-    }
-    .mobilePanel .boxHead{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding: 14px 16px;
-      border-bottom: 1px solid rgba(15,23,42,.08);
-      background: rgba(251,247,241,.65);
-    }
-    .mobilePanel .links a{
-      display:block;
-      padding: 14px 16px;
-      border-bottom: 1px solid rgba(15,23,42,.06);
-      font-weight:700;
-      color: rgba(15,23,42,.84);
-    }
-    .mobilePanel .links a:last-child{ border-bottom:none; }
-    .mobilePanel .links a:hover{ background: rgba(15,23,42,.04); }
-    .miniCta{ padding: 14px 16px; display:flex; gap:10px; flex-wrap:wrap; }
   </style>
 </head>
 
@@ -587,8 +238,9 @@
   <header class="topbar">
     <div class="wrap topbar-inner">
       <a class="brand" href="#home" aria-label="Ubaflats">
-        <span class="logoMark" aria-hidden="true"></span>
-        <span style="font-size:22px;">Ubaflats</span>
+        <!-- ✅ Coloque sua logo no repositório em: assets/logo.png -->
+        <img src="assets/logo.png" alt="Logo Ubaflats" />
+        <span class="name">Ubaflats</span>
       </a>
 
       <nav class="nav" aria-label="Navegação">
@@ -600,7 +252,7 @@
         <a href="#dicas">Dicas</a>
       </nav>
 
-      <div class="nav-cta">
+      <div style="display:flex;gap:10px;align-items:center">
         <button class="burger" id="openMenu" aria-label="Abrir menu">☰</button>
         <a class="btn btn-primary" href="https://wa.me/5512982034767" target="_blank" rel="noopener">Reserve Agora</a>
       </div>
@@ -612,7 +264,7 @@
     <div class="box">
       <div class="boxHead">
         <div class="brand" style="gap:10px;">
-          <span class="logoMark" aria-hidden="true"></span>
+          <img src="assets/logo.png" alt="Logo Ubaflats" />
           <strong style="font-family:'Playfair Display',serif;font-size:20px;">Ubaflats</strong>
         </div>
         <button class="iconBtn" id="closeMenu" aria-label="Fechar menu">✕</button>
@@ -638,13 +290,10 @@
       <div class="heroCard">
         <div class="heroBg" aria-hidden="true"></div>
         <div class="heroContent">
-          <span class="pill">🌊 Seu refúgio em Ubatuba</span>
-          <h1 class="h1 heroTitle">
-            Seu refúgio de paz<br>
-            <span style="font-family:Inter, sans-serif; font-weight:800;">a 10 min da praia</span>
-          </h1>
+          <span class="pill">🌺 Praia da Lagoinha • Ubatuba/SP</span>
+          <h1 class="heroTitle">Seu refúgio de paz<br><span style="font-family:Inter, sans-serif;font-weight:900;">a 10 min do mar</span></h1>
           <p class="heroSub">
-            Ubaflats na Lagoinha • Kitnet para até <strong>4 pessoas</strong> •
+            Kitnet para até <strong>4 pessoas</strong> (1 cama de casal + sofá-cama que vira 2) •
             <strong>ar-condicionado</strong> em todas as unidades • <strong>garagem</strong> e <strong>quintal</strong>.
           </p>
           <div class="heroBtns">
@@ -661,11 +310,11 @@
     <div class="wrap">
       <div class="storyGrid">
         <div class="photoCard">
-          <!-- Troque por sua foto (ex: fotos/nos.jpg) -->
+          <!-- Troque depois por sua foto (ex: assets/nos.jpg) -->
           <img alt="Neto e Daniela" src="https://images.unsplash.com/photo-1520975693411-b20f8e2f4b95?q=80&w=1200&auto=format&fit=crop">
         </div>
         <div class="storyBox">
-          <span class="pill">💗 Feito com amor</span>
+          <span class="pill" style="background:rgba(215,119,26,.14);border-color:rgba(215,119,26,.25)">💛 Feito com amor</span>
           <h2 class="h2">Feito por nós, para você</h2>
           <p class="p" style="margin-top:10px;">
             Olá! Somos o <strong>Neto</strong> e a <strong>Daniela</strong>. Para nós, receber pessoas não é apenas um negócio, é um prazer.
@@ -692,10 +341,10 @@
         <a class="btn btn-primary" href="https://wa.me/5512982034767" target="_blank" rel="noopener">Reservar</a>
       </div>
 
+      <!-- ✅ Substitui com as 3 últimas fotos (como você pediu) -->
       <div class="flatGrid">
-        <!-- Card 1 -->
         <article class="flatCard">
-          <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=1600&auto=format&fit=crop');"></div>
+          <div class="bg" style="background-image:url('assets/flat-1.jpg');"></div>
           <div class="shade" aria-hidden="true"></div>
           <div class="tag">👤 4 pessoas</div>
           <div class="badge">Mais Procurado</div>
@@ -705,25 +354,23 @@
           </div>
         </article>
 
-        <!-- Card 2 -->
         <article class="flatCard">
-          <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1505693314120-0d443867891c?q=80&w=1600&auto=format&fit=crop');"></div>
+          <div class="bg" style="background-image:url('assets/flat-2.jpg');"></div>
           <div class="shade" aria-hidden="true"></div>
           <div class="tag">❄️ Ar em todas</div>
           <div class="info">
-            <h3 class="title">Conforto & Praticidade</h3>
+            <h3 class="title">Conforto &amp; Praticidade</h3>
             <p class="meta">Ambiente aconchegante e funcional para descansar depois de curtir a praia.</p>
           </div>
         </article>
 
-        <!-- Card 3 -->
         <article class="flatCard">
-          <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21?q=80&w=1600&auto=format&fit=crop');"></div>
+          <div class="bg" style="background-image:url('assets/flat-3.jpg');"></div>
           <div class="shade" aria-hidden="true"></div>
           <div class="tag">🏖️ Lagoinha</div>
           <div class="info">
             <h3 class="title">Pertinho do Mar</h3>
-            <p class="meta">Aproximadamente 10 minutos a pé até a Praia da Lagoinha.</p>
+            <p class="meta">Caminhada agradável até a Praia da Lagoinha (aprox. 10–15 min).</p>
           </div>
         </article>
       </div>
@@ -763,12 +410,12 @@
           <div class="tileArrow">↗</div>
         </div>
 
-        <div class="tile tile-pink" data-modal="modalLocal" role="button" tabindex="0">
+        <div class="tile tile-orange" data-modal="modalLocal" role="button" tabindex="0">
           <div class="tileLeft">
             <div class="tileIcon">📍</div>
             <div>
               <div class="tileTitle">Guia Local</div>
-              <div class="tileSub">O melhor da região por quem conhece</div>
+              <div class="tileSub">Restaurantes, mercados e farmácias (adicione seus pontos)</div>
             </div>
           </div>
           <div class="tileArrow">↗</div>
@@ -782,7 +429,7 @@
     <div class="wrap">
       <div class="sectionHead">
         <div>
-          <span class="pill">Nosso jeito de ser</span>
+          <span class="pill" style="background:rgba(47,111,106,.16);border-color:rgba(47,111,106,.28)">Nosso jeito de ser</span>
           <h2 class="h2" style="margin-top:10px;">Simplicidade com o pé na areia</h2>
         </div>
         <p class="p">Criamos um espaço para você se sentir em casa, com atenção aos detalhes e carinho no atendimento.</p>
@@ -808,15 +455,15 @@
     </div>
   </section>
 
-  <!-- Regras (âncora) -->
+  <!-- CTA -->
   <section id="regras">
     <div class="wrap">
       <div class="ctaCard">
         <div class="ctaImg" aria-hidden="true"></div>
         <div class="ctaBody">
-          <h3 class="ctaTitle">Sua próxima memória feliz <span style="color:var(--navy); font-style:italic; font-family:'Playfair Display',serif;">começa aqui</span></h3>
+          <h3 class="ctaTitle">Sua próxima memória feliz <span style="color:var(--teal);font-style:italic;font-family:'Playfair Display',serif;">começa aqui</span></h3>
           <a class="btn btn-primary" href="https://wa.me/5512982034767" target="_blank" rel="noopener">Reserve pelo WhatsApp</a>
-          <p class="p" style="margin-top:14px;">E, para uma estadia perfeita, veja as regras no botão “Regras &amp; Dicas”.</p>
+          <p class="p" style="margin-top:14px;">Veja as regras e dicas no botão “Regras &amp; Dicas”.</p>
         </div>
       </div>
     </div>
@@ -828,7 +475,7 @@
       <div class="footGrid">
         <div>
           <div class="brand" style="color:white;">
-            <span class="logoMark" aria-hidden="true"></span>
+            <img src="assets/logo.png" alt="Logo Ubaflats" />
             <span class="footBrand">Ubaflats<span style="opacity:.9;">.</span></span>
           </div>
           <p class="footSmall">Onde o mar encontra o aconchego.</p>
@@ -863,7 +510,7 @@
     </div>
   </footer>
 
-  <!-- Floating button -->
+  <!-- Floating WhatsApp -->
   <a class="floatChat" href="https://wa.me/5512982034767" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
     <span class="floatDot" aria-hidden="true"></span>
     <span class="floatText">Talk with Us</span>
@@ -877,16 +524,14 @@
         <button class="iconBtn" data-close>✕</button>
       </div>
       <div class="modalBody">
-        <p class="p">
-          Informações rápidas para facilitar sua chegada e sua estadia no Ubaflats.
-        </p>
+        <p class="p">Informações rápidas para facilitar sua chegada e sua estadia no Ubaflats.</p>
         <ul class="list">
           <li><span class="check">✓</span><div><strong>Check-in:</strong> a partir das <strong>15h</strong>.</div></li>
           <li><span class="check">✓</span><div><strong>Check-out:</strong> até as <strong>11h</strong>.</div></li>
-          <li><span class="check">✓</span><div><strong>Wi-Fi:</strong> Nome <strong>ubaflatslagoinha</strong> • Senha <strong>avidaficamelhornapraia</strong></div></li>
-          <li><span class="check">✓</span><div><strong>Localização:</strong> Rua Goiás 291 • Lagoinha, Ubatuba - SP</div></li>
-          <li><span class="check">✓</span><div><strong>Sobre:</strong> Kitnet para 4 pessoas (1 cama de casal + sofá-cama que vira 2).</div></li>
-          <li><span class="check">✓</span><div><strong>Diferenciais:</strong> garagem • quintal • ar-condicionado em todas as unidades • 10 min a pé da praia.</div></li>
+          <li><span class="check">✓</span><div><strong>Wi‑Fi:</strong> Nome <strong>ubaflatslagoinha</strong> • Senha <strong>avidaficamelhornapraia</strong></div></li>
+          <li><span class="check">✓</span><div><strong>Endereço:</strong> Rua Goiás 291 • Lagoinha, Ubatuba - SP</div></li>
+          <li><span class="check">✓</span><div><strong>Acomodação:</strong> até 4 pessoas (1 cama de casal + sofá-cama que vira 2).</div></li>
+          <li><span class="check">✓</span><div><strong>Diferenciais:</strong> garagem • quintal • ar-condicionado em todas as kitnets • 10–15 min a pé da praia.</div></li>
         </ul>
       </div>
     </div>
@@ -900,10 +545,9 @@
       </div>
       <div class="modalBody">
         <p class="p">Para manter um ambiente agradável para todos, pedimos atenção às regras abaixo:</p>
-
         <ul class="list">
           <li><span class="check">✓</span><div>Mantenha o silêncio após <strong>22h</strong> para respeitar o descanso dos demais hóspedes.</div></li>
-          <li><span class="check">✓</span><div>Desligue <strong>luzes</strong>, <strong>ar-condicionado</strong> e aparelhos eletrônicos ao sair do flat.</div></li>
+          <li><span class="check">✓</span><div>Desligue <strong>luzes</strong>, <strong>ar‑condicionado</strong> e aparelhos eletrônicos ao sair do flat.</div></li>
           <li><span class="check">✓</span><div>Preserve móveis, colchões, utensílios e estrutura do espaço.</div></li>
           <li><span class="check">✓</span><div>Feche portas e janelas ao deixar o ambiente.</div></li>
           <li><span class="check">✓</span><div>Realize o descarte do lixo em local apropriado.</div></li>
@@ -914,7 +558,6 @@
           <li><span class="check">✓</span><div>Não mova móveis pesados sem necessidade.</div></li>
           <li><span class="check">✓</span><div>Em caso de problemas ou necessidade, fale conosco pelo WhatsApp.</div></li>
         </ul>
-
         <div style="margin-top:16px;">
           <a class="btn btn-primary" href="https://wa.me/5512982034767" target="_blank" rel="noopener">Falar no WhatsApp</a>
         </div>
@@ -929,29 +572,22 @@
         <button class="iconBtn" data-close>✕</button>
       </div>
       <div class="modalBody">
-        <p class="p">
-          Queremos deixar aqui um espaço “pronto” para você adicionar seus pontos favoritos (restaurantes, farmácias e mercados).
-          Se você me mandar os nomes depois, eu coloco tudo bonitinho.
-        </p>
-
+        <p class="p">Me mande depois os nomes (restaurantes, farmácias e mercados) que eu deixo isso aqui completo e bem bonito.</p>
         <ul class="list">
-          <li><span class="check">✓</span><div><strong>Praias:</strong> Lagoinha (pertinho) • outras sugestões (adicione aqui)</div></li>
-          <li><span class="check">✓</span><div><strong>Restaurantes:</strong> (adicione seus favoritos)</div></li>
-          <li><span class="check">✓</span><div><strong>Mercados:</strong> (adicione opções próximas)</div></li>
-          <li><span class="check">✓</span><div><strong>Farmácias:</strong> (adicione opções próximas)</div></li>
-          <li><span class="check">✓</span><div><strong>Passeios:</strong> trilhas, mirantes, passeios de barco (adicione aqui)</div></li>
+          <li><span class="check">✓</span><div><strong>Restaurantes:</strong> (adicione)</div></li>
+          <li><span class="check">✓</span><div><strong>Mercados:</strong> (adicione)</div></li>
+          <li><span class="check">✓</span><div><strong>Farmácias:</strong> (adicione)</div></li>
+          <li><span class="check">✓</span><div><strong>Passeios:</strong> trilhas, mirantes, passeios de barco (adicione)</div></li>
         </ul>
-
         <div style="margin-top:18px;">
           <p class="p"><strong>Endereço:</strong> Rua Goiás 291 • Lagoinha, Ubatuba - SP</p>
-          <div style="margin-top:10px; border-radius:20px; overflow:hidden; border:1px solid rgba(15,23,42,.10); box-shadow: var(--shadow2);">
+          <div style="margin-top:10px;border-radius:20px;overflow:hidden;border:1px solid rgba(31,43,58,.10);box-shadow:var(--shadow2);">
             <iframe
               title="Mapa Ubaflats"
-              src="https://www.google.com/maps?q=Rua+Goias+291+Ubatuba&output=embed"
-              style="width:100%; height:300px; border:0;"
+              src="https://www.google.com/maps?q=Rua+Goi%C3%A1s+291+Ubatuba&output=embed"
+              style="width:100%;height:300px;border:0;"
               loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
       </div>
@@ -1015,12 +651,9 @@
       modal.querySelectorAll('[data-close]').forEach(btn=> btn.addEventListener('click', ()=> closeModal(modal)));
     });
 
-    // ESC closes modals
     window.addEventListener('keydown', (e)=>{
       if(e.key !== 'Escape') return;
-      document.querySelectorAll('.modal').forEach(m=>{
-        if(m.style.display === 'flex') closeModal(m);
-      });
+      document.querySelectorAll('.modal').forEach(m=>{ if(m.style.display === 'flex') closeModal(m); });
       if(mobilePanel.style.display === 'flex') hideMenu();
     });
   </script>
