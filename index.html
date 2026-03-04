@@ -87,32 +87,19 @@
       background:#0b1d24;
     }
     .heroBg{
-      position:absolute;inset:0;
-      background:
-        linear-gradient(90deg, rgba(14,42,63,.65), rgba(14,42,63,.25)),
-        url("assets/hero.jpg");
-      background-size:cover;
-      background-position:center;
-      transform:scale(1.02);
-      filter:saturate(1.05);
-    }
-    .heroContent{position:relative;padding:56px 54px 48px;color:white;max-width:780px}
-    .pill{
-      display:inline-flex;align-items:center;gap:10px;
-      padding:10px 14px;border-radius:999px;
-      background:rgba(151,201,191,.18);
-      border:1px solid rgba(151,201,191,.30);
-      color:rgba(255,255,255,.92);
-      font-size:12px;font-weight:800
-    }
-    .heroTitle{
-      font-family:"Playfair Display",serif;
-      font-weight:700;
-      letter-spacing:-.02em;
-      font-size:clamp(34px,4.4vw,64px);
-      line-height:1.05;
-      margin:14px 0 10px;
-    }
+  position:absolute; inset:0;
+  background-size:cover;
+  background-position:center;
+  transform:scale(1.02);
+  filter:saturate(1.05);
+  transition: opacity .8s ease;
+}
+
+/* Camada A começa visível */
+.heroBgA{ opacity:1; }
+/* Camada B começa escondida */
+.heroBgB{ opacity:0; }
+}
     .heroSub{margin:0 0 26px;max-width:580px;line-height:1.8;color:rgba(255,255,255,.85)}
     .heroBtns{display:flex;gap:12px;flex-wrap:wrap}
 
@@ -674,9 +661,51 @@
       document.querySelectorAll('.modal').forEach(m=>{ if(m.style.display === 'flex') closeModal(m); });
       if(mobilePanel.style.display === 'flex') hideMenu();
     });
+    // HERO SLIDESHOW (3 fotos, troca a cada 2s)
+(function heroSlideshow3(){
+  const a = document.querySelector('.heroBgA');
+  const b = document.querySelector('.heroBgB');
+  if(!a || !b) return;
+
+  // ✅ Coloque aqui suas 3 imagens (tem que existir em /assets)
+  const imgs = [
+    "assets/hero.jpg",
+    "assets/hero1.jpg",
+    "assets/hero2.jpg"
+  ];
+
+  const gradient = "linear-gradient(90deg, rgba(14,42,63,.65), rgba(14,42,63,.25))";
+
+  let i = 0;
+  let showA = true;
+
+  // inicial
+  a.style.backgroundImage = `${gradient}, url("${imgs[0]}")`;
+  b.style.backgroundImage = `${gradient}, url("${imgs[1]}")`;
+
+  setInterval(() => {
+    const next = imgs[(i + 1) % imgs.length];
+
+    if (showA) {
+      // prepara B com a próxima imagem e faz fade pra B
+      b.style.backgroundImage = `${gradient}, url("${next}")`;
+      b.style.opacity = "1";
+      a.style.opacity = "0";
+    } else {
+      // prepara A com a próxima imagem e faz fade pra A
+      a.style.backgroundImage = `${gradient}, url("${next}")`;
+      a.style.opacity = "1";
+      b.style.opacity = "0";
+    }
+
+    showA = !showA;
+    i = (i + 1) % imgs.length;
+  }, 2000);
+})();
   </script>
 </body>
 </html>
+
 
 
 
