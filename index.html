@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ubaflats • Praia da Lagoinha</title>
-  <meta name="description" content="Ubaflats na Praia da Lagoinha (Ubatuba/SP). Ambiente aconchegante e funcional para descansar depois de curtir a praia." />
+  <meta name="description" content="Ubaflats na Praia da Lagoinha (Ubatuba/SP). Kitnet para até 4 pessoas com garagem, quintal e ar-condicionado." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -67,7 +67,7 @@
     .btn:active{transform:translateY(1px) scale(.99)}
     .btn-primary{background:var(--orange);color:white;box-shadow:0 14px 40px rgba(215,119,26,.25)}
     .btn-primary:hover{background:#e18224;box-shadow:0 18px 55px rgba(215,119,26,.30)}
-    .btn-ghost{background:rgba(255,255,255,.75);border-color:rgba(31,43,58,.14)}
+    .btn-ghost{background:rgba(255,255,255,.75);border:1px solid rgba(31,43,58,.14)}
     .btn-ghost:hover{border-color:rgba(31,43,58,.22);box-shadow:var(--shadow2);transform:translateY(-1px)}
 
     .burger{display:none;border:1px solid rgba(31,43,58,.14);background:rgba(255,255,255,.7);border-radius:14px;padding:10px 12px;font-weight:900;cursor:pointer}
@@ -85,7 +85,6 @@
     }
     .heroBg{
       position:absolute;inset:0;
-      /* Troque o arquivo abaixo se quiser usar sua foto no repositório */
       background:
         linear-gradient(90deg, rgba(14,42,63,.65), rgba(14,42,63,.25)),
         url("assets/hero.jpg");
@@ -122,8 +121,8 @@
 
     /* Story */
     .storyGrid{display:grid;grid-template-columns:1.1fr 1fr;gap:34px;align-items:center}
-    .photoCard{border-radius:var(--r2);overflow:hidden;box-shadow:var(--shadow2);border:1px solid rgba(31,43,58,.06);background:var(--white)height:100%;}
-    .photoCard img{width:100%;height:100%;object-fit:cover;}
+    .photoCard{border-radius:var(--r2);overflow:hidden;box-shadow:var(--shadow2);border:1px solid rgba(31,43,58,.06);background:var(--white);height:100%}
+    .photoCard img{width:100%;height:100%;object-fit:cover}
     .storyBox{background:var(--white);border-radius:var(--r2);border:1px solid rgba(31,43,58,.06);box-shadow:var(--shadow2);padding:34px}
     .storyBox .h2{font-size:44px;margin:12px 0 10px}
     .signature{font-family:"Playfair Display",serif;color:var(--orange);font-size:22px;margin-top:16px}
@@ -138,6 +137,11 @@
     .info{position:absolute;left:16px;right:16px;bottom:16px;color:white}
     .title{font-family:"Playfair Display",serif;font-size:28px;margin:0 0 6px;letter-spacing:-.01em}
     .meta{margin:0;color:rgba(255,255,255,.86);font-size:13px;line-height:1.6}
+
+    /* Make cards clickable */
+    .flatLink{ display:block; }
+    .flatLink:focus-visible{ outline: 3px solid rgba(215,119,26,.45); outline-offset: 6px; border-radius: var(--r2); }
+    .flatLink .flatCard{ cursor:pointer; }
 
     /* Guide tiles */
     .tiles{display:grid;gap:16px;max-width:780px;margin:0 auto}
@@ -162,7 +166,14 @@
 
     /* CTA */
     .ctaCard{background:var(--white);border-radius:34px;border:1px solid rgba(31,43,58,.06);box-shadow:var(--shadow);overflow:hidden}
-    .ctaImg{height:260px;background:linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.35)), url("assets/praia.jpg");background-size:cover; background-position:center}
+    .ctaImg{
+      height:260px;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.35)),
+        url("assets/praia.jpg");
+      background-size:cover;
+      background-position:center
+    }
     .ctaBody{padding:34px 28px 30px;text-align:center}
     .ctaTitle{font-family:"Playfair Display",serif;font-size:clamp(26px,3vw,40px);margin:0 0 18px;letter-spacing:-.02em}
 
@@ -238,7 +249,6 @@
   <header class="topbar">
     <div class="wrap topbar-inner">
       <a class="brand" href="#home" aria-label="Ubaflats">
-        <!-- ✅ Coloque sua logo no repositório em: assets/logo.png -->
         <img src="assets/logo.png" alt="Logo Ubaflats" />
         <span class="name">Ubaflats</span>
       </a>
@@ -293,7 +303,8 @@
           <span class="pill">🌺 Praia da Lagoinha • Ubatuba/SP</span>
           <h1 class="heroTitle">Seu refúgio de paz<br><span style="font-family:Inter, sans-serif;font-weight:900;">a 10 min do mar</span></h1>
           <p class="heroSub">
-            Ambiente </strong> aconchegante </strong> e </strong> funcional </strong> para descansar depois de curtir a praia.
+            Kitnet para até <strong>4 pessoas</strong> (1 cama de casal + sofá-cama que vira 2) •
+            <strong>ar-condicionado</strong> em todas as unidades • <strong>garagem</strong> e <strong>quintal</strong>.
           </p>
           <div class="heroBtns">
             <a class="btn btn-ghost" href="#flats">Conheça os Flats</a>
@@ -309,8 +320,7 @@
     <div class="wrap">
       <div class="storyGrid">
         <div class="photoCard">
-          <!-- Troque depois por sua foto (ex: assets/nos.jpg) -->
-          <img alt="Neto e Daniela" src="assets/nos1.jpg">
+          <img alt="Neto e Daniela" src="assets/nos.jpg">
         </div>
         <div class="storyBox">
           <span class="pill" style="background:rgba(215,119,26,.14);border-color:rgba(215,119,26,.25)">💛 Feito com amor</span>
@@ -340,38 +350,48 @@
         <a class="btn btn-primary" href="https://wa.me/5512982034767" target="_blank" rel="noopener">Reservar</a>
       </div>
 
-      <!-- ✅ Substitui com as 3 últimas fotos (como você pediu) -->
       <div class="flatGrid">
-        <article class="flatCard">
-          <div class="bg" style="background-image:url('assets/flat-1.jpg');"></div>
-          <div class="shade" aria-hidden="true"></div>
-          <div class="tag">👤 4 pessoas</div>
-          <div class="badge">Mais Procurado</div>
-          <div class="info">
-            <h3 class="title">Flat Peixe</h3>
-            <p class="meta">1 cama de casal + sofá-cama (vira 2) • Ar-condicionado • Garagem • Quintal</p>
-          </div>
-        </article>
 
-        <article class="flatCard">
-          <div class="bg" style="background-image:url('assets/flat-2.jpg');"></div>
-          <div class="shade" aria-hidden="true"></div>
-          <div class="tag">❄️ Ar em todas</div>
-          <div class="info">
-            <h3 class="title">Flat Estrela</h3>
-            <p class="meta">1 cama de casal + sofá-cama (vira 2) • Ar-condicionado • Garagem • Quintal</p>
-          </div>
-        </article>
+        <!-- Card 1 - Airbnb (Peixe) -->
+        <a class="flatLink" href="https://www.airbnb.com.br/rooms/1616056749655491744?_set_bev_on_new_domain=1770500680_EAZTM2YWNkOGFjYz&set_everest_cookie_on_new_domain=1770500680.EAOGZkYzhkNGQ3YjMxND.6IKnNWgOt6ndJOu4sSM5mudu7hRBoDctYHRyiPI0f6Q&source_impression_id=p3_1772643322_P30QwWMe7guo2WNa" target="_blank" rel="noopener">
+          <article class="flatCard">
+            <div class="bg" style="background-image:url('assets/flat-1.jpg');"></div>
+            <div class="shade" aria-hidden="true"></div>
+            <div class="tag">👤 4 pessoas</div>
+            <div class="badge">Mais Procurado</div>
+            <div class="info">
+              <h3 class="title">Flat Peixe</h3>
+              <p class="meta">1 cama de casal + sofá-cama (vira 2) • Ar-condicionado • Garagem • Quintal</p>
+            </div>
+          </article>
+        </a>
 
-        <article class="flatCard">
-          <div class="bg" style="background-image:url('assets/flat-3.jpg');"></div>
-          <div class="shade" aria-hidden="true"></div>
-          <div class="tag">🏖️ Lagoinha</div>
-          <div class="info">
-            <h3 class="title">Pertinho do Mar</h3>
-            <p class="meta">Caminhada agradável até a Praia da Lagoinha (aprox. 10–15 min).</p>
-          </div>
-        </article>
+        <!-- Card 2 - Airbnb (Estrela) -->
+        <a class="flatLink" href="https://www.airbnb.com.br/rooms/1620930999122422119?_set_bev_on_new_domain=1770500680_EAZTM2YWNkOGFjYz&set_everest_cookie_on_new_domain=1770500680.EAOGZkYzhkNGQ3YjMxND.6IKnNWgOt6ndJOu4sSM5mudu7hRBoDctYHRyiPI0f6Q&source_impression_id=p3_1772583002_P3Q3iYEZCS41n_aq" target="_blank" rel="noopener">
+          <article class="flatCard">
+            <div class="bg" style="background-image:url('assets/flat-2.jpg');"></div>
+            <div class="shade" aria-hidden="true"></div>
+            <div class="tag">❄️ Ar em todas</div>
+            <div class="info">
+              <h3 class="title">Flat Estrela</h3>
+              <p class="meta">1 cama de casal + sofá-cama (vira 2) • Ar-condicionado • Garagem • Quintal</p>
+            </div>
+          </article>
+        </a>
+
+        <!-- Card 3 - Google Maps (Localização) -->
+        <a class="flatLink" href="https://www.google.com/maps?q=Rua+Goi%C3%A1s+291+Ubatuba" target="_blank" rel="noopener">
+          <article class="flatCard">
+            <div class="bg" style="background-image:url('assets/flat-3.jpg');"></div>
+            <div class="shade" aria-hidden="true"></div>
+            <div class="tag">🏖️ Lagoinha</div>
+            <div class="info">
+              <h3 class="title">Pertinho do Mar</h3>
+              <p class="meta">Abrir localização no Google Maps</p>
+            </div>
+          </article>
+        </a>
+
       </div>
     </div>
   </section>
@@ -498,7 +518,7 @@
           <h4>Fale Conosco</h4>
           <a class="btn btn-primary" style="display:inline-flex" href="https://wa.me/5512982034767" target="_blank" rel="noopener">WhatsApp • (12) 98203-4767</a>
           <div style="height:10px"></div>
-          <div class="footSmall">📍 Rua Goiás 291, bairro lagoinha, Ubatuba. - SP</div>
+          <div class="footSmall">📍 Rua Goiás 291 • Lagoinha, Ubatuba - SP</div>
         </div>
       </div>
 
@@ -527,7 +547,7 @@
         <ul class="list">
           <li><span class="check">✓</span><div><strong>Check-in:</strong> a partir das <strong>15h</strong>.</div></li>
           <li><span class="check">✓</span><div><strong>Check-out:</strong> até as <strong>11h</strong>.</div></li>
-          <li><span class="check">✓</span><div><strong>Wi‑Fi:</strong> Nome <strong>ubaflatslagoinha</strong> • Senha <strong>avidaficamelhornapraia</strong></div></li>
+          <li><span class="check">✓</span><div><strong>Wi-Fi:</strong> Nome <strong>ubaflatslagoinha</strong> • Senha <strong>avidaficamelhornapraia</strong></div></li>
           <li><span class="check">✓</span><div><strong>Endereço:</strong> Rua Goiás 291 • Lagoinha, Ubatuba - SP</div></li>
           <li><span class="check">✓</span><div><strong>Acomodação:</strong> até 4 pessoas (1 cama de casal + sofá-cama que vira 2).</div></li>
           <li><span class="check">✓</span><div><strong>Diferenciais:</strong> garagem • quintal • ar-condicionado em todas as kitnets • 10–15 min a pé da praia.</div></li>
@@ -546,7 +566,7 @@
         <p class="p">Para manter um ambiente agradável para todos, pedimos atenção às regras abaixo:</p>
         <ul class="list">
           <li><span class="check">✓</span><div>Mantenha o silêncio após <strong>22h</strong> para respeitar o descanso dos demais hóspedes.</div></li>
-          <li><span class="check">✓</span><div>Desligue <strong>luzes</strong>, <strong>ar‑condicionado</strong> e aparelhos eletrônicos ao sair do flat.</div></li>
+          <li><span class="check">✓</span><div>Desligue <strong>luzes</strong>, <strong>ar-condicionado</strong> e aparelhos eletrônicos ao sair do flat.</div></li>
           <li><span class="check">✓</span><div>Preserve móveis, colchões, utensílios e estrutura do espaço.</div></li>
           <li><span class="check">✓</span><div>Feche portas e janelas ao deixar o ambiente.</div></li>
           <li><span class="check">✓</span><div>Realize o descarte do lixo em local apropriado.</div></li>
@@ -579,14 +599,10 @@
           <li><span class="check">✓</span><div><strong>Passeios:</strong> trilhas, mirantes, passeios de barco (adicione)</div></li>
         </ul>
         <div style="margin-top:18px;">
-          <p class="p"><strong>Endereço:</strong> Rua Goiás, bairro lagoinha, Ubatuba. - SP</p>
-          <div style="margin-top:10px;border-radius:20px;overflow:hidden;border:1px solid rgba(31,43,58,.10);box-shadow:var(--shadow2);">
-            <iframe
-              title="Mapa Ubaflats"
-              src="https://www.google.com/maps/@-23.5122667,-45.199807,3a,87.7y,99.11h,62.3t/data=!3m7!1e1!3m5!1sQug8qpfzYGAMLF6uEpC0yg!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D27.70088644537772%26panoid%3DQug8qpfzYGAMLF6uEpC0yg%26yaw%3D99.10506497982155!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI2MDMwMS4xIKXMDSoASAFQAw%3D%3D"
-              style="width:100%;height:300px;border:0;"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <p class="p"><strong>Endereço:</strong> Rua Goiás 291 • Lagoinha, Ubatuba - SP</p>
+          <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;">
+            <a class="btn btn-primary" href="https://www.google.com/maps?q=Rua+Goi%C3%A1s+291+Ubatuba" target="_blank" rel="noopener">Abrir no Google Maps</a>
+            <a class="btn btn-ghost" href="https://www.google.com/maps/dir/?api=1&destination=Rua+Goi%C3%A1s+291,+Ubatuba" target="_blank" rel="noopener">Traçar rota</a>
           </div>
         </div>
       </div>
@@ -658,11 +674,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
