@@ -6,7 +6,6 @@
   <title>Ubaflats • Praia da Lagoinha</title>
   <meta name="description" content="Ubaflats na Praia da Lagoinha (Ubatuba/SP). Flats para até 4 pessoas com garagem, quintal e ar-condicionado." />
 
-  <!-- Favicon simples -->
   <link rel="icon" type="image/png" href="assets/logo.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -558,21 +557,21 @@
 
         <div class="footCol">
           <h4 id="footExploreTitle">Explore</h4>
-          <a href="#flats" id="footExploreFlats">Flats</a>
-          <a href="#historia" id="footExploreStory">Nossa História</a>
-          <a href="#home" id="footExploreHome">Home</a>
+          <a href="#flats">Flats</a>
+          <a href="#historia">Nossa História</a>
+          <a href="#home">Home</a>
         </div>
 
         <div class="footCol">
           <h4 id="footInfoTitle">Informações</h4>
-          <a href="#guia" id="footInfoGuide">Guia da Casa</a>
-          <a href="#regras" id="footInfoRules">Regras</a>
-          <a href="#contato" id="footInfoContact">Contato</a>
+          <a href="#guia">Guia da Casa</a>
+          <a href="#regras">Regras</a>
+          <a href="#contato">Contato</a>
         </div>
 
         <div class="footCol">
           <h4 id="footTalkTitle">Fale Conosco</h4>
-          <a class="btn btn-primary" style="display:inline-flex" href="https://wa.me/5512982034767" target="_blank" rel="noopener" id="footWhats">WhatsApp • (12) 98203-4767</a>
+          <a class="btn btn-primary" style="display:inline-flex" href="https://wa.me/5512982034767" target="_blank" rel="noopener">WhatsApp • (12) 98203-4767</a>
           <div style="height:10px"></div>
           <div class="footSmall" id="footAddress">📍 R. Goiás, 291 • Lagoinha, Ubatuba - SP</div>
         </div>
@@ -689,7 +688,7 @@
     });
 
     // -------------------------
-    // HERO SLIDESHOW (hero, hero1, hero2)
+    // HERO SLIDESHOW (assets/hero.jpg, hero1.jpg, hero2.jpg)
     // -------------------------
     (function heroSlideshow3(){
       const a = document.querySelector('.heroBgA');
@@ -722,13 +721,21 @@
     })();
 
     // -------------------------
-    // i18n PT / EN / ES (TUDO)
+    // i18n PT / EN / ES (inclui Guia Local com os lugares)
     // -------------------------
     (function i18nAll(){
       const $ = (id) => document.getElementById(id);
 
       const mapsPlace = "https://www.google.com/maps/place/R.+Goi%C3%A1s,+291+-+Lagoinha,+Ubatuba+-+SP,+11682-510/@-23.5120635,-45.1991296,3a,75y,338.61h,90t/data=!3m4!1e1!3m2!1sRqDOqpeNqJ4GTA0VS0orzg!2e0!4m2!3m1!1s0x94cd5bc762cb1be3:0xd8084e023fce0215?sa=X&ved=1t:3780&ictx=111";
       const mapsRoute = "https://www.google.com/maps/dir/-21.1779584,-47.8019584/R.+Goi%C3%A1s,+291+-+Lagoinha,+Ubatuba+-+SP,+11680-000/@-23.5121517,-45.1996065,20z/data=!4m9!4m8!1m1!4e1!1m5!1m1!1s0x94cd5bc762cb1be3:0xd8084e023fce0215!2m2!1d-45.1991407!2d-23.5120375?entry=ttu&g_ep=EgoyMDI2MDMwMS4xIKXMDSoASAFQAw%3D%3D";
+
+      // ✅ OS LOCAIS QUE JÁ TINHAM SIDO COLOCADOS
+      const localPlaces = {
+        restaurants: "Pastel do Cabelo • Av. Marginal, 1023 - Maranduba, Ubatuba - SP, 11680-000 | Restaurante Tropical Recanto dos Pássaros • R. dos Lírios, 394 - Lagoinha, Ubatuba - SP, 11682-462 | Restaurante Sabores de Minas • Av. Ten. Manoel Barbosa da Silva, 30 - Maranduba, Ubatuba - SP, 11680-000",
+        markets: "Mercado Garotão • Av. Marginal, 16 - Maranduba, Ubatuba - SP, 11681-212 | Padaria do Edmundo • Av. Marginal, 34 - Praia do Sape, Ubatuba - SP, 11680-000",
+        pharmacy: "Farma Conde • Avenida Marginal Direita, 1440 - Maranduba, Ubatuba - SP, 11680-000",
+        tours: "Trilha da Cachoeira Véu da Noiva • Av. do Engenho Velho, 1071 - Lagoinha, Ubatuba - SP, 11680-000"
+      };
 
       const t = {
         pt: {
@@ -803,14 +810,24 @@
               <li><span class="check">✓</span><div>Desligue <strong>luzes</strong> e <strong>ar-condicionado</strong> ao sair.</div></li>
               <li><span class="check">✓</span><div>Preserve móveis e utensílios.</div></li>
               <li><span class="check">✓</span><div>Não fumar em ambientes fechados.</div></li>
+              <li><span class="check">✓</span><div>Em caso de necessidade, chame no WhatsApp.</div></li>
             </ul>
           `,
           modalLocalTitle:"Guia Local",
           modalLocalBody:`
-            <p class="p">Clique para abrir no Maps:</p>
-            <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;">
-              <a class="btn btn-primary" href="${mapsPlace}" target="_blank" rel="noopener">Abrir no Google Maps</a>
-              <a class="btn btn-ghost" href="${mapsRoute}" target="_blank" rel="noopener">Traçar rota</a>
+            <p class="p">Sugestões próximas para facilitar sua estadia (e aproveitar mais a praia).</p>
+            <ul class="list">
+              <li><span class="check">✓</span><div><strong>Restaurantes:</strong> ${localPlaces.restaurants}</div></li>
+              <li><span class="check">✓</span><div><strong>Mercados/Padarias:</strong> ${localPlaces.markets}</div></li>
+              <li><span class="check">✓</span><div><strong>Farmácias:</strong> ${localPlaces.pharmacy}</div></li>
+              <li><span class="check">✓</span><div><strong>Passeios:</strong> ${localPlaces.tours}</div></li>
+            </ul>
+            <div style="margin-top:18px;">
+              <p class="p"><strong>Endereço:</strong> R. Goiás, 291 • Lagoinha, Ubatuba - SP</p>
+              <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;">
+                <a class="btn btn-primary" href="${mapsPlace}" target="_blank" rel="noopener">Abrir no Google Maps</a>
+                <a class="btn btn-ghost" href="${mapsRoute}" target="_blank" rel="noopener">Traçar rota</a>
+              </div>
             </div>
           `
         },
@@ -848,7 +865,7 @@
           tileRulesTitle:"Rules & Tips",
           tileRulesSub:"For a pleasant stay",
           tileLocalTitle:"Local Guide",
-          tileLocalSub:"Food, markets & pharmacies",
+          tileLocalSub:"Restaurants, markets & pharmacies",
 
           valuesPill:"Our vibe",
           valuesTitle:"Simple, beach-style comfort",
@@ -887,14 +904,24 @@
               <li><span class="check">✓</span><div>Turn off <strong>lights</strong> and <strong>A/C</strong> when leaving.</div></li>
               <li><span class="check">✓</span><div>Take good care of furniture and utensils.</div></li>
               <li><span class="check">✓</span><div>No smoking indoors.</div></li>
+              <li><span class="check">✓</span><div>If you need anything, contact us on WhatsApp.</div></li>
             </ul>
           `,
           modalLocalTitle:"Local Guide",
           modalLocalBody:`
-            <p class="p">Open location in Maps:</p>
-            <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;">
-              <a class="btn btn-primary" href="${mapsPlace}" target="_blank" rel="noopener">Open in Google Maps</a>
-              <a class="btn btn-ghost" href="${mapsRoute}" target="_blank" rel="noopener">Get directions</a>
+            <p class="p">Nearby tips to make your stay easier.</p>
+            <ul class="list">
+              <li><span class="check">✓</span><div><strong>Restaurants:</strong> ${localPlaces.restaurants}</div></li>
+              <li><span class="check">✓</span><div><strong>Markets/Bakeries:</strong> ${localPlaces.markets}</div></li>
+              <li><span class="check">✓</span><div><strong>Pharmacies:</strong> ${localPlaces.pharmacy}</div></li>
+              <li><span class="check">✓</span><div><strong>Things to do:</strong> ${localPlaces.tours}</div></li>
+            </ul>
+            <div style="margin-top:18px;">
+              <p class="p"><strong>Address:</strong> R. Goiás, 291 • Lagoinha, Ubatuba - SP</p>
+              <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;">
+                <a class="btn btn-primary" href="${mapsPlace}" target="_blank" rel="noopener">Open in Google Maps</a>
+                <a class="btn btn-ghost" href="${mapsRoute}" target="_blank" rel="noopener">Get directions</a>
+              </div>
             </div>
           `
         },
@@ -971,14 +998,24 @@
               <li><span class="check">✓</span><div>Apaga <strong>luces</strong> y <strong>A/C</strong> al salir.</div></li>
               <li><span class="check">✓</span><div>Cuida muebles y utensilios.</div></li>
               <li><span class="check">✓</span><div>No fumar en interiores.</div></li>
+              <li><span class="check">✓</span><div>Si necesitas algo, contáctanos por WhatsApp.</div></li>
             </ul>
           `,
           modalLocalTitle:"Guía Local",
           modalLocalBody:`
-            <p class="p">Abrir ubicación en Maps:</p>
-            <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;">
-              <a class="btn btn-primary" href="${mapsPlace}" target="_blank" rel="noopener">Abrir en Google Maps</a>
-              <a class="btn btn-ghost" href="${mapsRoute}" target="_blank" rel="noopener">Cómo llegar</a>
+            <p class="p">Recomendaciones cercanas para facilitar tu estancia.</p>
+            <ul class="list">
+              <li><span class="check">✓</span><div><strong>Restaurantes:</strong> ${localPlaces.restaurants}</div></li>
+              <li><span class="check">✓</span><div><strong>Mercados/Panaderías:</strong> ${localPlaces.markets}</div></li>
+              <li><span class="check">✓</span><div><strong>Farmacias:</strong> ${localPlaces.pharmacy}</div></li>
+              <li><span class="check">✓</span><div><strong>Paseos:</strong> ${localPlaces.tours}</div></li>
+            </ul>
+            <div style="margin-top:18px;">
+              <p class="p"><strong>Dirección:</strong> R. Goiás, 291 • Lagoinha, Ubatuba - SP</p>
+              <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;">
+                <a class="btn btn-primary" href="${mapsPlace}" target="_blank" rel="noopener">Abrir en Google Maps</a>
+                <a class="btn btn-ghost" href="${mapsRoute}" target="_blank" rel="noopener">Cómo llegar</a>
+              </div>
             </div>
           `
         }
@@ -994,7 +1031,6 @@
         const d = t[lang] || t.pt;
         document.documentElement.lang = (lang === "pt") ? "pt-br" : lang;
 
-        // Desktop nav
         $("navHome").textContent = d.nav[0];
         $("navStory").textContent = d.nav[1];
         $("navFlats").textContent = d.nav[2];
@@ -1002,7 +1038,6 @@
         $("navRules").textContent = d.nav[4];
         $("navTips").textContent = d.nav[5];
 
-        // Mobile nav
         $("mNavHome").textContent = d.nav[0];
         $("mNavStory").textContent = d.nav[1];
         $("mNavFlats").textContent = d.nav[2];
@@ -1068,8 +1103,10 @@
 
         $("modalCasaTitle").textContent = d.modalCasaTitle;
         $("modalCasaBody").innerHTML = d.modalCasaBody;
+
         $("modalRegrasTitle").textContent = d.modalRulesTitle;
         $("modalRegrasBody").innerHTML = d.modalRulesBody;
+
         $("modalLocalTitle").textContent = d.modalLocalTitle;
         $("modalLocalBody").innerHTML = d.modalLocalBody;
 
@@ -1077,14 +1114,12 @@
         localStorage.setItem("ubaflats_lang", lang);
       }
 
-      // Clique robusto (funciona em qualquer conjunto de botões)
       document.addEventListener("click", (e) => {
         const btn = e.target.closest(".langBtn");
         if (!btn) return;
         applyLang(btn.dataset.lang);
       });
 
-      // Init
       const saved = localStorage.getItem("ubaflats_lang") || "pt";
       applyLang(saved);
     })();
