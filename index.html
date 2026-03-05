@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -16,9 +17,9 @@
   <style>
     :root{
       --cream: #F7F0E6;
-      --navy:  #1F2B3A;
-      --teal:  #2F6F6A;
-      --mint:  #97C9BF;
+      --navy: #1F2B3A;
+      --teal: #2F6F6A;
+      --mint: #97C9BF;
       --orange:#D7771A;
       --white: #FFFFFF;
 
@@ -70,6 +71,22 @@
     .btn-ghost:hover{border-color:rgba(31,43,58,.22);box-shadow:var(--shadow2);transform:translateY(-1px)}
 
     .burger{display:none;border:1px solid rgba(31,43,58,.14);background:rgba(255,255,255,.7);border-radius:14px;padding:10px 12px;font-weight:900;cursor:pointer}
+
+    /* Language switch */
+    .lang{display:flex;gap:6px;align-items:center}
+    .langBtn{
+      border:1px solid rgba(31,43,58,.14);
+      background:rgba(255,255,255,.70);
+      border-radius:999px;
+      padding:8px 10px;
+      font-weight:900;
+      cursor:pointer;
+      line-height:1;
+    }
+    .langBtn.active{
+      background:rgba(215,119,26,.16);
+      border-color:rgba(215,119,26,.35);
+    }
 
     /* Hero */
     .hero{padding:18px 0 42px}
@@ -276,17 +293,23 @@
       </a>
 
       <nav class="nav" aria-label="Navegação">
-        <a href="#home">Home</a>
-        <a href="#historia">Nossa História</a>
-        <a href="#flats">Flats</a>
-        <a href="#guia">Guia da Casa</a>
-        <a href="#regras">Regras</a>
-        <a href="#dicas">Dicas</a>
+        <a href="#home" id="navHome">Home</a>
+        <a href="#historia" id="navStory">Nossa História</a>
+        <a href="#flats" id="navFlats">Flats</a>
+        <a href="#guia" id="navGuide">Guia da Casa</a>
+        <a href="#regras" id="navRules">Regras</a>
+        <a href="#dicas" id="navTips">Dicas</a>
       </nav>
 
       <div style="display:flex;gap:10px;align-items:center">
+        <div class="lang" aria-label="Idioma">
+          <button class="langBtn" data-lang="pt" type="button">PT</button>
+          <button class="langBtn" data-lang="en" type="button">EN</button>
+          <button class="langBtn" data-lang="es" type="button">ES</button>
+        </div>
+
         <button class="burger" id="openMenu" aria-label="Abrir menu">☰</button>
-        <a class="btn btn-primary" href="https://wa.me/5512982034767" target="_blank" rel="noopener">Reserve Agora</a>
+        <a class="btn btn-primary" href="https://wa.me/5512982034767" target="_blank" rel="noopener" id="btnTopReserve">Reserve Agora</a>
       </div>
     </div>
   </header>
@@ -301,17 +324,25 @@
         </div>
         <button class="iconBtn" id="closeMenu" aria-label="Fechar menu">✕</button>
       </div>
+
       <div class="links">
-        <a href="#home" class="mLink">Home</a>
-        <a href="#historia" class="mLink">Nossa História</a>
-        <a href="#flats" class="mLink">Flats</a>
-        <a href="#guia" class="mLink">Guia da Casa</a>
-        <a href="#regras" class="mLink">Regras</a>
-        <a href="#dicas" class="mLink">Dicas</a>
+        <a href="#home" class="mLink" id="mNavHome">Home</a>
+        <a href="#historia" class="mLink" id="mNavStory">Nossa História</a>
+        <a href="#flats" class="mLink" id="mNavFlats">Flats</a>
+        <a href="#guia" class="mLink" id="mNavGuide">Guia da Casa</a>
+        <a href="#regras" class="mLink" id="mNavRules">Regras</a>
+        <a href="#dicas" class="mLink" id="mNavTips">Dicas</a>
       </div>
+
       <div class="miniCta">
-        <a class="btn btn-primary" style="flex:1" href="https://wa.me/5512982034767" target="_blank" rel="noopener">Reserve pelo WhatsApp</a>
-        <a class="btn btn-ghost" style="flex:1" href="#contato">Contato</a>
+        <div class="lang" style="width:100%;justify-content:center;margin-bottom:8px">
+          <button class="langBtn" data-lang="pt" type="button">PT</button>
+          <button class="langBtn" data-lang="en" type="button">EN</button>
+          <button class="langBtn" data-lang="es" type="button">ES</button>
+        </div>
+
+        <a class="btn btn-primary" style="flex:1" href="https://wa.me/5512982034767" target="_blank" rel="noopener" id="mBtnReserve">Reserve pelo WhatsApp</a>
+        <a class="btn btn-ghost" style="flex:1" href="#contato" id="mBtnContact">Contato</a>
       </div>
     </div>
   </div>
@@ -324,15 +355,20 @@
         <div class="heroBg heroBgB" aria-hidden="true"></div>
 
         <div class="heroContent">
-          <span class="pill">🌺 Praia da Lagoinha • Ubatuba/SP</span>
-          <h1 class="heroTitle">Seu refúgio de paz<br><span style="font-family:Inter, sans-serif;font-weight:900;">a 10 min do mar</span></h1>
-          <p class="heroSub">
+          <span class="pill" id="heroPill">🌺 Praia da Lagoinha • Ubatuba/SP</span>
+          <h1 class="heroTitle">
+            <span id="heroTitleLine1">Seu refúgio de paz</span><br>
+            <span id="heroTitleLine2" style="font-family:Inter, sans-serif;font-weight:900;">a 10 min do mar</span>
+          </h1>
+
+          <p class="heroSub" id="heroSub">
             Kitnet para até <strong>4 pessoas</strong> (1 cama de casal + sofá-cama que vira 2) •
             <strong>ar-condicionado</strong> em todas as unidades • <strong>garagem</strong> e <strong>quintal</strong>.
           </p>
+
           <div class="heroBtns">
-            <a class="btn btn-ghost" href="#flats">Conheça os Flats</a>
-            <a class="btn btn-primary" href="https://wa.me/5512982034767" target="_blank" rel="noopener">Reserve pelo WhatsApp</a>
+            <a class="btn btn-ghost" href="#flats" id="heroBtnFlats">Conheça os Flats</a>
+            <a class="btn btn-primary" href="https://wa.me/5512982034767" target="_blank" rel="noopener" id="heroBtnReserve">Reserve pelo WhatsApp</a>
           </div>
         </div>
       </div>
@@ -347,17 +383,20 @@
           <img alt="Neto e Daniela" src="assets/nos1.jpg">
         </div>
         <div class="storyBox">
-          <span class="pill" style="background:rgba(215,119,26,.14);border-color:rgba(215,119,26,.25)">💛 Feito com amor</span>
-          <h2 class="h2">Feito por nós, para você</h2>
-          <p class="p" style="margin-top:10px;">
+          <span class="pill" style="background:rgba(215,119,26,.14);border-color:rgba(215,119,26,.25)" id="storyPill">💛 Feito com amor</span>
+          <h2 class="h2" id="storyTitle">Feito por nós, para você</h2>
+
+          <p class="p" style="margin-top:10px;" id="storyP1">
             Olá! Somos o <strong>Neto</strong> e a <strong>Daniela</strong>. Para nós, receber pessoas não é apenas um negócio, é um prazer.
             Tudo o que você encontra aqui foi construído com nossas próprias mãos e muito amor.
           </p>
-          <p class="p" style="margin-top:12px;">
+
+          <p class="p" style="margin-top:12px;" id="storyP2">
             Queremos que você desfrute da paz de Ubatuba com a mesma alegria que sentimos ao preparar este espaço.
             Sinta-se em casa — a chave está na porta e o mar logo ali na frente.
           </p>
-          <div class="signature">Neto &amp; Daniela</div>
+
+          <div class="signature" id="storySignature">Neto &amp; Daniela</div>
         </div>
       </div>
     </div>
@@ -368,10 +407,10 @@
     <div class="wrap">
       <div class="sectionHead">
         <div>
-          <h2 class="h2">Nossos Flats</h2>
-          <p class="p">Escolha seu refúgio perfeito na Lagoinha, Ubatuba.</p>
+          <h2 class="h2" id="flatsTitle">Nossos Flats</h2>
+          <p class="p" id="flatsSub">Escolha seu refúgio perfeito na Lagoinha, Ubatuba.</p>
         </div>
-        <a class="btn btn-primary" href="https://wa.me/5512982034767" target="_blank" rel="noopener">Reservar</a>
+        <a class="btn btn-primary" href="https://wa.me/5512982034767" target="_blank" rel="noopener" id="flatsReserveBtn">Reservar</a>
       </div>
 
       <div class="flatGrid">
@@ -380,11 +419,11 @@
           <article class="flatCard">
             <div class="bg" style="background-image:url('assets/flat-1.jpg');"></div>
             <div class="shade" aria-hidden="true"></div>
-            <div class="tag">👤 4 pessoas</div>
-            <div class="badge">Mais Procurado</div>
+            <div class="tag" id="tagGuests">👤 4 pessoas</div>
+            <div class="badge" id="badgePopular">Mais Procurado</div>
             <div class="info">
-              <h3 class="title">Flat Peixe</h3>
-              <p class="meta">1 cama de casal + sofá-cama (vira 2) • Ar-condicionado • Garagem • Quintal</p>
+              <h3 class="title" id="cardPeixeTitle">Flat Peixe</h3>
+              <p class="meta" id="cardPeixeMeta">1 cama de casal + sofá-cama (vira 2) • Ar-condicionado • Garagem • Quintal</p>
             </div>
           </article>
         </a>
@@ -394,10 +433,10 @@
           <article class="flatCard">
             <div class="bg" style="background-image:url('assets/flat-2.jpg');"></div>
             <div class="shade" aria-hidden="true"></div>
-            <div class="tag">❄️ Ar em todas</div>
+            <div class="tag" id="tagAC">❄️ Ar em todas</div>
             <div class="info">
-              <h3 class="title">Flat Estrela</h3>
-              <p class="meta">1 cama de casal + sofá-cama (vira 2) • Ar-condicionado • Garagem • Quintal</p>
+              <h3 class="title" id="cardEstrelaTitle">Flat Estrela</h3>
+              <p class="meta" id="cardEstrelaMeta">1 cama de casal + sofá-cama (vira 2) • Ar-condicionado • Garagem • Quintal</p>
             </div>
           </article>
         </a>
@@ -407,10 +446,10 @@
           <article class="flatCard">
             <div class="bg" style="background-image:url('assets/flat-3.jpg');"></div>
             <div class="shade" aria-hidden="true"></div>
-            <div class="tag">📍 Lagoinha</div>
+            <div class="tag" id="tagLocation">📍 Lagoinha</div>
             <div class="info">
-              <h3 class="title">Abrir no Maps</h3>
-              <p class="meta">Ver a localização exata no Google Maps</p>
+              <h3 class="title" id="cardMapsTitle">Abrir no Maps</h3>
+              <p class="meta" id="cardMapsMeta">Ver a localização exata no Google Maps</p>
             </div>
           </article>
         </a>
@@ -423,8 +462,8 @@
     <div class="wrap">
       <div class="sectionHead">
         <div>
-          <h2 class="h2">Guia do Hóspede</h2>
-          <p class="p">Tudo o que você precisa para uma estadia tranquila e sem dúvidas.</p>
+          <h2 class="h2" id="guideTitle">Guia do Hóspede</h2>
+          <p class="p" id="guideSub">Tudo o que você precisa para uma estadia tranquila e sem dúvidas.</p>
         </div>
       </div>
 
@@ -433,8 +472,8 @@
           <div class="tileLeft">
             <div class="tileIcon">🏠</div>
             <div>
-              <div class="tileTitle">Guia da Casa</div>
-              <div class="tileSub">Check-in/out, Wi-Fi e endereço</div>
+              <div class="tileTitle" id="tileHouseTitle">Guia da Casa</div>
+              <div class="tileSub" id="tileHouseSub">Check-in/out, Wi-Fi e endereço</div>
             </div>
           </div>
           <div class="tileArrow">↗</div>
@@ -444,8 +483,8 @@
           <div class="tileLeft">
             <div class="tileIcon">📜</div>
             <div>
-              <div class="tileTitle">Regras &amp; Dicas</div>
-              <div class="tileSub">Para uma convivência harmoniosa</div>
+              <div class="tileTitle" id="tileRulesTitle">Regras &amp; Dicas</div>
+              <div class="tileSub" id="tileRulesSub">Para uma convivência harmoniosa</div>
             </div>
           </div>
           <div class="tileArrow">↗</div>
@@ -455,8 +494,8 @@
           <div class="tileLeft">
             <div class="tileIcon">📍</div>
             <div>
-              <div class="tileTitle">Guia Local</div>
-              <div class="tileSub">Restaurantes, mercados e farmácias</div>
+              <div class="tileTitle" id="tileLocalTitle">Guia Local</div>
+              <div class="tileSub" id="tileLocalSub">Restaurantes, mercados e farmácias</div>
             </div>
           </div>
           <div class="tileArrow">↗</div>
@@ -470,27 +509,27 @@
     <div class="wrap">
       <div class="sectionHead">
         <div>
-          <span class="pill" style="background:rgba(47,111,106,.16);border-color:rgba(47,111,106,.28)">Nosso jeito de ser</span>
-          <h2 class="h2" style="margin-top:10px;">Simplicidade com o pé na areia</h2>
+          <span class="pill" style="background:rgba(47,111,106,.16);border-color:rgba(47,111,106,.28)" id="valuesPill">Nosso jeito de ser</span>
+          <h2 class="h2" style="margin-top:10px;" id="valuesTitle">Simplicidade com o pé na areia</h2>
         </div>
-        <p class="p">Um espaço prático, confortável e com carinho nos detalhes.</p>
+        <p class="p" id="valuesSub">Um espaço prático, confortável e com carinho nos detalhes.</p>
       </div>
 
       <div class="valuesGrid">
         <div class="value">
           <div class="valueIcon">❤</div>
-          <h3>Acolhimento Familiar</h3>
-          <p>Recebemos você com carinho e atenção em cada detalhe.</p>
+          <h3 id="v1Title">Acolhimento Familiar</h3>
+          <p id="v1Text">Recebemos você com carinho e atenção em cada detalhe.</p>
         </div>
         <div class="value">
           <div class="valueIcon">🍃</div>
-          <h3>Conexão com a Natureza</h3>
-          <p>Perto do mar, cercado pela beleza natural de Ubatuba.</p>
+          <h3 id="v2Title">Conexão com a Natureza</h3>
+          <p id="v2Text">Perto do mar, cercado pela beleza natural de Ubatuba.</p>
         </div>
         <div class="value">
           <div class="valueIcon">✦</div>
-          <h3>Autenticidade</h3>
-          <p>Sem frescura: conforto real, praticidade e tranquilidade.</p>
+          <h3 id="v3Title">Autenticidade</h3>
+          <p id="v3Text">Sem frescura: conforto real, praticidade e tranquilidade.</p>
         </div>
       </div>
     </div>
@@ -502,9 +541,9 @@
       <div class="ctaCard">
         <div class="ctaImg" aria-hidden="true"></div>
         <div class="ctaBody">
-          <h3 class="ctaTitle">Sua próxima memória feliz <span style="color:var(--teal);font-style:italic;font-family:'Playfair Display',serif;">começa aqui</span></h3>
-          <a class="btn btn-primary" href="https://wa.me/5512982034767" target="_blank" rel="noopener">Reserve pelo WhatsApp</a>
-          <p class="p" style="margin-top:14px;">Veja as regras e dicas no botão “Regras &amp; Dicas”.</p>
+          <h3 class="ctaTitle" id="ctaTitle">Sua próxima memória feliz <span style="color:var(--teal);font-style:italic;font-family:'Playfair Display',serif;">começa aqui</span></h3>
+          <a class="btn btn-primary" href="https://wa.me/5512982034767" target="_blank" rel="noopener" id="ctaBtn">Reserve pelo WhatsApp</a>
+          <p class="p" style="margin-top:14px;" id="ctaSub">Veja as regras e dicas no botão “Regras &amp; Dicas”.</p>
         </div>
       </div>
     </div>
@@ -519,34 +558,34 @@
             <img src="assets/logo.png" alt="Logo Ubaflats" />
             <span class="footBrand">Ubaflats<span style="opacity:.9;">.</span></span>
           </div>
-          <p class="footSmall">Onde o mar encontra o aconchego.</p>
+          <p class="footSmall" id="footSlogan">Onde o mar encontra o aconchego.</p>
         </div>
 
         <div class="footCol">
-          <h4>Explore</h4>
-          <a href="#flats">Flats</a>
-          <a href="#historia">Nossa História</a>
-          <a href="#home">Home</a>
+          <h4 id="footExploreTitle">Explore</h4>
+          <a href="#flats" id="footExploreFlats">Flats</a>
+          <a href="#historia" id="footExploreStory">Nossa História</a>
+          <a href="#home" id="footExploreHome">Home</a>
         </div>
 
         <div class="footCol">
-          <h4>Informações</h4>
-          <a href="#guia">Guia da Casa</a>
-          <a href="#regras">Regras</a>
-          <a href="#contato">Contato</a>
+          <h4 id="footInfoTitle">Informações</h4>
+          <a href="#guia" id="footInfoGuide">Guia da Casa</a>
+          <a href="#regras" id="footInfoRules">Regras</a>
+          <a href="#contato" id="footInfoContact">Contato</a>
         </div>
 
         <div class="footCol">
-          <h4>Fale Conosco</h4>
-          <a class="btn btn-primary" style="display:inline-flex" href="https://wa.me/5512982034767" target="_blank" rel="noopener">WhatsApp • (12) 98203-4767</a>
+          <h4 id="footTalkTitle">Fale Conosco</h4>
+          <a class="btn btn-primary" style="display:inline-flex" href="https://wa.me/5512982034767" target="_blank" rel="noopener" id="footWhats">WhatsApp • (12) 98203-4767</a>
           <div style="height:10px"></div>
-          <div class="footSmall">📍 R. Goiás, 291 • Lagoinha, Ubatuba - SP</div>
+          <div class="footSmall" id="footAddress">📍 R. Goiás, 291 • Lagoinha, Ubatuba - SP</div>
         </div>
       </div>
 
       <div class="footBottom">
-        <div>© 2026 Ubaflats. Todos os direitos reservados.</div>
-        <div><a href="#" style="color:rgba(255,255,255,.75);">Política de Privacidade</a></div>
+        <div id="footCopy">© 2026 Ubaflats. Todos os direitos reservados.</div>
+        <div><a href="#" style="color:rgba(255,255,255,.75);" id="footPrivacy">Política de Privacidade</a></div>
       </div>
     </div>
   </footer>
@@ -554,26 +593,18 @@
   <!-- Floating WhatsApp -->
   <a class="floatChat" href="https://wa.me/5512982034767" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
     <span class="floatDot" aria-hidden="true"></span>
-    <span class="floatText">Talk with Us</span>
+    <span class="floatText" id="floatText">Talk with Us</span>
   </a>
 
   <!-- MODALS -->
   <div class="modal" id="modalCasa" aria-hidden="true">
     <div class="modalCard" role="dialog" aria-modal="true">
       <div class="modalHeader">
-        <h3 class="modalTitle">Guia da Casa</h3>
+        <h3 class="modalTitle" id="modalCasaTitle">Guia da Casa</h3>
         <button class="iconBtn" data-close>✕</button>
       </div>
-      <div class="modalBody">
-        <p class="p">Informações rápidas para facilitar sua chegada e sua estadia no Ubaflats.</p>
-        <ul class="list">
-          <li><span class="check">✓</span><div><strong>Check-in:</strong> a partir das <strong>15h</strong>.</div></li>
-          <li><span class="check">✓</span><div><strong>Check-out:</strong> até as <strong>11h</strong>.</div></li>
-          <li><span class="check">✓</span><div><strong>Wi-Fi:</strong> Nome <strong>ubaflatslagoinha</strong> • Senha <strong>avidaficamelhornapraia</strong></div></li>
-          <li><span class="check">✓</span><div><strong>Endereço:</strong> R. Goiás, 291 • Lagoinha, Ubatuba - SP</div></li>
-          <li><span class="check">✓</span><div><strong>Acomodação:</strong> até 4 pessoas (1 cama de casal + sofá-cama que vira 2).</div></li>
-          <li><span class="check">✓</span><div><strong>Diferenciais:</strong> garagem • quintal • ar-condicionado em todas as kitnets • 10–15 min a pé da praia.</div></li>
-        </ul>
+      <div class="modalBody" id="modalCasaBody">
+        <!-- preenchido por JS -->
       </div>
     </div>
   </div>
@@ -581,27 +612,11 @@
   <div class="modal" id="modalRegras" aria-hidden="true">
     <div class="modalCard" role="dialog" aria-modal="true">
       <div class="modalHeader">
-        <h3 class="modalTitle">Regras de Convivência</h3>
+        <h3 class="modalTitle" id="modalRegrasTitle">Regras de Convivência</h3>
         <button class="iconBtn" data-close>✕</button>
       </div>
-      <div class="modalBody">
-        <p class="p">Para manter um ambiente agradável para todos, pedimos atenção às regras abaixo:</p>
-        <ul class="list">
-          <li><span class="check">✓</span><div>Mantenha o silêncio após <strong>22h</strong>.</div></li>
-          <li><span class="check">✓</span><div>Desligue <strong>luzes</strong>, <strong>ar-condicionado</strong> e aparelhos eletrônicos ao sair.</div></li>
-          <li><span class="check">✓</span><div>Preserve móveis, colchões, utensílios e estrutura do espaço.</div></li>
-          <li><span class="check">✓</span><div>Feche portas e janelas ao deixar o ambiente.</div></li>
-          <li><span class="check">✓</span><div>Realize o descarte do lixo em local apropriado.</div></li>
-          <li><span class="check">✓</span><div>Não é permitido fumar dentro dos ambientes fechados.</div></li>
-          <li><span class="check">✓</span><div>Visitas externas devem ser previamente autorizadas.</div></li>
-          <li><span class="check">✓</span><div>Utilize os equipamentos do flat com cuidado.</div></li>
-          <li><span class="check">✓</span><div>Evite consumir alimentos sobre camas e sofás.</div></li>
-          <li><span class="check">✓</span><div>Não mova móveis pesados sem necessidade.</div></li>
-          <li><span class="check">✓</span><div>Em caso de problemas, fale conosco pelo WhatsApp.</div></li>
-        </ul>
-        <div style="margin-top:16px;">
-          <a class="btn btn-primary" href="https://wa.me/5512982034767" target="_blank" rel="noopener">Falar no WhatsApp</a>
-        </div>
+      <div class="modalBody" id="modalRegrasBody">
+        <!-- preenchido por JS -->
       </div>
     </div>
   </div>
@@ -609,30 +624,11 @@
   <div class="modal" id="modalLocal" aria-hidden="true">
     <div class="modalCard" role="dialog" aria-modal="true">
       <div class="modalHeader">
-        <h3 class="modalTitle">Guia Local</h3>
+        <h3 class="modalTitle" id="modalLocalTitle">Guia Local</h3>
         <button class="iconBtn" data-close>✕</button>
       </div>
-      <div class="modalBody">
-        <p class="p">Pontos úteis e passeios para deixar sua viagem mais leve e completa.</p>
-        <ul class="list">
-          <li><span class="check">✓</span><div><strong>Restaurantes:</strong> Pastel do Cabelo • Av. Marginal, 1023 - Maranduba, Ubatuba - SP, 11680-000 | Restaurante Tropical Recanto dos Pássaros • R. dos Lírios, 394 - Lagoinha, Ubatuba - SP, 11682-462 | Restaurante Sabores de Minas • Av. Ten. Manoel Barbosa da Silva, 30 - Maranduba, Ubatuba - SP, 11680-000 </div></li>
-          <li><span class="check">✓</span><div><strong>Mercados/Padarias:</strong>  Mercado Garotão • Av. Marginal, 16 - Maranduba, Ubatuba - SP, 11681-212 | Padaria do Edmundo • Av. Marginal, 34 - Praia do Sape, Ubatuba - SP, 11680-000 •</div></li>
-          <li><span class="check">✓</span><div><strong>Farmácias:</strong> Farma Conde • Avenida Marginal Direita, 1440 - Maranduba, Ubatuba - SP, 11680-000</div></li>
-          <li><span class="check">✓</span><div><strong>Passeios:</strong> Trilha da Cachoeira Véu da Noiva • Av. do Engenho Velho, 1071 - Lagoinha, Ubatuba - SP, 11680-000 </div></li>
-        </ul>
-
-        <div style="margin-top:18px;">
-          <p class="p"><strong>Endereço:</strong> R. Goiás, 291 • Lagoinha, Ubatuba - SP</p>
-          <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;">
-            <a class="btn btn-primary"
-              href="https://www.google.com/maps/place/R.+Goi%C3%A1s,+291+-+Lagoinha,+Ubatuba+-+SP,+11682-510/@-23.5120635,-45.1991296,3a,75y,338.61h,90t/data=!3m4!1e1!3m2!1sRqDOqpeNqJ4GTA0VS0orzg!2e0!4m2!3m1!1s0x94cd5bc762cb1be3:0xd8084e023fce0215?sa=X&ved=1t:3780&ictx=111"
-              target="_blank" rel="noopener">Abrir no Google Maps</a>
-
-            <a class="btn btn-ghost"
-              href="https://www.google.com/maps/dir/-21.1779584,-47.8019584/R.+Goi%C3%A1s,+291+-+Lagoinha,+Ubatuba+-+SP,+11680-000/@-23.5121517,-45.1996065,20z/data=!4m9!4m8!1m1!4e1!1m5!1m1!1s0x94cd5bc762cb1be3:0xd8084e023fce0215!2m2!1d-45.1991407!2d-23.5120375?entry=ttu&g_ep=EgoyMDI2MDMwMS4xIKXMDSoASAFQAw%3D%3D"
-              target="_blank" rel="noopener">Traçar rota</a>
-          </div>
-        </div>
+      <div class="modalBody" id="modalLocalBody">
+        <!-- preenchido por JS -->
       </div>
     </div>
   </div>
@@ -696,20 +692,18 @@
       if(mobilePanel.style.display === 'flex') hideMenu();
     });
 
-    // HERO SLIDESHOW (3 fotos, troca a cada 2s) — simples e sem "preto e branco"
+    // HERO SLIDESHOW (3 fotos, troca a cada 2s)
     (function heroSlideshow3(){
       const a = document.querySelector('.heroBgA');
       const b = document.querySelector('.heroBgB');
       if(!a || !b) return;
 
-      // ✅ suas 3 fotos do hero
       const imgs = [
         "assets/hero.jpg",
         "assets/hero1.jpg",
         "assets/hero2.jpg"
       ];
 
-      // gradiente bem leve (pra não matar as cores)
       const gradient = "linear-gradient(90deg, rgba(14,42,63,.25), rgba(14,42,63,.06))";
 
       let i = 0;
@@ -735,12 +729,196 @@
         i = (i + 1) % imgs.length;
       }, 2000);
     })();
-  </script>
-</body>
-</html>
 
+    // ===========================
+    // i18n PT/EN/ES (TUDO)
+    // ===========================
+    (function i18nAll(){
+      const byId = (id) => document.getElementById(id);
 
+      const mapsPlace = "https://www.google.com/maps/place/R.+Goi%C3%A1s,+291+-+Lagoinha,+Ubatuba+-+SP,+11682-510/@-23.5120635,-45.1991296,3a,75y,338.61h,90t/data=!3m4!1e1!3m2!1sRqDOqpeNqJ4GTA0VS0orzg!2e0!4m2!3m1!1s0x94cd5bc762cb1be3:0xd8084e023fce0215?sa=X&ved=1t:3780&ictx=111";
+      const mapsRoute = "https://www.google.com/maps/dir/-21.1779584,-47.8019584/R.+Goi%C3%A1s,+291+-+Lagoinha,+Ubatuba+-+SP,+11680-000/@-23.5121517,-45.1996065,20z/data=!4m9!4m8!1m1!4e1!1m5!1m1!1s0x94cd5bc762cb1be3:0xd8084e023fce0215!2m2!1d-45.1991407!2d-23.5120375?entry=ttu&g_ep=EgoyMDI2MDMwMS4xIKXMDSoASAFQAw%3D%3D";
 
+      const localPT = {
+        restaurants: "Pastel do Cabelo • Av. Marginal, 1023 - Maranduba, Ubatuba - SP, 11680-000 | Restaurante Tropical Recanto dos Pássaros • R. dos Lírios, 394 - Lagoinha, Ubatuba - SP, 11682-462 | Restaurante Sabores de Minas • Av. Ten. Manoel Barbosa da Silva, 30 - Maranduba, Ubatuba - SP, 11680-000",
+        markets: "Mercado Garotão • Av. Marginal, 16 - Maranduba, Ubatuba - SP, 11681-212 | Padaria do Edmundo • Av. Marginal, 34 - Praia do Sape, Ubatuba - SP, 11680-000",
+        pharmacy: "Farma Conde • Avenida Marginal Direita, 1440 - Maranduba, Ubatuba - SP, 11680-000",
+        tours: "Trilha da Cachoeira Véu da Noiva • Av. do Engenho Velho, 1071 - Lagoinha, Ubatuba - SP, 11680-000"
+      };
 
+      const t = {
+        pt: {
+          nav: {home:"Home", story:"Nossa História", flats:"Flats", guide:"Guia da Casa", rules:"Regras", tips:"Dicas"},
+          buttons: {reserveNow:"Reserve Agora", reserveWA:"Reserve pelo WhatsApp", contact:"Contato", seeFlats:"Conheça os Flats"},
+          hero: {
+            pill:"🌺 Praia da Lagoinha • Ubatuba/SP",
+            t1:"Seu refúgio de paz",
+            t2:"a 10 min do mar",
+            sub:`Kitnet para até <strong>4 pessoas</strong> (1 cama de casal + sofá-cama que vira 2) • <strong>ar-condicionado</strong> em todas as unidades • <strong>garagem</strong> e <strong>quintal</strong>.`
+          },
+          story: {
+            pill:"💛 Feito com amor",
+            title:"Feito por nós, para você",
+            p1:`Olá! Somos o <strong>Neto</strong> e a <strong>Daniela</strong>. Para nós, receber pessoas não é apenas um negócio, é um prazer. Tudo o que você encontra aqui foi construído com nossas próprias mãos e muito amor.`,
+            p2:`Queremos que você desfrute da paz de Ubatuba com a mesma alegria que sentimos ao preparar este espaço. Sinta-se em casa — a chave está na porta e o mar logo ali na frente.`,
+            sign:"Neto &amp; Daniela"
+          },
+          flats: {
+            title:"Nossos Flats",
+            sub:"Escolha seu refúgio perfeito na Lagoinha, Ubatuba.",
+            tagGuests:"👤 4 pessoas",
+            badgePopular:"Mais Procurado",
+            tagAC:"❄️ Ar em todas",
+            tagLocation:"📍 Lagoinha",
+            mapsTitle:"Abrir no Maps",
+            mapsMeta:"Ver a localização exata no Google Maps"
+          },
+          guide: {
+            title:"Guia do Hóspede",
+            sub:"Tudo o que você precisa para uma estadia tranquila e sem dúvidas.",
+            houseTitle:"Guia da Casa",
+            houseSub:"Check-in/out, Wi-Fi e endereço",
+            rulesTitle:"Regras & Dicas",
+            rulesSub:"Para uma convivência harmoniosa",
+            localTitle:"Guia Local",
+            localSub:"Restaurantes, mercados e farmácias"
+          },
+          values:{
+            pill:"Nosso jeito de ser",
+            title:"Simplicidade com o pé na areia",
+            sub:"Um espaço prático, confortável e com carinho nos detalhes.",
+            v1t:"Acolhimento Familiar", v1p:"Recebemos você com carinho e atenção em cada detalhe.",
+            v2t:"Conexão com a Natureza", v2p:"Perto do mar, cercado pela beleza natural de Ubatuba.",
+            v3t:"Autenticidade", v3p:"Sem frescura: conforto real, praticidade e tranquilidade."
+          },
+          cta:{
+            title:`Sua próxima memória feliz <span style="color:var(--teal);font-style:italic;font-family:'Playfair Display',serif;">começa aqui</span>`,
+            sub:`Veja as regras e dicas no botão “Regras &amp; Dicas”.`,
+            btn:"Reserve pelo WhatsApp"
+          },
+          footer:{
+            slogan:"Onde o mar encontra o aconchego.",
+            explore:"Explore",
+            info:"Informações",
+            talk:"Fale Conosco",
+            privacy:"Política de Privacidade",
+            copy:"© 2026 Ubaflats. Todos os direitos reservados."
+          },
+          float:"Falar no WhatsApp",
+          modals:{
+            casaTitle:"Guia da Casa",
+            casaBody: `
+              <p class="p">Informações rápidas para facilitar sua chegada e sua estadia no Ubaflats.</p>
+              <ul class="list">
+                <li><span class="check">✓</span><div><strong>Check-in:</strong> a partir das <strong>15h</strong>.</div></li>
+                <li><span class="check">✓</span><div><strong>Check-out:</strong> até as <strong>11h</strong>.</div></li>
+                <li><span class="check">✓</span><div><strong>Wi-Fi:</strong> Nome <strong>ubaflatslagoinha</strong> • Senha <strong>avidaficamelhornapraia</strong></div></li>
+                <li><span class="check">✓</span><div><strong>Endereço:</strong> R. Goiás, 291 • Lagoinha, Ubatuba - SP</div></li>
+                <li><span class="check">✓</span><div><strong>Acomodação:</strong> até 4 pessoas (1 cama de casal + sofá-cama que vira 2).</div></li>
+                <li><span class="check">✓</span><div><strong>Diferenciais:</strong> garagem • quintal • ar-condicionado em todas as kitnets • 10–15 min a pé da praia.</div></li>
+              </ul>
+            `,
+            regrasTitle:"Regras de Convivência",
+            regrasBody: `
+              <p class="p">Para manter um ambiente agradável para todos, pedimos atenção às regras abaixo:</p>
+              <ul class="list">
+                <li><span class="check">✓</span><div>Mantenha o silêncio após <strong>22h</strong>.</div></li>
+                <li><span class="check">✓</span><div>Desligue <strong>luzes</strong>, <strong>ar-condicionado</strong> e aparelhos eletrônicos ao sair.</div></li>
+                <li><span class="check">✓</span><div>Preserve móveis, colchões, utensílios e estrutura do espaço.</div></li>
+                <li><span class="check">✓</span><div>Feche portas e janelas ao deixar o ambiente.</div></li>
+                <li><span class="check">✓</span><div>Realize o descarte do lixo em local apropriado.</div></li>
+                <li><span class="check">✓</span><div>Não é permitido fumar dentro dos ambientes fechados.</div></li>
+                <li><span class="check">✓</span><div>Visitas externas devem ser previamente autorizadas.</div></li>
+                <li><span class="check">✓</span><div>Utilize os equipamentos do flat com cuidado.</div></li>
+                <li><span class="check">✓</span><div>Evite consumir alimentos sobre camas e sofás.</div></li>
+                <li><span class="check">✓</span><div>Não mova móveis pesados sem necessidade.</div></li>
+                <li><span class="check">✓</span><div>Em caso de problemas, fale conosco pelo WhatsApp.</div></li>
+              </ul>
+              <div style="margin-top:16px;">
+                <a class="btn btn-primary" href="https://wa.me/5512982034767" target="_blank" rel="noopener">Falar no WhatsApp</a>
+              </div>
+            `,
+            localTitle:"Guia Local",
+            localBody: `
+              <p class="p">Pontos úteis e passeios para deixar sua viagem mais leve e completa.</p>
+              <ul class="list">
+                <li><span class="check">✓</span><div><strong>Restaurantes:</strong> ${localPT.restaurants}</div></li>
+                <li><span class="check">✓</span><div><strong>Mercados/Padarias:</strong> ${localPT.markets}</div></li>
+                <li><span class="check">✓</span><div><strong>Farmácias:</strong> ${localPT.pharmacy}</div></li>
+                <li><span class="check">✓</span><div><strong>Passeios:</strong> ${localPT.tours}</div></li>
+              </ul>
+              <div style="margin-top:18px;">
+                <p class="p"><strong>Endereço:</strong> R. Goiás, 291 • Lagoinha, Ubatuba - SP</p>
+                <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;">
+                  <a class="btn btn-primary" href="${mapsPlace}" target="_blank" rel="noopener">Abrir no Google Maps</a>
+                  <a class="btn btn-ghost" href="${mapsRoute}" target="_blank" rel="noopener">Traçar rota</a>
+                </div>
+              </div>
+            `
+          }
+        },
 
-
+        en: {
+          nav: {home:"Home", story:"Our Story", flats:"Flats", guide:"House Guide", rules:"Rules", tips:"Tips"},
+          buttons: {reserveNow:"Book now", reserveWA:"Book on WhatsApp", contact:"Contact", seeFlats:"See the Flats"},
+          hero: {
+            pill:"🌺 Lagoinha Beach • Ubatuba/SP",
+            t1:"Your peaceful getaway",
+            t2:"10 min from the beach",
+            sub:`Studio for up to <strong>4 guests</strong> (1 double bed + sofa bed for 2) • <strong>A/C</strong> in all units • <strong>parking</strong> & <strong>yard</strong>.`
+          },
+          story: {
+            pill:"💛 Made with love",
+            title:"Made by us, for you",
+            p1:`Hi! We are <strong>Neto</strong> and <strong>Daniela</strong>. Hosting is not just business for us — it’s a pleasure. Everything here was built with our own hands and lots of love.`,
+            p2:`We want you to enjoy the calm of Ubatuba the same way we do. Feel at home — the key is at the door and the ocean is right ahead.`,
+            sign:"Neto &amp; Daniela"
+          },
+          flats: {
+            title:"Our Flats",
+            sub:"Choose your perfect stay in Lagoinha, Ubatuba.",
+            tagGuests:"👤 4 guests",
+            badgePopular:"Top pick",
+            tagAC:"❄️ A/C in all",
+            tagLocation:"📍 Lagoinha",
+            mapsTitle:"Open in Maps",
+            mapsMeta:"See the exact location on Google Maps"
+          },
+          guide: {
+            title:"Guest Guide",
+            sub:"Everything you need for a smooth and easy stay.",
+            houseTitle:"House Guide",
+            houseSub:"Check-in/out, Wi-Fi & address",
+            rulesTitle:"Rules & Tips",
+            rulesSub:"For a pleasant stay",
+            localTitle:"Local Guide",
+            localSub:"Food, markets & pharmacies"
+          },
+          values:{
+            pill:"Our vibe",
+            title:"Simple, beach-style comfort",
+            sub:"A practical and cozy place, with care in every detail.",
+            v1t:"Warm Hosting", v1p:"We welcome you with care and attention.",
+            v2t:"Nature Connection", v2p:"Near the sea, surrounded by Ubatuba’s beauty.",
+            v3t:"Authentic Comfort", v3p:"No fuss: real comfort, practicality and peace."
+          },
+          cta:{
+            title:`Your next happy memory <span style="color:var(--teal);font-style:italic;font-family:'Playfair Display',serif;">starts here</span>`,
+            sub:`Check “Rules & Tips” for house guidance and important info.`,
+            btn:"Book on WhatsApp"
+          },
+          footer:{
+            slogan:"Where the sea meets comfort.",
+            explore:"Explore",
+            info:"Information",
+            talk:"Contact us",
+            privacy:"Privacy Policy",
+            copy:"© 2026 Ubaflats. All rights reserved."
+          },
+          float:"WhatsApp",
+          modals:{
+            casaTitle:"House Guide",
+            casaBody: `
+              <p class="p">Quick info to make your arrival and stay easier.</p>
+              <ul class="list">
+                <li><span class="
