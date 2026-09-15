@@ -9,7 +9,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
     :root{
@@ -546,6 +546,14 @@
       display:grid;
       place-items:center;
     }
+    .uiIcon{width:18px;height:18px;display:inline-block;vertical-align:-4px;flex:0 0 18px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+    .uiIcon--small{width:15px;height:15px;flex-basis:15px;vertical-align:-3px}
+    .pill .uiIcon{margin-right:6px}
+    .tag .uiIcon{margin-right:5px}
+    .tileIcon .uiIcon{width:24px;height:24px;vertical-align:middle}
+    .valueIcon .uiIcon{width:25px;height:25px}
+    .stayBtnIcon{margin-right:7px}
+
     .modalBody{
       padding:22px;
       max-height:calc(88vh - 82px);
@@ -808,7 +816,7 @@
         <div class="heroBg heroBgB" aria-hidden="true"></div>
 
         <div class="heroContent">
-          <span class="pill" id="heroPill">🌺 Praia da Lagoinha • Ubatuba/SP</span>
+          <span class="pill" id="heroPill"><svg class="uiIcon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 21s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12Z"/><circle cx="12" cy="9" r="2.3"/></svg>Praia da Lagoinha • Ubatuba/SP</span>
 
           <h1 class="heroTitle">
             <span id="heroTitleLine1">Seu refúgio de paz</span><br>
@@ -843,7 +851,7 @@
 
         <div class="storyBox">
           <span class="pill" style="background:rgba(215,119,26,.14);border-color:rgba(215,119,26,.25);color:var(--navy)" id="storyPill">
-            💛 Feito com amor
+            <svg class="uiIcon" aria-hidden="true" viewBox="0 0 24 24"><path d="M20.8 8.8c0 5.1-8.8 10-8.8 10S3.2 13.9 3.2 8.8A4.8 4.8 0 0 1 12 6.2a4.8 4.8 0 0 1 8.8 2.6Z"/></svg>Feito com amor
           </span>
           <h2 class="h2" id="storyTitle">Feito por nós, para você</h2>
 
@@ -883,7 +891,7 @@
           <article class="flatCard">
             <div class="bg" style="background-image:url('assets/flat-1.jpg')"></div>
             <div class="shade" aria-hidden="true"></div>
-            <div class="tag" id="tagGuests">👤 4 pessoas</div>
+            <div class="tag" id="tagGuests"><svg class="uiIcon" aria-hidden="true" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3.5 20c.4-3.4 2.2-5.5 5.5-5.5s5.1 2.1 5.5 5.5"/><path d="M16 5.5a3 3 0 0 1 0 5.7M16 14.5c2.8.2 4.4 2 4.7 5.5"/></svg>4 pessoas</div>
             <div class="badge" id="badgePopular">Mais Procurado</div>
             <div class="info">
               <h3 class="title" id="cardPeixeTitle">Flat Peixe</h3>
@@ -900,7 +908,7 @@
           <article class="flatCard">
             <div class="bg" style="background-image:url('assets/flat-2.jpg')"></div>
             <div class="shade" aria-hidden="true"></div>
-            <div class="tag" id="tagAC">❄️ Ar em todas</div>
+            <div class="tag" id="tagAC"><svg class="uiIcon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v18M4.2 7.5l15.6 9M4.2 16.5l15.6-9M8.5 5l3.5 2M8.5 19l3.5-2M15.5 5L12 7M15.5 19L12 17"/></svg>Ar em todas</div>
             <div class="info">
               <h3 class="title" id="cardEstrelaTitle">Flat Estrela</h3>
               <p class="meta" id="cardEstrelaMeta">
@@ -916,7 +924,7 @@
           <article class="flatCard">
             <div class="bg" style="background-image:url('assets/flat-3.jpg')"></div>
             <div class="shade" aria-hidden="true"></div>
-            <div class="tag" id="tagLocation">📍 Lagoinha</div>
+            <div class="tag" id="tagLocation"><svg class="uiIcon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 21s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12Z"/><circle cx="12" cy="9" r="2.3"/></svg>Lagoinha</div>
             <div class="info">
               <h3 class="title" id="cardMapsTitle">Abrir no Maps</h3>
               <p class="meta" id="cardMapsMeta">Ver a localização exata no Google Maps</p>
@@ -940,7 +948,7 @@
       <div class="tiles">
         <div class="tile tile-blue" data-modal="modalCasa" role="button" tabindex="0">
           <div class="tileLeft">
-            <div class="tileIcon">🏠</div>
+            <div class="tileIcon"><svg class="uiIcon" aria-hidden="true" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10H3Z"/><path d="M9 20v-6h6v6"/></svg></div>
             <div>
               <div class="tileTitle" id="tileHouseTitle">Guia da Casa</div>
               <div class="tileSub" id="tileHouseSub">Check-in/out, Wi-Fi e endereço</div>
@@ -951,7 +959,7 @@
 
         <div class="tile tile-green" data-modal="modalRegras" role="button" tabindex="0">
           <div class="tileLeft">
-            <div class="tileIcon">📜</div>
+            <div class="tileIcon"><svg class="uiIcon" aria-hidden="true" viewBox="0 0 24 24"><path d="M6 3h9l3 3v15H6Z"/><path d="M15 3v4h4M9 11h6M9 15h6"/></svg></div>
             <div>
               <div class="tileTitle" id="tileRulesTitle">Regras &amp; Dicas</div>
               <div class="tileSub" id="tileRulesSub">Para uma convivência harmoniosa</div>
@@ -962,7 +970,7 @@
 
         <div class="tile tile-orange" data-modal="modalLocal" role="button" tabindex="0">
           <div class="tileLeft">
-            <div class="tileIcon">📍</div>
+            <div class="tileIcon"><svg class="uiIcon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 21s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12Z"/><circle cx="12" cy="9" r="2.3"/></svg></div>
             <div>
               <div class="tileTitle" id="tileLocalTitle">Guia Local</div>
               <div class="tileSub" id="tileLocalSub">Restaurantes, mercados e farmácias</div>
@@ -989,17 +997,17 @@
 
       <div class="valuesGrid">
         <div class="value">
-          <div class="valueIcon">❤</div>
+          <div class="valueIcon"><svg class="uiIcon" aria-hidden="true" viewBox="0 0 24 24"><path d="M20.8 8.8c0 5.1-8.8 10-8.8 10S3.2 13.9 3.2 8.8A4.8 4.8 0 0 1 12 6.2a4.8 4.8 0 0 1 8.8 2.6Z"/></svg></div>
           <h3 id="v1Title">Acolhimento Familiar</h3>
           <p id="v1Text">Recebemos você com carinho e atenção em cada detalhe.</p>
         </div>
         <div class="value">
-          <div class="valueIcon">🍃</div>
+          <div class="valueIcon"><svg class="uiIcon" aria-hidden="true" viewBox="0 0 24 24"><path d="M20 4C10 4 5 8 5 14c0 3.5 2.5 6 6 6 6 0 10-5 9-16Z"/><path d="M4 20c3-4 6-6 11-8"/></svg></div>
           <h3 id="v2Title">Conexão com a Natureza</h3>
           <p id="v2Text">Perto do mar, cercado pela beleza natural de Ubatuba.</p>
         </div>
         <div class="value">
-          <div class="valueIcon">✦</div>
+          <div class="valueIcon"><svg class="uiIcon" aria-hidden="true" viewBox="0 0 24 24"><path d="m12 3 1.7 5.3L19 10l-5.3 1.7L12 17l-1.7-5.3L5 10l5.3-1.7Z"/><path d="m19 16 .6 1.9L21.5 18l-1.9.6L19 20.5l-.6-1.9-1.9-.6 1.9-.6Z"/></svg></div>
           <h3 id="v3Title">Autenticidade</h3>
           <p id="v3Text">Sem frescura: conforto real, praticidade e tranquilidade.</p>
         </div>
@@ -1012,7 +1020,7 @@
     <div class="wrap">
       <div class="stayCard">
         <div>
-          <span class="pill">📅 Consulte sua estadia</span>
+          <span class="pill"><svg class="uiIcon" aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>Consulte sua estadia</span>
           <h2 class="h2" style="color:#fff;margin-top:12px" id="stayTitle">Consulte sua estadia</h2>
           <p class="p" style="margin-top:10px" id="staySub">Escolha suas datas e o número de hóspedes. Vamos preparar uma mensagem para você consultar disponibilidade e valor pelo WhatsApp.</p>
         </div>
@@ -1022,7 +1030,7 @@
             <div class="stayField"><label for="stayCheckout">Check-out</label><input id="stayCheckout" type="date" required></div>
           </div>
           <div class="stayField"><label for="stayGuests">Hóspedes</label><select id="stayGuests" required><option value="1">1 hóspede</option><option value="2" selected>2 hóspedes</option><option value="3">3 hóspedes</option><option value="4">4 hóspedes</option></select></div>
-          <button class="btn btn-primary" type="submit" id="stayBtn">📅 Consultar pelo WhatsApp</button>
+          <button class="btn btn-primary" type="submit" id="stayBtn"><svg class="uiIcon stayBtnIcon" aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>Consultar pelo WhatsApp</button>
           <p class="stayNote" id="stayNote">A consulta não confirma a reserva. A disponibilidade e o valor serão confirmados pelo atendimento.</p>
         </form>
       </div>
@@ -1082,7 +1090,7 @@
             WhatsApp • (12) 98203-4767
           </a>
           <div style="height:10px"></div>
-          <div class="footSmall" id="footAddress">📍 R. Goiás, 291 • Lagoinha, Ubatuba - SP</div>
+          <div class="footSmall" id="footAddress"><svg class="uiIcon uiIcon--small" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 21s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12Z"/><circle cx="12" cy="9" r="2.3"/></svg>R. Goiás, 291 • Lagoinha, Ubatuba - SP</div>
         </div>
       </div>
 
@@ -1362,7 +1370,7 @@
            rel="noopener">
           <div class="localPlaceInfo">
             <span class="localPlaceName">${place.name}</span>
-            <span class="localPlaceAddress">📍 ${place.address}</span>
+            <span class="localPlaceAddress"><svg class="uiIcon uiIcon--small" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 21s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12Z"/><circle cx="12" cy="9" r="2.3"/></svg>${place.address}</span>
           </div>
           <span class="localPlaceLink" aria-hidden="true">↗</span>
         </a>
@@ -1391,7 +1399,7 @@
         ${section("🌿", d.localToursTitle, localPlaces.tours)}
 
         <div class="localLocation">
-          <h4 class="localLocationTitle">📍 ${d.localLocationTitle}</h4>
+          <h4 class="localLocationTitle"><svg class="uiIcon uiIcon--small" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 21s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12Z"/><circle cx="12" cy="9" r="2.3"/></svg>${d.localLocationTitle}</h4>
           <p class="localLocationAddress">
             ${d.localLocationAddress}
           </p>
@@ -1420,6 +1428,11 @@
        Estrutura corrigida: sem strings quebradas e sem aspas
        inválidas no objeto EN.
     ========================================================= */
+    const ICON_PIN = '<svg class="uiIcon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 21s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12Z"/><circle cx="12" cy="9" r="2.3"/></svg>';
+    const ICON_HEART = '<svg class="uiIcon" aria-hidden="true" viewBox="0 0 24 24"><path d="M20.8 8.8c0 5.1-8.8 10-8.8 10S3.2 13.9 3.2 8.8A4.8 4.8 0 0 1 12 6.2a4.8 4.8 0 0 1 8.8 2.6Z"/></svg>';
+    const ICON_GUESTS = '<svg class="uiIcon" aria-hidden="true" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3.5 20c.4-3.4 2.2-5.5 5.5-5.5s5.1 2.1 5.5 5.5"/><path d="M16 5.5a3 3 0 0 1 0 5.7M16 14.5c2.8.2 4.4 2 4.7 5.5"/></svg>';
+    const ICON_AC = '<svg class="uiIcon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v18M4.2 7.5l15.6 9M4.2 16.5l15.6-9M8.5 5l3.5 2M8.5 19l3.5-2M15.5 5L12 7M15.5 19L12 17"/></svg>';
+
     const translations = {
       pt: {
         nav:["Home","Nossa História","Flats","Guia da Casa","Regras","Dicas"],
@@ -1427,7 +1440,7 @@
         reserveWA:"Reserve pelo WhatsApp",
         contact:"Contato",
 
-        heroPill:"🌺 Praia da Lagoinha • Ubatuba/SP",
+        heroPill:"Praia da Lagoinha • Ubatuba/SP",
         heroT1:"Seu refúgio de paz",
         heroT2:"a 10 min do mar",
         heroSub:`Flats modernos para até <strong>4 pessoas</strong>.
@@ -1436,7 +1449,7 @@
           <strong>quintal</strong> exclusivo para seus dias de descanso.`,
         seeFlats:"Conheça os Flats",
 
-        storyPill:"💛 Feito com amor",
+        storyPill:"Feito com amor",
         storyTitle:"Feito por nós, para você",
         storyP1:`Olá! Somos o <strong>Neto</strong> e a <strong>Daniela</strong>. Para nós, receber pessoas não é apenas um negócio, é um prazer. Tudo aqui foi feito com carinho.`,
         storyP2:`Sinta-se em casa — a chave está na porta e o mar logo ali na frente.`,
@@ -1447,10 +1460,10 @@
         flatPeixeTitle:"Flat Peixe",
         flatEstrelaTitle:"Flat Estrela",
         flatMeta:"1 cama de casal + sofá-cama (vira 2) • Ar-condicionado • Garagem • Quintal",
-        tagGuests:"👤 4 pessoas",
+        tagGuests:"4 pessoas",
         badgePopular:"Mais Procurado",
-        tagAC:"❄️ Ar em todas",
-        tagLocation:"📍 Lagoinha",
+        tagAC:"Ar em todas",
+        tagLocation:"Lagoinha",
         mapsTitle:"Abrir no Maps",
         mapsMeta:"Ver a localização exata no Google Maps",
 
@@ -1522,7 +1535,7 @@
         localToursTitle:"Passeios",
         localLocationTitle:"Onde estamos",
         localLocationAddress:"R. Goiás, 291 • Lagoinha, Ubatuba - SP",
-        openMaps:"📍 Abrir no Google Maps",
+        openMaps:"Abrir no Google Maps",
         getDirections:"🚗 Traçar rota"
       },
 
@@ -1532,7 +1545,7 @@
         reserveWA:"Book on WhatsApp",
         contact:"Contact",
 
-        heroPill:"🌺 Lagoinha Beach • Ubatuba/SP",
+        heroPill:"Lagoinha Beach • Ubatuba/SP",
         heroT1:"Your peaceful getaway",
         heroT2:"10 min from the beach",
         heroSub:`Modern flats for up to <strong>4 guests</strong>.
@@ -1541,7 +1554,7 @@
           an <strong>exclusive backyard</strong> for your days of rest.`,
         seeFlats:"See the Flats",
 
-        storyPill:"💛 Made with love",
+        storyPill:"Made with love",
         storyTitle:"Made by us, for you",
         storyP1:`Hi! We are <strong>Neto</strong> and <strong>Daniela</strong>. Hosting is our pleasure. Everything here was prepared with care.`,
         storyP2:`Feel at home — the key is at the door and the ocean is right ahead.`,
@@ -1552,10 +1565,10 @@
         flatPeixeTitle:"Peixe Flat",
         flatEstrelaTitle:"Estrela Flat",
         flatMeta:"1 double bed + sofa bed (sleeps 2) • Air conditioning • Garage • Backyard",
-        tagGuests:"👤 4 guests",
+        tagGuests:"4 guests",
         badgePopular:"Top pick",
-        tagAC:"❄️ A/C in all",
-        tagLocation:"📍 Lagoinha",
+        tagAC:"A/C in all",
+        tagLocation:"Lagoinha",
         mapsTitle:"Open in Maps",
         mapsMeta:"See the exact location on Google Maps",
 
@@ -1627,7 +1640,7 @@
         localToursTitle:"Things to do",
         localLocationTitle:"Where we are",
         localLocationAddress:"R. Goiás, 291 • Lagoinha, Ubatuba - SP",
-        openMaps:"📍 Open in Google Maps",
+        openMaps:"Open in Google Maps",
         getDirections:"🚗 Get directions"
       },
 
@@ -1637,7 +1650,7 @@
         reserveWA:"Reservar por WhatsApp",
         contact:"Contacto",
 
-        heroPill:"🌺 Playa Lagoinha • Ubatuba/SP",
+        heroPill:"Playa Lagoinha • Ubatuba/SP",
         heroT1:"Tu refugio de paz",
         heroT2:"a 10 min del mar",
         heroSub:`Flats modernos para hasta <strong>4 personas</strong>.
@@ -1646,7 +1659,7 @@
           <strong>patio exclusivo</strong> para tus días de descanso.`,
         seeFlats:"Ver los Flats",
 
-        storyPill:"💛 Hecho con amor",
+        storyPill:"Hecho con amor",
         storyTitle:"Hecho por nosotros, para ti",
         storyP1:`¡Hola! Somos <strong>Neto</strong> y <strong>Daniela</strong>. Hospedar es un placer. Todo fue preparado con cariño.`,
         storyP2:`Siéntete como en casa — la llave está en la puerta y el mar está justo adelante.`,
@@ -1657,10 +1670,10 @@
         flatPeixeTitle:"Flat Peixe",
         flatEstrelaTitle:"Flat Estrela",
         flatMeta:"1 cama doble + sofá cama (para 2) • Aire acondicionado • Garaje • Patio",
-        tagGuests:"👤 4 personas",
+        tagGuests:"4 personas",
         badgePopular:"Más buscado",
-        tagAC:"❄️ A/C en todos",
-        tagLocation:"📍 Lagoinha",
+        tagAC:"A/C en todos",
+        tagLocation:"Lagoinha",
         mapsTitle:"Abrir en Maps",
         mapsMeta:"Ver la ubicación exacta en Google Maps",
 
@@ -1732,7 +1745,7 @@
         localToursTitle:"Paseos",
         localLocationTitle:"Dónde estamos",
         localLocationAddress:"R. Goiás, 291 • Lagoinha, Ubatuba - SP",
-        openMaps:"📍 Abrir en Google Maps",
+        openMaps:"Abrir en Google Maps",
         getDirections:"🚗 Cómo llegar"
       }
     };
@@ -1770,14 +1783,14 @@
       $("mBtnReserve").textContent = d.reserveWA;
       $("mBtnContact").textContent = d.contact;
 
-      $("heroPill").textContent = d.heroPill;
+      $("heroPill").innerHTML = `${ICON_PIN}${d.heroPill}`;
       $("heroTitleLine1").textContent = d.heroT1;
       $("heroTitleLine2").textContent = d.heroT2;
       $("heroSub").innerHTML = d.heroSub;
       $("heroBtnFlats").textContent = d.seeFlats;
       $("heroBtnReserve").textContent = d.reserveWA;
 
-      $("storyPill").textContent = d.storyPill;
+      $("storyPill").innerHTML = `${ICON_HEART}${d.storyPill}`;
       $("storyTitle").textContent = d.storyTitle;
       $("storyP1").innerHTML = d.storyP1;
       $("storyP2").innerHTML = d.storyP2;
@@ -1792,10 +1805,10 @@
       $("cardPeixeMeta").textContent = d.flatMeta;
       $("cardEstrelaMeta").textContent = d.flatMeta;
 
-      $("tagGuests").textContent = d.tagGuests;
+      $("tagGuests").innerHTML = `${ICON_GUESTS}${d.tagGuests}`;
       $("badgePopular").textContent = d.badgePopular;
-      $("tagAC").textContent = d.tagAC;
-      $("tagLocation").textContent = d.tagLocation;
+      $("tagAC").innerHTML = `${ICON_AC}${d.tagAC}`;
+      $("tagLocation").innerHTML = `${ICON_PIN}${d.tagLocation}`;
       $("cardMapsTitle").textContent = d.mapsTitle;
       $("cardMapsMeta").textContent = d.mapsMeta;
 
