@@ -5,27 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ubaflats • Praia da Lagoinha</title>
   <meta name="description" content="Ubaflats na Praia da Lagoinha, Ubatuba/SP. Flats para até 4 pessoas com garagem, quintal e ar-condicionado." />
-  <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Ubaflats • Praia da Lagoinha</title>
-
-  <meta name="description" content="Ubaflats na Praia da Lagoinha (Ubatuba/SP). Flats para até 4 pessoas com garagem, quintal e ar-condicionado.">
-
-  <!-- IMAGEM DA PRÉVIA -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Ubaflats • Praia da Lagoinha">
-  <meta property="og:description" content="Flats para até 4 pessoas na Praia da Lagoinha, Ubatuba/SP. Conforto, garagem, quintal e ar-condicionado.">
-  <meta property="og:url" content="https://www.ubaflats.com.br/">
-  <meta property="og:image" content="https://www.ubaflats.com.br/assets/hero.jpg">
-  <meta property="og:image:alt" content="Ubaflats • Praia da Lagoinha">
-
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Ubaflats • Praia da Lagoinha">
-  <meta name="twitter:description" content="Flats para até 4 pessoas na Praia da Lagoinha, Ubatuba/SP.">
-  <meta name="twitter:image" content="https://www.ubaflats.com.br/assets/hero.jpg">
-</head>
   <link rel="icon" type="image/png" href="assets/logo.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -573,107 +552,86 @@
       overflow:auto;
     }
     .list{margin:10px 0 0;padding:0;list-style:none}
+    .list li{display:flex;align-items:flex-start;gap:10px;margin:12px 0;line-height:1.6}
+    .check{width:24px;height:24px;display:inline-grid;place-items:center;flex:0 0 24px;border-radius:50%;background:rgba(47,111,106,.12);border:1px solid rgba(47,111,106,.22);color:var(--teal);font-size:14px;font-weight:900;line-height:1;margin-top:1px}
 
-    /* LOCAL GUIDE - PREMIUM */
-    .localIntro{
-      margin:0 0 24px;
-      padding:16px 18px;
-      border-radius:18px;
-      background:linear-gradient(135deg,rgba(151,201,191,.18),rgba(247,240,230,.72));
-      border:1px solid rgba(47,111,106,.12);
-      color:var(--muted);
-      line-height:1.7;
+    /* LOCAL GUIDE - ORGANIZED */
+    .localIntro{margin-bottom:20px}
+    .localSection{
+      margin-top:22px;
     }
-    .localSection{margin-top:26px}
     .localSectionTitle{
       display:flex;
       align-items:center;
-      gap:11px;
-      margin:0 0 13px;
+      gap:10px;
+      margin:0 0 12px;
       font-size:18px;
-      font-weight:900;
-      letter-spacing:-.01em;
     }
     .localSectionTitle span{
-      width:42px;
-      height:42px;
+      width:38px;height:38px;
       display:grid;
       place-items:center;
-      flex:0 0 auto;
-      border-radius:14px;
-      background:linear-gradient(135deg,rgba(215,119,26,.15),rgba(151,201,191,.28));
-      border:1px solid rgba(31,43,58,.08);
-      box-shadow:0 7px 18px rgba(17,24,39,.07);
-      font-size:20px;
+      border-radius:13px;
+      background:rgba(151,201,191,.25);
+      border:1px solid rgba(151,201,191,.35);
     }
     .localCards{
       display:grid;
-      gap:11px;
+      gap:10px;
     }
     .localPlace{
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:14px;
-      padding:15px 16px;
+      padding:14px 15px;
       border:1px solid rgba(31,43,58,.08);
-      border-radius:19px;
-      background:linear-gradient(135deg,#fff,#fcfaf6);
-      box-shadow:0 8px 24px rgba(17,24,39,.055);
-      transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease,background .18s ease;
+      border-radius:18px;
+      background:#fff;
+      box-shadow:0 7px 22px rgba(17,24,39,.06);
+      transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease;
     }
     .localPlace:hover{
-      transform:translateY(-2px);
-      box-shadow:0 14px 32px rgba(17,24,39,.10);
-      border-color:rgba(47,111,106,.25);
-      background:#fff;
+      transform:translateY(-1px);
+      box-shadow:0 12px 28px rgba(17,24,39,.09);
+      border-color:rgba(47,111,106,.22);
     }
     .localPlaceInfo{min-width:0}
     .localPlaceName{
       display:block;
       font-weight:900;
-      margin-bottom:5px;
-      color:var(--navy);
-      line-height:1.35;
+      margin-bottom:4px;
     }
     .localPlaceAddress{
       display:block;
       color:var(--muted);
       font-size:13px;
-      line-height:1.5;
+      line-height:1.45;
     }
     .localPlaceLink{
-      width:40px;
-      height:40px;
+      width:38px;height:38px;
       display:grid;
       place-items:center;
-      border-radius:13px;
+      border-radius:12px;
       flex:0 0 auto;
       background:rgba(47,111,106,.10);
       color:var(--teal);
-      border:1px solid rgba(47,111,106,.16);
+      border:1px solid rgba(47,111,106,.15);
       font-weight:900;
-      transition:transform .18s ease,background .18s ease;
-    }
-    .localPlace:hover .localPlaceLink{
-      transform:translateX(2px);
-      background:rgba(47,111,106,.16);
     }
     .localLocation{
-      margin-top:28px;
-      padding:20px;
-      border-radius:23px;
-      background:linear-gradient(135deg,rgba(247,240,230,.96),rgba(151,201,191,.18));
-      border:1px solid rgba(31,43,58,.09);
-      box-shadow:0 10px 28px rgba(17,24,39,.06);
+      margin-top:26px;
+      padding:18px;
+      border-radius:22px;
+      background:rgba(247,240,230,.85);
+      border:1px solid rgba(31,43,58,.08);
     }
     .localLocationTitle{
       display:flex;
       align-items:center;
       gap:9px;
-      margin:0 0 7px;
+      margin:0 0 6px;
       font-size:18px;
-      font-weight:900;
     }
     .localLocationAddress{
       color:var(--muted);
@@ -684,9 +642,22 @@
       display:flex;
       gap:10px;
       flex-wrap:wrap;
-      margin-top:15px;
+      margin-top:14px;
     }
-    .localActions .btn{flex:1;min-width:190px}
+    .localActions .btn{flex:1}
+
+    /* CONSULTE SUA ESTADIA */
+    .stayCheck{padding:64px 0}
+    .stayCard{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center;background:var(--navy);color:#fff;border-radius:28px;padding:32px;box-shadow:var(--shadow2)}
+    .stayCard .pill{color:#fff !important;background:rgba(151,201,191,.14) !important;border-color:rgba(151,201,191,.28) !important}
+    .stayCard .p{color:rgba(255,255,255,.74)}
+    .stayForm{display:grid;gap:12px}
+    .stayRow{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .stayField label{display:block;font-size:12px;font-weight:900;margin:0 0 6px;color:rgba(255,255,255,.82)}
+    .stayField input,.stayField select{width:100%;box-sizing:border-box;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.09);color:#fff;border-radius:13px;padding:12px 13px;outline:none;font:inherit}
+    .stayField input:focus,.stayField select:focus{border-color:rgba(151,201,191,.7);box-shadow:0 0 0 3px rgba(151,201,191,.12)}
+    .stayField select option{color:var(--navy);background:#fff}
+    .stayNote{font-size:11px;color:rgba(255,255,255,.55);line-height:1.5;margin:0}
 
     /* MOBILE MENU */
     .mobilePanel{
@@ -753,6 +724,8 @@
       .localPlaceAddress{font-size:12px}
       .localActions{flex-direction:column}
       .localActions .btn{width:100%}
+      .stayCard{grid-template-columns:1fr;padding:24px}
+      .stayRow{grid-template-columns:1fr}
     }
   </style>
 </head>
@@ -1030,6 +1003,28 @@
           <h3 id="v3Title">Autenticidade</h3>
           <p id="v3Text">Sem frescura: conforto real, praticidade e tranquilidade.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONSULTE SUA ESTADIA -->
+  <section class="stayCheck" id="reserva">
+    <div class="wrap">
+      <div class="stayCard">
+        <div>
+          <span class="pill">📅 Consulte sua estadia</span>
+          <h2 class="h2" style="color:#fff;margin-top:12px" id="stayTitle">Consulte sua estadia</h2>
+          <p class="p" style="margin-top:10px" id="staySub">Escolha suas datas e o número de hóspedes. Vamos preparar uma mensagem para você consultar disponibilidade e valor pelo WhatsApp.</p>
+        </div>
+        <form class="stayForm" id="stayForm">
+          <div class="stayRow">
+            <div class="stayField"><label for="stayCheckin">Check-in</label><input id="stayCheckin" type="date" required></div>
+            <div class="stayField"><label for="stayCheckout">Check-out</label><input id="stayCheckout" type="date" required></div>
+          </div>
+          <div class="stayField"><label for="stayGuests">Hóspedes</label><select id="stayGuests" required><option value="1">1 hóspede</option><option value="2" selected>2 hóspedes</option><option value="3">3 hóspedes</option><option value="4">4 hóspedes</option></select></div>
+          <button class="btn btn-primary" type="submit" id="stayBtn">📅 Consultar pelo WhatsApp</button>
+          <p class="stayNote" id="stayNote">A consulta não confirma a reserva. A disponibilidade e o valor serão confirmados pelo atendimento.</p>
+        </form>
       </div>
     </div>
   </section>
@@ -1859,6 +1854,38 @@
       if (!button) return;
 
       applyLanguage(button.dataset.lang);
+    });
+
+    /* =========================================================
+       CONSULTE SUA ESTADIA
+    ========================================================= */
+    const stayForm = $("stayForm");
+    stayForm?.addEventListener("submit", event => {
+      event.preventDefault();
+      const checkin = $("stayCheckin").value;
+      const checkout = $("stayCheckout").value;
+      const guests = $("stayGuests").value;
+      if (!checkin || !checkout || !guests) return;
+      if (checkout <= checkin) {
+        alert("A data de check-out precisa ser posterior ao check-in.");
+        return;
+      }
+      const formatDate = value => { const [y,m,d] = value.split("-"); return `${d}/${m}/${y}`; };
+      const message = `Olá! Vim pelo site do Ubaflats e gostaria de consultar disponibilidade.\n\nCheck-in: ${formatDate(checkin)}\nCheck-out: ${formatDate(checkout)}\nHóspedes: ${guests}\n\nPodem me informar o valor e a disponibilidade?`;
+      window.open(`${WHATSAPP_URL}?text=${encodeURIComponent(message)}`, "_blank", "noopener");
+    });
+
+    const stayToday = new Date();
+    const stayTodayISO = new Date(stayToday.getTime() - stayToday.getTimezoneOffset() * 60000).toISOString().split("T")[0];
+    $("stayCheckin")?.setAttribute("min", stayTodayISO);
+    $("stayCheckout")?.setAttribute("min", stayTodayISO);
+    $("stayCheckin")?.addEventListener("change", () => {
+      if (!$("stayCheckin").value) return;
+      const nextMin = new Date($("stayCheckin").value + "T12:00:00");
+      nextMin.setDate(nextMin.getDate() + 1);
+      const iso = nextMin.toISOString().split("T")[0];
+      $("stayCheckout").setAttribute("min", iso);
+      if ($("stayCheckout").value && $("stayCheckout").value <= $("stayCheckin").value) $("stayCheckout").value = "";
     });
 
     /* =========================================================
