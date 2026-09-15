@@ -1026,11 +1026,11 @@
         </div>
         <form class="stayForm" id="stayForm">
           <div class="stayRow">
-            <div class="stayField"><label for="stayCheckin">Check-in</label><input id="stayCheckin" type="date" required></div>
-            <div class="stayField"><label for="stayCheckout">Check-out</label><input id="stayCheckout" type="date" required></div>
+            <div class="stayField"><label id="stayCheckinLabel" for="stayCheckin">Check-in</label><input id="stayCheckin" type="date" required></div>
+            <div class="stayField"><label id="stayCheckoutLabel" for="stayCheckout">Check-out</label><input id="stayCheckout" type="date" required></div>
           </div>
-          <div class="stayField"><label for="stayGuests">Hóspedes</label><select id="stayGuests" required><option value="1">1 hóspede</option><option value="2" selected>2 hóspedes</option><option value="3">3 hóspedes</option><option value="4">4 hóspedes</option></select></div>
-          <button class="btn btn-primary" type="submit" id="stayBtn"><svg class="uiIcon stayBtnIcon" aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>Consultar pelo WhatsApp</button>
+          <div class="stayField"><label id="stayGuestsLabel" for="stayGuests">Hóspedes</label><select id="stayGuests" required><option value="1">1 hóspede</option><option value="2" selected>2 hóspedes</option><option value="3">3 hóspedes</option><option value="4">4 hóspedes</option></select></div>
+          <button class="btn btn-primary" type="submit" id="stayBtn"><svg class="uiIcon stayBtnIcon" aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg><span id="stayBtnText">Consultar pelo WhatsApp</span></button>
           <p class="stayNote" id="stayNote">A consulta não confirma a reserva. A disponibilidade e o valor serão confirmados pelo atendimento.</p>
         </form>
       </div>
@@ -1439,6 +1439,15 @@
         reserveNow:"Reserve Agora",
         reserveWA:"Reserve pelo WhatsApp",
         contact:"Contato",
+        stayTitle:"Consulte sua estadia",
+        staySub:"Escolha suas datas e o número de hóspedes. Vamos preparar uma mensagem para você consultar disponibilidade e valor pelo WhatsApp.",
+        stayCheckin:"Check-in",
+        stayCheckout:"Check-out",
+        stayGuests:"Hóspedes",
+        stayGuestSingular:"hóspede",
+        stayGuestPlural:"hóspedes",
+        stayBtn:"Consultar pelo WhatsApp",
+        stayNote:"A consulta não confirma a reserva. A disponibilidade e o valor serão confirmados pelo atendimento.",
 
         heroPill:"Praia da Lagoinha • Ubatuba/SP",
         heroT1:"Seu refúgio de paz",
@@ -1544,6 +1553,15 @@
         reserveNow:"Book now",
         reserveWA:"Book on WhatsApp",
         contact:"Contact",
+        stayTitle:"Check your stay",
+        staySub:"Choose your dates and number of guests. We will prepare a message so you can check availability and price on WhatsApp.",
+        stayCheckin:"Check-in",
+        stayCheckout:"Check-out",
+        stayGuests:"Guests",
+        stayGuestSingular:"guest",
+        stayGuestPlural:"guests",
+        stayBtn:"Check on WhatsApp",
+        stayNote:"This inquiry does not confirm a reservation. Availability and price will be confirmed by our team.",
 
         heroPill:"Lagoinha Beach • Ubatuba/SP",
         heroT1:"Your peaceful getaway",
@@ -1649,6 +1667,15 @@
         reserveNow:"Reservar ahora",
         reserveWA:"Reservar por WhatsApp",
         contact:"Contacto",
+        stayTitle:"Consulta tu estancia",
+        staySub:"Elige tus fechas y el número de huéspedes. Prepararemos un mensaje para consultar disponibilidad y precio por WhatsApp.",
+        stayCheckin:"Check-in",
+        stayCheckout:"Check-out",
+        stayGuests:"Huéspedes",
+        stayGuestSingular:"huésped",
+        stayGuestPlural:"huéspedes",
+        stayBtn:"Consultar por WhatsApp",
+        stayNote:"La consulta no confirma la reserva. La disponibilidad y el precio serán confirmados por nuestro equipo.",
 
         heroPill:"Playa Lagoinha • Ubatuba/SP",
         heroT1:"Tu refugio de paz",
@@ -1830,6 +1857,21 @@
       $("v2Text").textContent = d.v2p;
       $("v3Title").textContent = d.v3t;
       $("v3Text").textContent = d.v3p;
+
+      $("stayTitle").textContent = d.stayTitle;
+      $("staySub").textContent = d.staySub;
+      $("stayCheckinLabel").textContent = d.stayCheckin;
+      $("stayCheckoutLabel").textContent = d.stayCheckout;
+      $("stayGuestsLabel").textContent = d.stayGuests;
+      $("stayBtnText").textContent = d.stayBtn;
+      $("stayNote").textContent = d.stayNote;
+      const stayGuestsSelect = $("stayGuests");
+      if (stayGuestsSelect) {
+        Array.from(stayGuestsSelect.options).forEach(option => {
+          const number = option.value;
+          option.textContent = `${number} ${number === "1" ? d.stayGuestSingular : d.stayGuestPlural}`;
+        });
+      }
 
       $("ctaTitle").innerHTML = d.ctaTitle;
       $("ctaBtn").textContent = d.ctaBtn;
