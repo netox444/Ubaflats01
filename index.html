@@ -4,8 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ubaflats • Praia da Lagoinha</title>
-  <meta name="description" content="Ubaflats na Praia da Lagoinha (Ubatuba/SP). Flats para até 4 pessoas com garagem, quintal e ar-condicionado." />
-
+  <meta name="description" content="Ubaflats na Praia da Lagoinha, Ubatuba/SP. Flats para até 4 pessoas com garagem, quintal e ar-condicionado." />
   <link rel="icon" type="image/png" href="assets/logo.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,61 +13,107 @@
 
   <style>
     :root{
-      --cream: #F7F0E6;
-      --navy:  #1F2B3A;
-      --teal:  #2F6F6A;
-      --mint:  #97C9BF;
+      --cream:#F7F0E6;
+      --navy:#1F2B3A;
+      --teal:#2F6F6A;
+      --mint:#97C9BF;
       --orange:#D7771A;
-      --white: #FFFFFF;
-
-      --shadow: 0 18px 50px rgba(17,24,39,.12);
-      --shadow2: 0 10px 30px rgba(17,24,39,.10);
-      --r2: 28px;
+      --white:#fff;
+      --muted:rgba(31,43,58,.72);
+      --shadow:0 18px 50px rgba(17,24,39,.12);
+      --shadow2:0 10px 30px rgba(17,24,39,.10);
+      --r2:28px;
     }
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
       color:var(--navy);
       background:var(--cream);
     }
+    body.modal-open{overflow:hidden}
     a{color:inherit;text-decoration:none}
-    .wrap{width:min(1120px, calc(100% - 48px));margin:0 auto}
+    button{font:inherit}
+    .wrap{width:min(1120px,calc(100% - 48px));margin:0 auto}
 
-    /* Topbar */
+    /* TOPBAR */
     .topbar{
-      position:sticky;top:0;z-index:50;
-      background:rgba(247,240,230,.86);
-      backdrop-filter: blur(10px);
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:rgba(247,240,230,.88);
+      backdrop-filter:blur(12px);
       border-bottom:1px solid rgba(31,43,58,.08);
     }
-    .topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
-
+    .topbar-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:14px 0;
+    }
     .brand{display:flex;align-items:center;gap:12px}
-    .brand img{width:38px;height:38px;border-radius:14px;box-shadow:0 10px 25px rgba(17,24,39,.12);background:#fff;object-fit:cover}
-    .brand .name{font-family:"Playfair Display",serif;font-weight:700;letter-spacing:-.02em;font-size:22px}
-
-    .nav{display:flex;align-items:center;gap:22px;font-weight:800;color:rgba(31,43,58,.78)}
-    .nav a{padding:10px 8px;border-radius:12px;transition:background .15s ease}
+    .brand img{
+      width:38px;height:38px;border-radius:14px;
+      box-shadow:0 10px 25px rgba(17,24,39,.12);
+      background:#fff;object-fit:cover;
+    }
+    .brand .name{
+      font-family:"Playfair Display",serif;
+      font-weight:700;
+      letter-spacing:-.02em;
+      font-size:22px;
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      font-weight:800;
+      color:rgba(31,43,58,.78);
+    }
+    .nav a{
+      padding:10px 8px;
+      border-radius:12px;
+      transition:background .15s ease;
+    }
     .nav a:hover{background:rgba(31,43,58,.05)}
 
     .btn{
-      display:inline-flex;align-items:center;justify-content:center;gap:10px;
-      padding:14px 18px;border-radius:999px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:14px 18px;
+      border-radius:999px;
       border:1px solid transparent;
-      cursor:pointer;font-weight:900;
-      transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
-      user-select:none;white-space:nowrap
+      cursor:pointer;
+      font-weight:900;
+      transition:transform .18s ease,box-shadow .18s ease,background .18s ease,border-color .18s ease;
+      user-select:none;
+      white-space:nowrap;
     }
     .btn:active{transform:translateY(1px) scale(.99)}
-    .btn-primary{background:var(--orange);color:white;box-shadow:0 14px 40px rgba(215,119,26,.25)}
-    .btn-primary:hover{background:#e18224;box-shadow:0 18px 55px rgba(215,119,26,.30)}
-    .btn-ghost{background:rgba(255,255,255,.78);border:1px solid rgba(31,43,58,.14)}
-    .btn-ghost:hover{border-color:rgba(31,43,58,.22);box-shadow:var(--shadow2);transform:translateY(-1px)}
+    .btn-primary{
+      background:var(--orange);
+      color:#fff;
+      box-shadow:0 14px 40px rgba(215,119,26,.25);
+    }
+    .btn-primary:hover{
+      background:#e18224;
+      box-shadow:0 18px 55px rgba(215,119,26,.30);
+    }
+    .btn-ghost{
+      background:rgba(255,255,255,.80);
+      border-color:rgba(31,43,58,.14);
+    }
+    .btn-ghost:hover{
+      border-color:rgba(31,43,58,.22);
+      box-shadow:var(--shadow2);
+      transform:translateY(-1px);
+    }
 
-    /* Language switch */
     .lang{display:flex;gap:6px;align-items:center}
     .langBtn{
       border:1px solid rgba(31,43,58,.14);
@@ -83,39 +128,63 @@
       background:rgba(215,119,26,.16);
       border-color:rgba(215,119,26,.35);
     }
+    .burger{
+      display:none;
+      border:1px solid rgba(31,43,58,.14);
+      background:rgba(255,255,255,.7);
+      border-radius:14px;
+      padding:10px 12px;
+      font-weight:900;
+      cursor:pointer;
+    }
 
-    .burger{display:none;border:1px solid rgba(31,43,58,.14);background:rgba(255,255,255,.7);border-radius:14px;padding:10px 12px;font-weight:900;cursor:pointer}
-
-    /* Hero */
+    /* HERO */
     .hero{padding:18px 0 42px}
     .heroCard{
-      border-radius:var(--r2);
-      overflow:hidden;
-      box-shadow:var(--shadow);
-      border:1px solid rgba(255,255,255,.6);
       position:relative;
       min-height:520px;
+      overflow:hidden;
+      border-radius:var(--r2);
       background:#0b1d24;
+      box-shadow:var(--shadow);
+      border:1px solid rgba(255,255,255,.6);
+      isolation:isolate;
     }
     .heroBg{
-      position:absolute; inset:0;
+      position:absolute;
+      inset:0;
+      z-index:0;
       background-size:cover;
       background-position:center;
       transform:scale(1.02);
-      transition: opacity .8s ease;
-      z-index:0;
+      opacity:0;
+      transition:opacity .8s ease;
+    }
+    .heroBg::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(90deg,rgba(14,42,63,.34),rgba(14,42,63,.10));
     }
     .heroBgA{opacity:1}
-    .heroBgB{opacity:0}
-
-    .heroContent{position:relative;z-index:1;padding:56px 54px 48px;color:white;max-width:800px}
+    .heroContent{
+      position:relative;
+      z-index:1;
+      padding:56px 54px 48px;
+      color:#fff;
+      max-width:800px;
+    }
     .pill{
-      display:inline-flex;align-items:center;gap:10px;
-      padding:10px 14px;border-radius:999px;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:999px;
       background:rgba(151,201,191,.18);
       border:1px solid rgba(151,201,191,.30);
       color:rgba(255,255,255,.92);
-      font-size:12px;font-weight:900
+      font-size:12px;
+      font-weight:900;
     }
     .heroTitle{
       font-family:"Playfair Display",serif;
@@ -125,163 +194,555 @@
       line-height:1.05;
       margin:14px 0 10px;
     }
-    .heroSub{margin:0 0 26px;max-width:640px;line-height:1.8;color:rgba(255,255,255,.88);font-weight:600}
+    .heroTitleLine2{
+      font-family:Inter,sans-serif;
+      font-weight:900;
+    }
+    .heroSub{
+      margin:0 0 26px;
+      max-width:640px;
+      line-height:1.8;
+      color:rgba(255,255,255,.88);
+      font-weight:600;
+    }
     .heroBtns{display:flex;gap:12px;flex-wrap:wrap}
 
-    /* Sections */
+    /* SECTIONS */
     section{padding:64px 0}
-    .sectionHead{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:28px}
-    .h2{font-family:"Playfair Display",serif;font-weight:700;letter-spacing:-.02em;margin:0;font-size:44px}
-    .p{margin:0;color:rgba(31,43,58,.78);line-height:1.75}
-
-    /* Story */
-    .storyGrid{display:grid;grid-template-columns:1.1fr 1fr;gap:34px;align-items:center}
-    .photoCard{border-radius:var(--r2);overflow:hidden;box-shadow:var(--shadow2);border:1px solid rgba(31,43,58,.06);background:var(--white);height:100%}
-    .photoCard img{width:100%;height:100%;object-fit:cover;display:block}
-    .storyBox{background:var(--white);border-radius:var(--r2);border:1px solid rgba(31,43,58,.06);box-shadow:var(--shadow2);padding:34px}
-    .storyBox .h2{font-size:44px;margin:12px 0 10px}
-    .signature{font-family:"Playfair Display",serif;color:var(--orange);font-size:22px;margin-top:16px}
-
-    /* Flats */
-    .flatGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .flatCard{
-      position:relative;border-radius:var(--r2);overflow:hidden;background:#111;
-      box-shadow:var(--shadow2);min-height:300px;border:1px solid rgba(255,255,255,.45)
+    .sectionHead{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:24px;
+      margin-bottom:28px;
     }
-    .flatCard .bg{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.02)}
-    .flatCard .shade{position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,.62) 78%)}
+    .h2{
+      font-family:"Playfair Display",serif;
+      font-weight:700;
+      letter-spacing:-.02em;
+      margin:0;
+      font-size:44px;
+    }
+    .p{margin:0;color:var(--muted);line-height:1.75}
+
+    /* STORY */
+    .storyGrid{
+      display:grid;
+      grid-template-columns:1.1fr 1fr;
+      gap:34px;
+      align-items:stretch;
+    }
+    .photoCard{
+      min-height:480px;
+      border-radius:var(--r2);
+      overflow:hidden;
+      box-shadow:var(--shadow2);
+      border:1px solid rgba(31,43,58,.06);
+      background:#fff;
+    }
+    .photoCard img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .storyBox{
+      background:#fff;
+      border-radius:var(--r2);
+      border:1px solid rgba(31,43,58,.06);
+      box-shadow:var(--shadow2);
+      padding:34px;
+    }
+    .storyBox .h2{font-size:44px;margin:12px 0 10px}
+    .signature{
+      font-family:"Playfair Display",serif;
+      color:var(--orange);
+      font-size:22px;
+      margin-top:16px;
+    }
+
+    /* FLATS */
+    .flatGrid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+    .flatCard{
+      position:relative;
+      min-height:300px;
+      overflow:hidden;
+      border-radius:var(--r2);
+      background:#111;
+      box-shadow:var(--shadow2);
+      border:1px solid rgba(255,255,255,.45);
+    }
+    .flatCard .bg{
+      position:absolute;
+      inset:0;
+      background-size:cover;
+      background-position:center;
+      transform:scale(1.02);
+      transition:transform .35s ease;
+    }
+    .flatCard:hover .bg{transform:scale(1.06)}
+    .flatCard .shade{
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg,rgba(0,0,0,.08) 0%,rgba(0,0,0,.68) 80%);
+    }
+    .tag,.badge{
+      position:absolute;
+      top:14px;
+      padding:8px 10px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:900;
+      backdrop-filter:blur(8px);
+    }
     .tag{
-      position:absolute;top:14px;left:14px;display:inline-flex;gap:8px;align-items:center;
-      padding:8px 10px;border-radius:999px;background:rgba(17,24,39,.55);
-      border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.92);
-      font-size:12px;font-weight:900;backdrop-filter: blur(8px)
+      left:14px;
+      background:rgba(17,24,39,.55);
+      border:1px solid rgba(255,255,255,.22);
+      color:rgba(255,255,255,.92);
     }
     .badge{
-      position:absolute;top:14px;right:14px;padding:8px 10px;border-radius:999px;
-      background:rgba(215,119,26,.18);border:1px solid rgba(215,119,26,.35);
-      color:rgba(255,255,255,.94);font-size:12px;font-weight:900;backdrop-filter: blur(8px)
+      right:14px;
+      background:rgba(215,119,26,.18);
+      border:1px solid rgba(215,119,26,.35);
+      color:rgba(255,255,255,.94);
     }
-    .info{position:absolute;left:16px;right:16px;bottom:16px;color:white}
-    .title{font-family:"Playfair Display",serif;font-size:28px;margin:0 0 6px;letter-spacing:-.01em}
-    .meta{margin:0;color:rgba(255,255,255,.86);font-size:13px;line-height:1.6}
-
+    .info{
+      position:absolute;
+      left:16px;
+      right:16px;
+      bottom:16px;
+      color:#fff;
+    }
+    .title{
+      font-family:"Playfair Display",serif;
+      font-size:28px;
+      margin:0 0 6px;
+      letter-spacing:-.01em;
+    }
+    .meta{
+      margin:0;
+      color:rgba(255,255,255,.86);
+      font-size:13px;
+      line-height:1.6;
+    }
     .flatLink{display:block}
-    .flatLink .flatCard{cursor:pointer}
-    .flatLink:focus-visible{outline: 3px solid rgba(215,119,26,.45); outline-offset: 6px; border-radius: var(--r2);}
+    .flatLink:focus-visible{
+      outline:3px solid rgba(215,119,26,.45);
+      outline-offset:6px;
+      border-radius:var(--r2);
+    }
 
-    /* Guide tiles */
-    .tiles{display:grid;gap:16px;max-width:780px;margin:0 auto}
+    /* GUIDE */
+    .tiles{
+      display:grid;
+      gap:16px;
+      max-width:780px;
+      margin:0 auto;
+    }
     .tile{
-      display:flex;align-items:center;justify-content:space-between;gap:16px;
-      padding:22px 22px;border-radius:22px;border:1px solid rgba(31,43,58,.06);
-      box-shadow:var(--shadow2);cursor:pointer;transition:transform .18s ease, box-shadow .18s ease
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:22px;
+      border-radius:22px;
+      border:1px solid rgba(31,43,58,.06);
+      box-shadow:var(--shadow2);
+      cursor:pointer;
+      transition:transform .18s ease,box-shadow .18s ease;
     }
     .tile:hover{transform:translateY(-2px);box-shadow:0 18px 45px rgba(17,24,39,.12)}
     .tileLeft{display:flex;align-items:center;gap:14px}
-    .tileIcon{width:46px;height:46px;border-radius:16px;display:grid;place-items:center;background:rgba(255,255,255,.85);border:1px solid rgba(31,43,58,.06)}
+    .tileIcon{
+      width:46px;height:46px;
+      border-radius:16px;
+      display:grid;
+      place-items:center;
+      background:rgba(255,255,255,.85);
+      border:1px solid rgba(31,43,58,.06);
+      flex:0 0 auto;
+    }
     .tileTitle{font-weight:900}
     .tileSub{color:rgba(31,43,58,.72);font-size:13px;margin-top:2px}
-    .tileArrow{width:40px;height:40px;border-radius:14px;display:grid;place-items:center;background:rgba(255,255,255,.75);border:1px solid rgba(31,43,58,.06)}
-    .tile-blue{background: rgba(151, 201, 191, .30)}
-    .tile-green{background: rgba(47, 111, 106, .14)}
-    .tile-orange{background: rgba(215, 119, 26, .14)}
+    .tileArrow{
+      width:40px;height:40px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      background:rgba(255,255,255,.75);
+      border:1px solid rgba(31,43,58,.06);
+      flex:0 0 auto;
+    }
+    .tile-blue{background:rgba(151,201,191,.30)}
+    .tile-green{background:rgba(47,111,106,.14)}
+    .tile-orange{background:rgba(215,119,26,.14)}
 
-    /* Values */
-    .values{background:rgba(151,201,191,.14);border-top:1px solid rgba(31,43,58,.06);border-bottom:1px solid rgba(31,43,58,.06)}
-    .valuesGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:26px}
+    /* VALUES */
+    .values{
+      background:rgba(151,201,191,.14);
+      border-top:1px solid rgba(31,43,58,.06);
+      border-bottom:1px solid rgba(31,43,58,.06);
+    }
+    .valuesGrid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:22px;
+      margin-top:26px;
+    }
     .value{text-align:center;padding:26px 18px}
     .valueIcon{
-      width:56px;height:56px;margin:0 auto 12px;border-radius:18px;display:grid;place-items:center;
-      background:rgba(215,119,26,.12);border:1px solid rgba(215,119,26,.22);color:var(--orange);font-size:26px
+      width:56px;height:56px;
+      margin:0 auto 12px;
+      border-radius:18px;
+      display:grid;
+      place-items:center;
+      background:rgba(215,119,26,.12);
+      border:1px solid rgba(215,119,26,.22);
+      color:var(--orange);
+      font-size:26px;
     }
     .value h3{margin:10px 0 8px}
-    .value p{margin:0;color:rgba(31,43,58,.78);line-height:1.7;font-size:14px}
+    .value p{margin:0;color:var(--muted);line-height:1.7;font-size:14px}
 
     /* CTA */
-    .ctaCard{background:var(--white);border-radius:34px;border:1px solid rgba(31,43,58,.06);box-shadow:var(--shadow);overflow:hidden}
+    .ctaCard{
+      background:#fff;
+      border-radius:34px;
+      border:1px solid rgba(31,43,58,.06);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
     .ctaImg{
       height:260px;
       background:
-        linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.35)),
+        linear-gradient(180deg,rgba(0,0,0,.06),rgba(0,0,0,.35)),
         url("assets/praia.jpg");
       background-size:cover;
-      background-position:center
+      background-position:center;
     }
     .ctaBody{padding:34px 28px 30px;text-align:center}
-    .ctaTitle{font-family:"Playfair Display",serif;font-size:clamp(26px,3vw,40px);margin:0 0 18px;letter-spacing:-.02em}
+    .ctaTitle{
+      font-family:"Playfair Display",serif;
+      font-size:clamp(26px,3vw,40px);
+      margin:0 0 18px;
+      letter-spacing:-.02em;
+    }
 
-    /* Footer */
-    .footer{background:var(--teal);color:rgba(255,255,255,.86);padding:46px 0 28px}
-    .footGrid{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:22px;align-items:start}
-    .footBrand{color:white;font-family:"Playfair Display",serif;font-size:28px;margin:0 0 8px}
+    /* FOOTER */
+    .footer{
+      background:var(--teal);
+      color:rgba(255,255,255,.86);
+      padding:46px 0 28px;
+    }
+    .footGrid{
+      display:grid;
+      grid-template-columns:1.2fr 1fr 1fr 1fr;
+      gap:22px;
+      align-items:start;
+    }
+    .footBrand{
+      color:#fff;
+      font-family:"Playfair Display",serif;
+      font-size:28px;
+      margin:0 0 8px;
+    }
     .footSmall{color:rgba(255,255,255,.78);line-height:1.7;margin:0}
-    .footCol h4{margin:8px 0 10px;color:white}
+    .footCol h4{margin:8px 0 10px;color:#fff}
     .footCol a{display:block;padding:8px 0;color:rgba(255,255,255,.78)}
-    .footCol a:hover{color:white}
-    .footBottom{margin-top:26px;padding-top:18px;border-top:1px solid rgba(255,255,255,.10);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:rgba(255,255,255,.70);font-size:13px}
+    .footCol a:hover{color:#fff}
+    .footBottom{
+      margin-top:26px;
+      padding-top:18px;
+      border-top:1px solid rgba(255,255,255,.10);
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      color:rgba(255,255,255,.70);
+      font-size:13px;
+    }
 
-    /* Floating WhatsApp */
+    /* WHATSAPP */
     .floatChat{
-      position:fixed;right:18px;bottom:18px;z-index:80;
-      display:flex;align-items:center;gap:10px;
-      padding:12px 14px;border-radius:999px;
-      background: rgba(31,43,58,.90);
-      color:white;border:1px solid rgba(255,255,255,.16);
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      z-index:80;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 14px;
+      border-radius:999px;
+      background:rgba(31,43,58,.90);
+      color:#fff;
+      border:1px solid rgba(255,255,255,.16);
       box-shadow:0 14px 40px rgba(0,0,0,.18);
-      backdrop-filter: blur(10px);
-      transition: transform .18s ease, box-shadow .18s ease;
+      backdrop-filter:blur(10px);
+      transition:transform .18s ease,box-shadow .18s ease;
     }
     .floatChat:hover{transform:translateY(-2px);box-shadow:0 18px 55px rgba(0,0,0,.22)}
-    .floatDot{width:10px;height:10px;border-radius:999px;background:#22c55e;box-shadow:0 0 0 8px rgba(34,197,94,.18)}
+    .floatDot{
+      width:10px;height:10px;border-radius:999px;
+      background:#22c55e;
+      box-shadow:0 0 0 8px rgba(34,197,94,.18);
+    }
     .floatText{font-weight:900;font-size:13px}
 
-    /* Modal */
-    .modal{position:fixed;inset:0;background:rgba(2,6,23,.62);display:none;align-items:center;justify-content:center;z-index:120;padding:18px}
-    .modalCard{width:min(860px,100%);background:var(--white);border-radius:26px;box-shadow:var(--shadow);border:1px solid rgba(31,43,58,.08);overflow:hidden;transform:translateY(10px);opacity:0;transition:transform .22s ease, opacity .22s ease}
-    .modalHeader{padding:18px 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(31,43,58,.08);background:rgba(247,240,230,.70);backdrop-filter: blur(8px)}
-    .modalTitle{font-family:"Playfair Display",serif;font-weight:700;font-size:22px;margin:0}
-    .iconBtn{width:42px;height:42px;border-radius:14px;border:1px solid rgba(31,43,58,.10);background:rgba(255,255,255,.92);cursor:pointer;font-weight:900;display:grid;place-items:center}
-    .modalBody{padding:18px 20px 22px;max-height:72vh;overflow:auto}
+    /* MODALS */
+    .modal{
+      position:fixed;
+      inset:0;
+      background:rgba(2,6,23,.62);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:120;
+      padding:18px;
+    }
+    .modal.is-open{display:flex}
+    .modalCard{
+      width:min(860px,100%);
+      max-height:88vh;
+      background:#fff;
+      border-radius:26px;
+      box-shadow:var(--shadow);
+      border:1px solid rgba(31,43,58,.08);
+      overflow:hidden;
+      transform:translateY(10px);
+      opacity:0;
+      transition:transform .22s ease,opacity .22s ease;
+    }
+    .modal.is-open .modalCard{
+      transform:translateY(0);
+      opacity:1;
+    }
+    .modalHeader{
+      padding:18px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      border-bottom:1px solid rgba(31,43,58,.08);
+      background:rgba(247,240,230,.80);
+      backdrop-filter:blur(8px);
+    }
+    .modalTitle{
+      font-family:"Playfair Display",serif;
+      font-weight:700;
+      font-size:24px;
+      margin:0;
+    }
+    .iconBtn{
+      width:42px;height:42px;
+      border-radius:14px;
+      border:1px solid rgba(31,43,58,.10);
+      background:rgba(255,255,255,.92);
+      cursor:pointer;
+      font-weight:900;
+      display:grid;
+      place-items:center;
+    }
+    .modalBody{
+      padding:22px;
+      max-height:calc(88vh - 82px);
+      overflow:auto;
+    }
     .list{margin:10px 0 0;padding:0;list-style:none}
-    .list li{display:flex;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(31,43,58,.10);color:rgba(31,43,58,.90);line-height:1.6}
-    .list li:last-child{border-bottom:none}
-    .check{width:22px;height:22px;border-radius:8px;background:rgba(151,201,191,.30);border:1px solid rgba(151,201,191,.45);display:grid;place-items:center;color:var(--teal);font-weight:900;flex:0 0 auto;margin-top:1px}
 
-    /* Mobile menu */
-    .mobilePanel{display:none;position:fixed;inset:0;background:rgba(2,6,23,.55);z-index:110;padding:18px;align-items:flex-start;justify-content:center}
-    .mobilePanel .box{width:min(520px,100%);background:var(--white);border-radius:22px;border:1px solid rgba(31,43,58,.10);box-shadow:var(--shadow);overflow:hidden}
-    .mobilePanel .boxHead{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid rgba(31,43,58,.08);background:rgba(247,240,230,.70)}
-    .mobilePanel .links a{display:block;padding:14px 16px;border-bottom:1px solid rgba(31,43,58,.06);font-weight:900;color:rgba(31,43,58,.86)}
+    /* LOCAL GUIDE - PREMIUM */
+    .localIntro{
+      margin:0 0 24px;
+      padding:16px 18px;
+      border-radius:18px;
+      background:linear-gradient(135deg,rgba(151,201,191,.18),rgba(247,240,230,.72));
+      border:1px solid rgba(47,111,106,.12);
+      color:var(--muted);
+      line-height:1.7;
+    }
+    .localSection{margin-top:26px}
+    .localSectionTitle{
+      display:flex;
+      align-items:center;
+      gap:11px;
+      margin:0 0 13px;
+      font-size:18px;
+      font-weight:900;
+      letter-spacing:-.01em;
+    }
+    .localSectionTitle span{
+      width:42px;
+      height:42px;
+      display:grid;
+      place-items:center;
+      flex:0 0 auto;
+      border-radius:14px;
+      background:linear-gradient(135deg,rgba(215,119,26,.15),rgba(151,201,191,.28));
+      border:1px solid rgba(31,43,58,.08);
+      box-shadow:0 7px 18px rgba(17,24,39,.07);
+      font-size:20px;
+    }
+    .localCards{
+      display:grid;
+      gap:11px;
+    }
+    .localPlace{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding:15px 16px;
+      border:1px solid rgba(31,43,58,.08);
+      border-radius:19px;
+      background:linear-gradient(135deg,#fff,#fcfaf6);
+      box-shadow:0 8px 24px rgba(17,24,39,.055);
+      transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease,background .18s ease;
+    }
+    .localPlace:hover{
+      transform:translateY(-2px);
+      box-shadow:0 14px 32px rgba(17,24,39,.10);
+      border-color:rgba(47,111,106,.25);
+      background:#fff;
+    }
+    .localPlaceInfo{min-width:0}
+    .localPlaceName{
+      display:block;
+      font-weight:900;
+      margin-bottom:5px;
+      color:var(--navy);
+      line-height:1.35;
+    }
+    .localPlaceAddress{
+      display:block;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.5;
+    }
+    .localPlaceLink{
+      width:40px;
+      height:40px;
+      display:grid;
+      place-items:center;
+      border-radius:13px;
+      flex:0 0 auto;
+      background:rgba(47,111,106,.10);
+      color:var(--teal);
+      border:1px solid rgba(47,111,106,.16);
+      font-weight:900;
+      transition:transform .18s ease,background .18s ease;
+    }
+    .localPlace:hover .localPlaceLink{
+      transform:translateX(2px);
+      background:rgba(47,111,106,.16);
+    }
+    .localLocation{
+      margin-top:28px;
+      padding:20px;
+      border-radius:23px;
+      background:linear-gradient(135deg,rgba(247,240,230,.96),rgba(151,201,191,.18));
+      border:1px solid rgba(31,43,58,.09);
+      box-shadow:0 10px 28px rgba(17,24,39,.06);
+    }
+    .localLocationTitle{
+      display:flex;
+      align-items:center;
+      gap:9px;
+      margin:0 0 7px;
+      font-size:18px;
+      font-weight:900;
+    }
+    .localLocationAddress{
+      color:var(--muted);
+      line-height:1.6;
+      margin:0;
+    }
+    .localActions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:15px;
+    }
+    .localActions .btn{flex:1;min-width:190px}
+
+    /* MOBILE MENU */
+    .mobilePanel{
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(2,6,23,.55);
+      z-index:110;
+      padding:18px;
+      align-items:flex-start;
+      justify-content:center;
+    }
+    .mobilePanel.is-open{display:flex}
+    .mobilePanel .box{
+      width:min(520px,100%);
+      background:#fff;
+      border-radius:22px;
+      border:1px solid rgba(31,43,58,.10);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .mobilePanel .boxHead{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:14px 16px;
+      border-bottom:1px solid rgba(31,43,58,.08);
+      background:rgba(247,240,230,.70);
+    }
+    .mobilePanel .links a{
+      display:block;
+      padding:14px 16px;
+      border-bottom:1px solid rgba(31,43,58,.06);
+      font-weight:900;
+      color:rgba(31,43,58,.86);
+    }
     .mobilePanel .links a:last-child{border-bottom:none}
     .mobilePanel .links a:hover{background:rgba(31,43,58,.04)}
     .miniCta{padding:14px 16px;display:flex;gap:10px;flex-wrap:wrap}
 
-    /* Responsive */
-    @media (max-width: 960px){
+    /* RESPONSIVE */
+    @media (max-width:960px){
       .nav{display:none}
       .burger{display:inline-flex}
       .heroContent{padding:42px 22px 28px}
       .storyGrid{grid-template-columns:1fr}
+      .photoCard{min-height:360px}
       .sectionHead{flex-direction:column;align-items:flex-start}
       .flatGrid{grid-template-columns:1fr}
       .valuesGrid{grid-template-columns:1fr}
       .footGrid{grid-template-columns:1fr 1fr}
     }
-    @media (max-width: 560px){
+    @media (max-width:560px){
       .wrap{width:calc(100% - 28px)}
       .h2{font-size:36px}
       .storyBox .h2{font-size:36px}
       .floatText{display:none}
       .footGrid{grid-template-columns:1fr}
+      .heroCard{min-height:560px}
+      .modal{padding:10px}
+      .modalCard{border-radius:22px;max-height:92vh}
+      .modalBody{max-height:calc(92vh - 82px);padding:18px}
+      .localPlace{padding:13px}
+      .localPlaceAddress{font-size:12px}
+      .localActions{flex-direction:column}
+      .localActions .btn{width:100%}
     }
   </style>
 </head>
 
 <body>
+
+  <!-- HEADER -->
   <header class="topbar">
     <div class="wrap topbar-inner">
       <a class="brand" href="#home" aria-label="Ubaflats">
-        <img src="assets/logo.png" alt="Logo Ubaflats" />
+        <img src="assets/logo.png" alt="Logo Ubaflats">
         <span class="name">Ubaflats</span>
       </a>
 
@@ -301,21 +762,24 @@
           <button class="langBtn" data-lang="es" type="button">ES</button>
         </div>
 
-        <button class="burger" id="openMenu" aria-label="Abrir menu">☰</button>
-        <a class="btn btn-primary" href="https://wa.me/5512982034767" target="_blank" rel="noopener" id="btnTopReserve">Reserve Agora</a>
+        <button class="burger" id="openMenu" aria-label="Abrir menu" type="button">☰</button>
+
+        <a class="btn btn-primary" href="https://wa.me/5512982034767" target="_blank" rel="noopener" id="btnTopReserve">
+          Reserve Agora
+        </a>
       </div>
     </div>
   </header>
 
-  <!-- Mobile menu -->
+  <!-- MOBILE MENU -->
   <div class="mobilePanel" id="mobilePanel" aria-hidden="true">
     <div class="box">
       <div class="boxHead">
-        <div class="brand" style="gap:10px;">
-          <img src="assets/logo.png" alt="Logo Ubaflats" />
-          <strong style="font-family:'Playfair Display',serif;font-size:20px;">Ubaflats</strong>
+        <div class="brand" style="gap:10px">
+          <img src="assets/logo.png" alt="Logo Ubaflats">
+          <strong style="font-family:'Playfair Display',serif;font-size:20px">Ubaflats</strong>
         </div>
-        <button class="iconBtn" id="closeMenu" aria-label="Fechar menu">✕</button>
+        <button class="iconBtn" id="closeMenu" aria-label="Fechar menu" type="button">✕</button>
       </div>
 
       <div class="links">
@@ -334,13 +798,15 @@
           <button class="langBtn" data-lang="es" type="button">ES</button>
         </div>
 
-        <a class="btn btn-primary" style="flex:1" href="https://wa.me/5512982034767" target="_blank" rel="noopener" id="mBtnReserve">Reserve pelo WhatsApp</a>
+        <a class="btn btn-primary" style="flex:1" href="https://wa.me/5512982034767" target="_blank" rel="noopener" id="mBtnReserve">
+          Reserve pelo WhatsApp
+        </a>
         <a class="btn btn-ghost" style="flex:1" href="#contato" id="mBtnContact">Contato</a>
       </div>
     </div>
   </div>
 
-  <!-- Hero -->
+  <!-- HERO -->
   <main id="home" class="hero">
     <div class="wrap">
       <div class="heroCard">
@@ -349,43 +815,50 @@
 
         <div class="heroContent">
           <span class="pill" id="heroPill">🌺 Praia da Lagoinha • Ubatuba/SP</span>
+
           <h1 class="heroTitle">
             <span id="heroTitleLine1">Seu refúgio de paz</span><br>
-            <span id="heroTitleLine2" style="font-family:Inter, sans-serif;font-weight:900;">a 10 min do mar</span>
+            <span class="heroTitleLine2" id="heroTitleLine2">a 10 min do mar</span>
           </h1>
 
           <p class="heroSub" id="heroSub">
             Flats modernos para até <strong>4 pessoas</strong>.
             Conforto completo com <strong>cama de casal</strong> e <strong>sofá-cama inteligente</strong>.
-            <strong>Ar-condicionado</strong> em todas as unidades, <strong>garagem</strong> privativa e <strong>quintal</strong> exclusivo para seus dias de descanso.
+            <strong>Ar-condicionado</strong> em todas as unidades, <strong>garagem</strong> privativa e
+            <strong>quintal</strong> exclusivo para seus dias de descanso.
           </p>
 
           <div class="heroBtns">
             <a class="btn btn-ghost" href="#flats" id="heroBtnFlats">Conheça os Flats</a>
-            <a class="btn btn-primary" href="https://wa.me/5512982034767" target="_blank" rel="noopener" id="heroBtnReserve">Reserve pelo WhatsApp</a>
+            <a class="btn btn-primary" href="https://wa.me/5512982034767" target="_blank" rel="noopener" id="heroBtnReserve">
+              Reserve pelo WhatsApp
+            </a>
           </div>
         </div>
       </div>
     </div>
   </main>
 
-  <!-- História -->
+  <!-- HISTÓRIA -->
   <section id="historia">
     <div class="wrap">
       <div class="storyGrid">
         <div class="photoCard">
-          <img alt="Neto e Daniela" src="assets/nos1.jpg">
+          <img src="assets/nos1.jpg" alt="Neto e Daniela">
         </div>
+
         <div class="storyBox">
-          <span class="pill" style="background:rgba(215,119,26,.14);border-color:rgba(215,119,26,.25)" id="storyPill">💛 Feito com amor</span>
+          <span class="pill" style="background:rgba(215,119,26,.14);border-color:rgba(215,119,26,.25);color:var(--navy)" id="storyPill">
+            💛 Feito com amor
+          </span>
           <h2 class="h2" id="storyTitle">Feito por nós, para você</h2>
 
-          <p class="p" style="margin-top:10px;" id="storyP1">
+          <p class="p" style="margin-top:10px" id="storyP1">
             Olá! Somos o <strong>Neto</strong> e a <strong>Daniela</strong>. Para nós, receber pessoas não é apenas um negócio, é um prazer.
             Tudo o que você encontra aqui foi construído com nossas próprias mãos e muito amor.
           </p>
 
-          <p class="p" style="margin-top:12px;" id="storyP2">
+          <p class="p" style="margin-top:12px" id="storyP2">
             Queremos que você desfrute da paz de Ubatuba com a mesma alegria que sentimos ao preparar este espaço.
             Sinta-se em casa — a chave está na porta e o mar logo ali na frente.
           </p>
@@ -396,7 +869,7 @@
     </div>
   </section>
 
-  <!-- Flats -->
+  <!-- FLATS -->
   <section id="flats">
     <div class="wrap">
       <div class="sectionHead">
@@ -404,41 +877,50 @@
           <h2 class="h2" id="flatsTitle">Nossos Flats</h2>
           <p class="p" id="flatsSub">Escolha seu refúgio perfeito na Lagoinha, Ubatuba.</p>
         </div>
-        <a class="btn btn-primary" href="https://wa.me/5512982034767" target="_blank" rel="noopener" id="flatsReserveBtn">Reservar</a>
+        <a class="btn btn-primary" href="https://wa.me/5512982034767" target="_blank" rel="noopener" id="flatsReserveBtn">
+          Reservar
+        </a>
       </div>
 
       <div class="flatGrid">
-        <!-- Peixe -->
-        <a class="flatLink" href="https://www.airbnb.com.br/rooms/1616056749655491744?_set_bev_on_new_domain=1770500680_EAZTM2YWNkOGFjYz&set_everest_cookie_on_new_domain=1770500680.EAOGZkYzhkNGQ3YjMxND.6IKnNWgOt6ndJOu4sSM5mudu7hRBoDctYHRyiPI0f6Q&source_impression_id=p3_1772643322_P30QwWMe7guo2WNa" target="_blank" rel="noopener">
+        <a class="flatLink"
+           href="https://www.airbnb.com.br/rooms/1616056749655491744"
+           target="_blank" rel="noopener">
           <article class="flatCard">
-            <div class="bg" style="background-image:url('assets/flat-1.jpg');"></div>
+            <div class="bg" style="background-image:url('assets/flat-1.jpg')"></div>
             <div class="shade" aria-hidden="true"></div>
             <div class="tag" id="tagGuests">👤 4 pessoas</div>
             <div class="badge" id="badgePopular">Mais Procurado</div>
             <div class="info">
               <h3 class="title" id="cardPeixeTitle">Flat Peixe</h3>
-              <p class="meta" id="cardPeixeMeta">1 cama de casal + sofá-cama (vira 2) • Ar-condicionado • Garagem • Quintal</p>
+              <p class="meta" id="cardPeixeMeta">
+                1 cama de casal + sofá-cama (vira 2) • Ar-condicionado • Garagem • Quintal
+              </p>
             </div>
           </article>
         </a>
 
-        <!-- Estrela -->
-        <a class="flatLink" href="https://www.airbnb.com.br/rooms/1620930999122422119?_set_bev_on_new_domain=1770500680_EAZTM2YWNkOGFjYz&set_everest_cookie_on_new_domain=1770500680.EAOGZkYzhkNGQ3YjMxND.6IKnNWgOt6ndJOu4sSM5mudu7hRBoDctYHRyiPI0f6Q&source_impression_id=p3_1772583002_P3Q3iYEZCS41n_aq" target="_blank" rel="noopener">
+        <a class="flatLink"
+           href="https://www.airbnb.com.br/rooms/1620930999122422119"
+           target="_blank" rel="noopener">
           <article class="flatCard">
-            <div class="bg" style="background-image:url('assets/flat-2.jpg');"></div>
+            <div class="bg" style="background-image:url('assets/flat-2.jpg')"></div>
             <div class="shade" aria-hidden="true"></div>
             <div class="tag" id="tagAC">❄️ Ar em todas</div>
             <div class="info">
               <h3 class="title" id="cardEstrelaTitle">Flat Estrela</h3>
-              <p class="meta" id="cardEstrelaMeta">1 cama de casal + sofá-cama (vira 2) • Ar-condicionado • Garagem • Quintal</p>
+              <p class="meta" id="cardEstrelaMeta">
+                1 cama de casal + sofá-cama (vira 2) • Ar-condicionado • Garagem • Quintal
+              </p>
             </div>
           </article>
         </a>
 
-        <!-- Maps -->
-        <a class="flatLink" href="https://www.google.com/maps/place/R.+Goi%C3%A1s,+291+-+Lagoinha,+Ubatuba+-+SP,+11682-510/@-23.5120635,-45.1991296,3a,75y,338.61h,90t/data=!3m4!1e1!3m2!1sRqDOqpeNqJ4GTA0VS0orzg!2e0!4m2!3m1!1s0x94cd5bc762cb1be3:0xd8084e023fce0215?sa=X&ved=1t:3780&ictx=111" target="_blank" rel="noopener">
+        <a class="flatLink"
+           href="https://www.google.com/maps/place/R.+Goi%C3%A1s,+291+-+Lagoinha,+Ubatuba+-+SP,+11682-510"
+           target="_blank" rel="noopener">
           <article class="flatCard">
-            <div class="bg" style="background-image:url('assets/flat-3.jpg');"></div>
+            <div class="bg" style="background-image:url('assets/flat-3.jpg')"></div>
             <div class="shade" aria-hidden="true"></div>
             <div class="tag" id="tagLocation">📍 Lagoinha</div>
             <div class="info">
@@ -451,7 +933,7 @@
     </div>
   </section>
 
-  <!-- Guia -->
+  <!-- GUIA -->
   <section id="guia">
     <div class="wrap">
       <div class="sectionHead">
@@ -498,13 +980,15 @@
     </div>
   </section>
 
-  <!-- Valores -->
+  <!-- VALORES -->
   <section class="values" id="dicas">
     <div class="wrap">
       <div class="sectionHead">
         <div>
-          <span class="pill" style="background:rgba(47,111,106,.16);border-color:rgba(47,111,106,.28)" id="valuesPill">Nosso jeito de ser</span>
-          <h2 class="h2" style="margin-top:10px;" id="valuesTitle">Simplicidade com o pé na areia</h2>
+          <span class="pill" style="background:rgba(47,111,106,.16);border-color:rgba(47,111,106,.28);color:var(--navy)" id="valuesPill">
+            Nosso jeito de ser
+          </span>
+          <h2 class="h2" style="margin-top:10px" id="valuesTitle">Simplicidade com o pé na areia</h2>
         </div>
         <p class="p" id="valuesSub">Um espaço prático, confortável e com carinho nos detalhes.</p>
       </div>
@@ -535,43 +1019,52 @@
       <div class="ctaCard">
         <div class="ctaImg" aria-hidden="true"></div>
         <div class="ctaBody">
-          <h3 class="ctaTitle" id="ctaTitle">Sua próxima memória feliz <span style="color:var(--teal);font-style:italic;font-family:'Playfair Display',serif;">começa aqui</span></h3>
-          <a class="btn btn-primary" href="https://wa.me/5512982034767" target="_blank" rel="noopener" id="ctaBtn">Reserve pelo WhatsApp</a>
-          <p class="p" style="margin-top:14px;" id="ctaSub">Veja as regras e dicas no botão “Regras &amp; Dicas”.</p>
+          <h3 class="ctaTitle" id="ctaTitle">
+            Sua próxima memória feliz
+            <span style="color:var(--teal);font-style:italic;font-family:'Playfair Display',serif">começa aqui</span>
+          </h3>
+          <a class="btn btn-primary" href="https://wa.me/5512982034767" target="_blank" rel="noopener" id="ctaBtn">
+            Reserve pelo WhatsApp
+          </a>
+          <p class="p" style="margin-top:14px" id="ctaSub">
+            Veja as regras e dicas no botão “Regras &amp; Dicas”.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- FOOTER -->
   <footer class="footer" id="contato">
     <div class="wrap">
       <div class="footGrid">
         <div>
-          <div class="brand" style="color:white;">
-            <img src="assets/logo.png" alt="Logo Ubaflats" />
-            <span class="footBrand">Ubaflats<span style="opacity:.9;">.</span></span>
+          <div class="brand" style="color:white">
+            <img src="assets/logo.png" alt="Logo Ubaflats">
+            <span class="footBrand">Ubaflats<span style="opacity:.9">.</span></span>
           </div>
           <p class="footSmall" id="footSlogan">Onde o mar encontra o aconchego.</p>
         </div>
 
         <div class="footCol">
           <h4 id="footExploreTitle">Explore</h4>
-          <a href="#flats">Flats</a>
-          <a href="#historia">Nossa História</a>
-          <a href="#home">Home</a>
+          <a href="#flats" id="footFlats">Flats</a>
+          <a href="#historia" id="footStory">Nossa História</a>
+          <a href="#home" id="footHome">Home</a>
         </div>
 
         <div class="footCol">
           <h4 id="footInfoTitle">Informações</h4>
-          <a href="#guia">Guia da Casa</a>
-          <a href="#regras">Regras</a>
-          <a href="#contato">Contato</a>
+          <a href="#guia" id="footGuide">Guia da Casa</a>
+          <a href="#regras" id="footRules">Regras</a>
+          <a href="#contato" id="footContact">Contato</a>
         </div>
 
         <div class="footCol">
           <h4 id="footTalkTitle">Fale Conosco</h4>
-          <a class="btn btn-primary" style="display:inline-flex" href="https://wa.me/5512982034767" target="_blank" rel="noopener">WhatsApp • (12) 98203-4767</a>
+          <a class="btn btn-primary" style="display:inline-flex" href="https://wa.me/5512982034767" target="_blank" rel="noopener" id="footWhatsApp">
+            WhatsApp • (12) 98203-4767
+          </a>
           <div style="height:10px"></div>
           <div class="footSmall" id="footAddress">📍 R. Goiás, 291 • Lagoinha, Ubatuba - SP</div>
         </div>
@@ -579,586 +1072,786 @@
 
       <div class="footBottom">
         <div id="footCopy">© 2026 Ubaflats. Todos os direitos reservados.</div>
-        <div><a href="#" style="color:rgba(255,255,255,.75);" id="footPrivacy">Política de Privacidade</a></div>
+        <div>
+          <a href="#" style="color:rgba(255,255,255,.75)" id="footPrivacy">Política de Privacidade</a>
+        </div>
       </div>
     </div>
   </footer>
 
-  <!-- Floating WhatsApp -->
+  <!-- FLOATING WHATSAPP -->
   <a class="floatChat" href="https://wa.me/5512982034767" target="_blank" rel="noopener" aria-label="WhatsApp">
     <span class="floatDot" aria-hidden="true"></span>
     <span class="floatText" id="floatText">WhatsApp</span>
   </a>
 
-  <!-- MODALS -->
+  <!-- MODAL CASA -->
   <div class="modal" id="modalCasa" aria-hidden="true">
-    <div class="modalCard" role="dialog" aria-modal="true">
+    <div class="modalCard" role="dialog" aria-modal="true" aria-labelledby="modalCasaTitle">
       <div class="modalHeader">
         <h3 class="modalTitle" id="modalCasaTitle">Guia da Casa</h3>
-        <button class="iconBtn" data-close>✕</button>
+        <button class="iconBtn" data-close type="button" aria-label="Fechar">✕</button>
       </div>
       <div class="modalBody" id="modalCasaBody"></div>
     </div>
   </div>
 
+  <!-- MODAL REGRAS -->
   <div class="modal" id="modalRegras" aria-hidden="true">
-    <div class="modalCard" role="dialog" aria-modal="true">
+    <div class="modalCard" role="dialog" aria-modal="true" aria-labelledby="modalRegrasTitle">
       <div class="modalHeader">
         <h3 class="modalTitle" id="modalRegrasTitle">Regras de Convivência</h3>
-        <button class="iconBtn" data-close>✕</button>
+        <button class="iconBtn" data-close type="button" aria-label="Fechar">✕</button>
       </div>
       <div class="modalBody" id="modalRegrasBody"></div>
     </div>
   </div>
 
+  <!-- MODAL LOCAL -->
   <div class="modal" id="modalLocal" aria-hidden="true">
-    <div class="modalCard" role="dialog" aria-modal="true">
+    <div class="modalCard" role="dialog" aria-modal="true" aria-labelledby="modalLocalTitle">
       <div class="modalHeader">
         <h3 class="modalTitle" id="modalLocalTitle">Guia Local</h3>
-        <button class="iconBtn" data-close>✕</button>
+        <button class="iconBtn" data-close type="button" aria-label="Fechar">✕</button>
       </div>
       <div class="modalBody" id="modalLocalBody"></div>
     </div>
   </div>
 
   <script>
-    // -------------------------
-    // Menu mobile
-    // -------------------------
-    const mobilePanel = document.getElementById("mobilePanel");
-    const openMenu = document.getElementById("openMenu");
-    const closeMenu = document.getElementById("closeMenu");
+    "use strict";
+
+    /* =========================================================
+       CONFIGURAÇÕES
+    ========================================================= */
+    const WHATSAPP_URL = "https://wa.me/5512982034767";
+
+    const MAPS_PLACE =
+      "https://www.google.com/maps/place/R.+Goi%C3%A1s,+291+-+Lagoinha,+Ubatuba+-+SP,+11682-510";
+
+    const MAPS_ROUTE =
+      "https://www.google.com/maps/dir/?api=1&destination=R.%20Goi%C3%A1s%2C%20291%2C%20Lagoinha%2C%20Ubatuba%20-%20SP";
+
+    /*
+      Cada local agora é um objeto separado.
+      Isso evita colocar todos os estabelecimentos dentro de uma
+      string gigante e facilita tradução/manutenção.
+    */
+    const localPlaces = {
+      restaurants: [
+        {
+          name: "Pastel do Cabelo",
+          address: "Maranduba · Av. Marginal, 1023",
+          query: "Pastel do Cabelo, Av. Marginal, 1023, Maranduba, Ubatuba - SP"
+        },
+        {
+          name: "Restaurante Tropical Recanto dos Pássaros",
+          address: "Lagoinha · R. dos Lírios, 394",
+          query: "Restaurante Tropical Recanto dos Pássaros, R. dos Lírios, 394, Lagoinha, Ubatuba - SP"
+        },
+        {
+          name: "Restaurante Sabores de Minas",
+          address: "Maranduba · Av. Ten. Manoel Barbosa da Silva, 30",
+          query: "Restaurante Sabores de Minas, Av. Ten. Manoel Barbosa da Silva, 30, Maranduba, Ubatuba - SP"
+        }
+      ],
+      markets: [
+        {
+          name: "Mercado Garotão",
+          address: "Maranduba · Av. Marginal, 16",
+          query: "Mercado Garotão, Av. Marginal, 16, Maranduba, Ubatuba - SP"
+        },
+        {
+          name: "Padaria do Edmundo",
+          address: "Praia do Sape · Av. Marginal, 34",
+          query: "Padaria do Edmundo, Av. Marginal, 34, Praia do Sape, Ubatuba - SP"
+        }
+      ],
+      pharmacy: [
+        {
+          name: "Farma Conde",
+          address: "Maranduba · Avenida Marginal Direita, 1440",
+          query: "Farma Conde, Avenida Marginal Direita, 1440, Maranduba, Ubatuba - SP"
+        }
+      ],
+      tours: [
+        {
+          name: "Trilha da Cachoeira Véu da Noiva",
+          address: "Lagoinha · Av. do Engenho Velho, 1071",
+          query: "Trilha da Cachoeira Véu da Noiva, Av. do Engenho Velho, 1071, Lagoinha, Ubatuba - SP"
+        }
+      ]
+    };
+
+    function mapsSearchUrl(query) {
+      return "https://www.google.com/maps/search/?api=1&query=" +
+        encodeURIComponent(query);
+    }
+
+    function $(id) {
+      return document.getElementById(id);
+    }
+
+    /* =========================================================
+       MENU MOBILE
+    ========================================================= */
+    const mobilePanel = $("mobilePanel");
+    const openMenu = $("openMenu");
+    const closeMenu = $("closeMenu");
 
     function showMenu() {
-      mobilePanel.style.display = "flex";
+      mobilePanel.classList.add("is-open");
       mobilePanel.setAttribute("aria-hidden", "false");
-      document.body.style.overflow = "hidden";
+      document.body.classList.add("modal-open");
     }
 
     function hideMenu() {
-      mobilePanel.style.display = "none";
+      mobilePanel.classList.remove("is-open");
       mobilePanel.setAttribute("aria-hidden", "true");
-      document.body.style.overflow = "";
+
+      if (!document.querySelector(".modal.is-open")) {
+        document.body.classList.remove("modal-open");
+      }
     }
 
     openMenu?.addEventListener("click", showMenu);
     closeMenu?.addEventListener("click", hideMenu);
-    mobilePanel?.addEventListener("click", (e) => {
-      if (e.target === mobilePanel) hideMenu();
+
+    mobilePanel?.addEventListener("click", (event) => {
+      if (event.target === mobilePanel) hideMenu();
     });
-    document.querySelectorAll(".mLink").forEach((a) => a.addEventListener("click", hideMenu));
 
-    // -------------------------
-    // Modais
-    // -------------------------
+    document.querySelectorAll(".mLink").forEach(link => {
+      link.addEventListener("click", hideMenu);
+    });
+
+    /* =========================================================
+       MODAIS
+    ========================================================= */
     function openModal(id) {
-      const modal = document.getElementById(id);
-      const card = modal?.querySelector(".modalCard");
-      if (!modal || !card) return;
+      const modal = $(id);
+      if (!modal) return;
 
-      modal.style.display = "flex";
+      modal.classList.add("is-open");
       modal.setAttribute("aria-hidden", "false");
-
-      requestAnimationFrame(() => {
-        card.style.opacity = "1";
-        card.style.transform = "translateY(0)";
-      });
-
-      document.body.style.overflow = "hidden";
+      document.body.classList.add("modal-open");
     }
 
     function closeModal(modal) {
-      const card = modal.querySelector(".modalCard");
-      card.style.opacity = "0";
-      card.style.transform = "translateY(10px)";
+      if (!modal) return;
 
-      setTimeout(() => {
-        modal.style.display = "none";
-        modal.setAttribute("aria-hidden", "true");
-        document.body.style.overflow = "";
-      }, 160);
+      modal.classList.remove("is-open");
+      modal.setAttribute("aria-hidden", "true");
+
+      if (!mobilePanel.classList.contains("is-open")) {
+        document.body.classList.remove("modal-open");
+      }
     }
 
-    document.querySelectorAll("[data-modal]").forEach((tile) => {
+    document.querySelectorAll("[data-modal]").forEach(tile => {
       const id = tile.getAttribute("data-modal");
 
       tile.addEventListener("click", () => openModal(id));
-      tile.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
+
+      tile.addEventListener("keydown", event => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
           openModal(id);
         }
       });
     });
 
-    document.querySelectorAll(".modal").forEach((modal) => {
-      modal.addEventListener("click", (e) => {
-        if (e.target === modal) closeModal(modal);
+    document.querySelectorAll(".modal").forEach(modal => {
+      modal.addEventListener("click", event => {
+        if (event.target === modal) closeModal(modal);
       });
-      modal.querySelectorAll("[data-close]").forEach((btn) => {
-        btn.addEventListener("click", () => closeModal(modal));
+
+      modal.querySelectorAll("[data-close]").forEach(button => {
+        button.addEventListener("click", () => closeModal(modal));
       });
     });
 
-    window.addEventListener("keydown", (e) => {
-      if (e.key !== "Escape") return;
+    window.addEventListener("keydown", event => {
+      if (event.key !== "Escape") return;
 
-      document.querySelectorAll(".modal").forEach((m) => {
-        if (m.style.display === "flex") closeModal(m);
+      document.querySelectorAll(".modal.is-open").forEach(modal => {
+        closeModal(modal);
       });
 
-      if (mobilePanel.style.display === "flex") hideMenu();
+      if (mobilePanel.classList.contains("is-open")) {
+        hideMenu();
+      }
     });
 
-    // -------------------------
-    // HERO SLIDESHOW
-    // -------------------------
-    (function heroSlideshow3() {
+    /* =========================================================
+       HERO SLIDESHOW
+       Agora são 3 imagens, trocando corretamente a cada 2s.
+    ========================================================= */
+    (function initHeroSlideshow() {
       const a = document.querySelector(".heroBgA");
       const b = document.querySelector(".heroBgB");
+
       if (!a || !b) return;
 
-      const imgs = ["assets/hero.jpg", "assets/hero1.jpg", "assets/hero2.jpg"];
-      const gradient = "linear-gradient(90deg, rgba(14,42,63,.22), rgba(14,42,63,.06))";
+      const images = [
+        "assets/hero.jpg",
+        "assets/hero1.jpg",
+        "assets/hero2.jpg"
+      ];
 
-      let i = 0;
-      let showA = true;
+      let currentIndex = 0;
+      let showingA = true;
 
-      a.style.backgroundImage = `${gradient}, url("${imgs[0]}")`;
-      b.style.backgroundImage = `${gradient}, url("${imgs[1]}")`;
+      /*
+        Pré-carrega as imagens para evitar tela preta ou troca
+        atrasada quando a imagem ainda não estiver no cache.
+      */
+      images.forEach(src => {
+        const img = new Image();
+        img.src = src;
+      });
+
+      a.style.backgroundImage = `url("${images[0]}")`;
+      b.style.backgroundImage = `url("${images[1]}")`;
 
       setInterval(() => {
-        const next = imgs[(i + 2) % imgs.length];
+        const nextIndex = (currentIndex + 1) % images.length;
+        const nextImage = images[nextIndex];
 
-        if (showA) {
-          b.style.backgroundImage = `${gradient}, url("${next}")`;
+        if (showingA) {
+          b.style.backgroundImage = `url("${nextImage}")`;
           b.style.opacity = "1";
           a.style.opacity = "0";
         } else {
-          a.style.backgroundImage = `${gradient}, url("${next}")`;
+          a.style.backgroundImage = `url("${nextImage}")`;
           a.style.opacity = "1";
           b.style.opacity = "0";
         }
 
-        showA = !showA;
-        i = (i + 1) % imgs.length;
-      }, 3000);
+        showingA = !showingA;
+        currentIndex = nextIndex;
+      }, 2000);
     })();
 
-    // -------------------------
-    // i18n
-    // -------------------------
-    (function i18nAll() {
-      const $ = (id) => document.getElementById(id);
+    /* =========================================================
+       GUIA LOCAL
+    ========================================================= */
+    function renderPlaceCard(place) {
+      const url = mapsSearchUrl(place.query);
 
-      const mapsPlace = "https://www.google.com/maps/place/R.+Goi%C3%A1s,+291+-+Lagoinha,+Ubatuba+-+SP,+11682-510/@-23.5120635,-45.1991296,3a,75y,338.61h,90t/data=!3m4!1e1!3m2!1sRqDOqpeNqJ4GTA0VS0orzg!2e0!4m2!3m1!1s0x94cd5bc762cb1be3:0xd8084e023fce0215?sa=X&ved=1t:3780&ictx=111";
-      const mapsRoute = "https://www.google.com/maps/dir/-21.1779584,-47.8019584/R.+Goi%C3%A1s,+291+-+Lagoinha,+Ubatuba+-+SP,+11680-000/@-23.5121517,-45.1996065,20z/data=!4m9!4m8!1m1!4e1!1m5!1m1!1s0x94cd5bc762cb1be3:0xd8084e023fce0215!2m2!1d-45.1991407!2d-23.5120375?entry=ttu&g_ep=EgoyMDI2MDMwMS4xIKXMDSoASAFQAw%3D%3D";
+      return `
+        <a class="localPlace"
+           href="${url}"
+           target="_blank"
+           rel="noopener">
+          <div class="localPlaceInfo">
+            <span class="localPlaceName">${place.name}</span>
+            <span class="localPlaceAddress">📍 ${place.address}</span>
+          </div>
+          <span class="localPlaceLink" aria-hidden="true">↗</span>
+        </a>
+      `;
+    }
 
-      const localPlaces = {
-        restaurants: "Pastel do Cabelo • Av. Marginal, 1023 - Maranduba, Ubatuba - SP, 11680-000 | Restaurante Tropical Recanto dos Pássaros • R. dos Lírios, 394 - Lagoinha, Ubatuba - SP, 11682-462 | Restaurante Sabores de Minas • Av. Ten. Manoel Barbosa da Silva, 30 - Maranduba, Ubatuba - SP, 11680-000",
-        markets: "Mercado Garotão • Av. Marginal, 16 - Maranduba, Ubatuba - SP, 11681-212 | Padaria do Edmundo • Av. Marginal, 34 - Praia do Sape, Ubatuba - SP, 11680-000",
-        pharmacy: "Farma Conde • Avenida Marginal Direita, 1440 - Maranduba, Ubatuba - SP, 11680-000",
-        tours: "Trilha da Cachoeira Véu da Noiva • Av. do Engenho Velho, 1071 - Lagoinha, Ubatuba - SP, 11680-000"
-      };
+    function renderLocalGuide(d) {
+      const section = (icon, title, places) => `
+        <div class="localSection">
+          <h4 class="localSectionTitle">
+            <span>${icon}</span>
+            ${title}
+          </h4>
+          <div class="localCards">
+            ${places.map(renderPlaceCard).join("")}
+          </div>
+        </div>
+      `;
 
-      const t = {
-        pt: {
-          nav: ["Home", "Nossa História", "Flats", "Guia da Casa", "Regras", "Dicas"],
-          reserveNow: "Reserve Agora",
-          reserveWA: "Reserve pelo WhatsApp",
-          contact: "Contato",
-          heroPill: "🌺 Praia da Lagoinha • Ubatuba/SP",
-          heroT1: "Seu refúgio de paz",
-          heroT2: "a 10 min do mar",
-          heroSub: `Flats modernos para até <strong>4 pessoas</strong>. Conforto completo com <strong>cama de casal</strong> e <strong>sofá-cama inteligente</strong>. <strong>Ar-condicionado</strong> em todas as unidades, <strong>garagem</strong> privativa e <strong>quintal</strong> exclusivo para seus dias de descanso.`,
-          seeFlats: "Conheça os Flats",
+      $("modalLocalBody").innerHTML = `
+        <p class="p localIntro">${d.localIntro}</p>
 
-          storyPill: "💛 Feito com amor",
-          storyTitle: "Feito por nós, para você",
-          storyP1: `Olá! Somos o <strong>Neto</strong> e a <strong>Daniela</strong>. Para nós, receber pessoas não é apenas um negócio, é um prazer. Tudo aqui foi feito com carinho.`,
-          storyP2: `Sinta-se em casa — a chave está na porta e o mar logo ali na frente.`,
-          storySign: "Neto &amp; Daniela",
+        ${section("🍽️", d.localRestaurantsTitle, localPlaces.restaurants)}
+        ${section("🛒", d.localMarketsTitle, localPlaces.markets)}
+        ${section("💊", d.localPharmacyTitle, localPlaces.pharmacy)}
+        ${section("🌿", d.localToursTitle, localPlaces.tours)}
 
-          flatsTitle: "Nossos Flats",
-          flatsSub: "Escolha seu refúgio perfeito na Lagoinha, Ubatuba.",
-          tagGuests: "👤 4 pessoas",
-          badgePopular: "Mais Procurado",
-          tagAC: "❄️ Ar em todas",
-          tagLocation: "📍 Lagoinha",
-          mapsTitle: "Abrir no Maps",
-          mapsMeta: "Ver a localização exata no Google Maps",
+        <div class="localLocation">
+          <h4 class="localLocationTitle">📍 ${d.localLocationTitle}</h4>
+          <p class="localLocationAddress">
+            ${d.localLocationAddress}
+          </p>
 
-          guideTitle: "Guia do Hóspede",
-          guideSub: "Tudo o que você precisa para uma estadia tranquila e sem dúvidas.",
-          tileHouseTitle: "Guia da Casa",
-          tileHouseSub: "Check-in/out, Wi-Fi e endereço",
-          tileRulesTitle: "Regras & Dicas",
-          tileRulesSub: "Para uma convivência harmoniosa",
-          tileLocalTitle: "Guia Local",
-          tileLocalSub: "Restaurantes, mercados e farmácias",
+          <div class="localActions">
+            <a class="btn btn-primary"
+               href="${MAPS_PLACE}"
+               target="_blank"
+               rel="noopener">
+              ${d.openMaps}
+            </a>
 
-          valuesPill: "Nosso jeito de ser",
-          valuesTitle: "Simplicidade com o pé na areia",
-          valuesSub: "Um espaço prático, confortável e com carinho nos detalhes.",
-          v1t: "Acolhimento Familiar",
-          v1p: "Recebemos você com carinho e atenção.",
-          v2t: "Conexão com a Natureza",
-          v2p: "Perto do mar e da beleza de Ubatuba.",
-          v3t: "Autenticidade",
-          v3p: "Conforto real, praticidade e tranquilidade.",
+            <a class="btn btn-ghost"
+               href="${MAPS_ROUTE}"
+               target="_blank"
+               rel="noopener">
+              ${d.getDirections}
+            </a>
+          </div>
+        </div>
+      `;
+    }
 
-          ctaTitle: `Sua próxima memória feliz <span style="color:var(--teal);font-style:italic;font-family:'Playfair Display',serif;">começa aqui</span>`,
-          ctaBtn: "Reserve pelo WhatsApp",
-          ctaSub: `Veja as regras e dicas no botão “Regras &amp; Dicas”.`,
+    /* =========================================================
+       TRADUÇÕES
+       Estrutura corrigida: sem strings quebradas e sem aspas
+       inválidas no objeto EN.
+    ========================================================= */
+    const translations = {
+      pt: {
+        nav:["Home","Nossa História","Flats","Guia da Casa","Regras","Dicas"],
+        reserveNow:"Reserve Agora",
+        reserveWA:"Reserve pelo WhatsApp",
+        contact:"Contato",
 
-          footSlogan: "Onde o mar encontra o aconchego.",
-          footExplore: "Explore",
-          footInfo: "Informações",
-          footTalk: "Fale Conosco",
-          footCopy: "© 2026 Ubaflats. Todos os direitos reservados.",
-          footPrivacy: "Política de Privacidade",
-          floatText: "WhatsApp",
+        heroPill:"🌺 Praia da Lagoinha • Ubatuba/SP",
+        heroT1:"Seu refúgio de paz",
+        heroT2:"a 10 min do mar",
+        heroSub:`Flats modernos para até <strong>4 pessoas</strong>.
+          Conforto completo com <strong>cama de casal</strong> e <strong>sofá-cama inteligente</strong>.
+          <strong>Ar-condicionado</strong> em todas as unidades, <strong>garagem</strong> privativa e
+          <strong>quintal</strong> exclusivo para seus dias de descanso.`,
+        seeFlats:"Conheça os Flats",
 
-          modalCasaTitle: "Guia da Casa",
-          modalCasaBody: `
-            <p class="p">Informações rápidas para facilitar sua chegada e sua estadia.</p>
-            <ul class="list">
-              <li><span class="check">✓</span><div><strong>Check-in:</strong> a partir das <strong>15h</strong>.</div></li>
-              <li><span class="check">✓</span><div><strong>Check-out:</strong> até as <strong>11h</strong>.</div></li>
-              <li><span class="check">✓</span><div><strong>Wi-Fi:</strong> Nome <strong>ubaflatslagoinha</strong> • Senha <strong>avidaficamelhornapraia</strong></div></li>
-              <li><span class="check">✓</span><div><strong>Endereço:</strong> R. Goiás, 291 • Lagoinha, Ubatuba - SP</div></li>
-            </ul>
-          `,
-          modalRulesTitle: "Regras de Convivência",
-          modalRulesBody: `
-            <p class="p">Para manter um ambiente agradável para todos:</p>
-            <ul class="list">
-              <li><span class="check">✓</span><div>Silêncio após <strong>22h</strong>.</div></li>
-              <li><span class="check">✓</span><div>Desligue <strong>luzes</strong> e <strong>ar-condicionado</strong> ao sair.</div></li>
-              <li><span class="check">✓</span><div>Preserve móveis e utensílios.</div></li>
-              <li><span class="check">✓</span><div>Não fumar em ambientes fechados.</div></li>
-              <li><span class="check">✓</span><div>Em caso de necessidade, chame no WhatsApp.</div></li>
-            </ul>
-          `,
-          modalLocalTitle: "Guia Local",
-          modalLocalBody: `
-            <p class="p">Sugestões próximas para facilitar sua estadia (e aproveitar mais a praia).</p>
-            <ul class="list">
-              <li><span class="check">✓</span><div><strong>Restaurantes:</strong> ${localPlaces.restaurants}</div></li>
-              <li><span class="check">✓</span><div><strong>Mercados/Padarias:</strong> ${localPlaces.markets}</div></li>
-              <li><span class="check">✓</span><div><strong>Farmácias:</strong> ${localPlaces.pharmacy}</div></li>
-              <li><span class="check">✓</span><div><strong>Passeios:</strong> ${localPlaces.tours}</div></li>
-            </ul>
-            <div style="margin-top:18px;">
-              <p class="p"><strong>Endereço:</strong> R. Goiás, 291 • Lagoinha, Ubatuba - SP</p>
-              <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;">
-                <a class="btn btn-primary" href="${mapsPlace}" target="_blank" rel="noopener">Abrir no Google Maps</a>
-                <a class="btn btn-ghost" href="${mapsRoute}" target="_blank" rel="noopener">Traçar rota</a>
-              </div>
-            </div>
-          `
-        },
+        storyPill:"💛 Feito com amor",
+        storyTitle:"Feito por nós, para você",
+        storyP1:`Olá! Somos o <strong>Neto</strong> e a <strong>Daniela</strong>. Para nós, receber pessoas não é apenas um negócio, é um prazer. Tudo aqui foi feito com carinho.`,
+        storyP2:`Sinta-se em casa — a chave está na porta e o mar logo ali na frente.`,
+        storySign:"Neto &amp; Daniela",
 
-        en: {
-          nav: ["Home", "Our Story", "Flats", "House Guide", "Rules", "Tips"],
-          reserveNow: "Book now",
-          reserveWA: "Book on WhatsApp",
-          contact: "Contact",
-          heroPill: "🌺 Lagoinha Beach • Ubatuba/SP",
-          heroT1: "Your peaceful getaway",
-          heroT2: "10 min from the beach",
-          heroSub: `Modern apartments for up to <strong>4 people</strong>. Complete comfort with a <strong>double bed</strong> and <strong>smart sofa bed</strong>. <strong>Air conditioning</strong> in all units, <strong>private garage</strong> and an <strong>exclusive backyard</strong> for your relaxing days.`,
-          seeFlats: "See the Flats",
+        flatsTitle:"Nossos Flats",
+        flatsSub:"Escolha seu refúgio perfeito na Lagoinha, Ubatuba.",
+        flatPeixeTitle:"Flat Peixe",
+        flatEstrelaTitle:"Flat Estrela",
+        flatMeta:"1 cama de casal + sofá-cama (vira 2) • Ar-condicionado • Garagem • Quintal",
+        tagGuests:"👤 4 pessoas",
+        badgePopular:"Mais Procurado",
+        tagAC:"❄️ Ar em todas",
+        tagLocation:"📍 Lagoinha",
+        mapsTitle:"Abrir no Maps",
+        mapsMeta:"Ver a localização exata no Google Maps",
 
-          storyPill: "💛 Made with love",
-          storyTitle: "Made by us, for you",
-          storyP1: `Hi! We are <strong>Neto</strong> and <strong>Daniela</strong>. Hosting is our pleasure. Everything here was prepared with care.`,
-          storyP2: `Feel at home — the key is at the door and the ocean is right ahead.`,
-          storySign: "Neto &amp; Daniela",
+        guideTitle:"Guia do Hóspede",
+        guideSub:"Tudo o que você precisa para uma estadia tranquila e sem dúvidas.",
+        tileHouseTitle:"Guia da Casa",
+        tileHouseSub:"Check-in/out, Wi-Fi e endereço",
+        tileRulesTitle:"Regras & Dicas",
+        tileRulesSub:"Para uma convivência harmoniosa",
+        tileLocalTitle:"Guia Local",
+        tileLocalSub:"Restaurantes, mercados e farmácias",
 
-          flatsTitle: "Our Flats",
-          flatsSub: "Choose your perfect stay in Lagoinha, Ubatuba.",
-          tagGuests: "👤 4 guests",
-          badgePopular: "Top pick",
-          tagAC: "❄️ A/C in all",
-          tagLocation: "📍 Lagoinha",
-          mapsTitle: "Open in Maps",
-          mapsMeta: "See the exact location on Google Maps",
+        valuesPill:"Nosso jeito de ser",
+        valuesTitle:"Simplicidade com o pé na areia",
+        valuesSub:"Um espaço prático, confortável e com carinho nos detalhes.",
+        v1t:"Acolhimento Familiar",
+        v1p:"Recebemos você com carinho e atenção.",
+        v2t:"Conexão com a Natureza",
+        v2p:"Perto do mar e da beleza de Ubatuba.",
+        v3t:"Autenticidade",
+        v3p:"Conforto real, praticidade e tranquilidade.",
 
-          guideTitle: "Guest Guide",
-          guideSub: "Everything you need for a smooth stay.",
-          tileHouseTitle: "House Guide",
-          tileHouseSub: "Check-in/out, Wi-Fi & address",
-          tileRulesTitle: "Rules & Tips",
-          tileRulesSub: "For a pleasant stay",
-          tileLocalTitle: "Local Guide",
-          tileLocalSub: "Restaurants, markets & pharmacies",
+        ctaTitle:`Sua próxima memória feliz <span style="color:var(--teal);font-style:italic;font-family:'Playfair Display',serif">começa aqui</span>`,
+        ctaBtn:"Reserve pelo WhatsApp",
+        ctaSub:`Veja as regras e dicas no botão “Regras &amp; Dicas”.`,
 
-          valuesPill: "Our vibe",
-          valuesTitle: "Simple, beach-style comfort",
-          valuesSub: "Practical, cozy and carefully prepared.",
-          v1t: "Warm Hosting",
-          v1p: "We welcome you with care.",
-          v2t: "Nature Connection",
-          v2p: "Near the sea and Ubatuba’s beauty.",
-          v3t: "Authentic Comfort",
-          v3p: "Real comfort, practicality and peace.",
+        footSlogan:"Onde o mar encontra o aconchego.",
+        footExplore:"Explore",
+        footInfo:"Informações",
+        footTalk:"Fale Conosco",
+        footFlats:"Flats",
+        footStory:"Nossa História",
+        footHome:"Home",
+        footGuide:"Guia da Casa",
+        footRules:"Regras",
+        footContact:"Contato",
+        footWhatsApp:"WhatsApp • (12) 98203-4767",
+        footCopy:"© 2026 Ubaflats. Todos os direitos reservados.",
+        footPrivacy:"Política de Privacidade",
+        floatText:"WhatsApp",
 
-          ctaTitle: `Your next happy memory <span style="color:var(--teal);font-style:italic;font-family:'Playfair Display',serif;">starts here</span>`,
-          ctaBtn: "Book on WhatsApp",
-          ctaSub: `Check “Rules & Tips” for important information.`,
+        modalCasaTitle:"Guia da Casa",
+        modalCasaBody:`
+          <p class="p">Informações rápidas para facilitar sua chegada e sua estadia.</p>
+          <ul class="list">
+            <li><span class="check">✓</span><div><strong>Check-in:</strong> a partir das <strong>15h</strong>.</div></li>
+            <li><span class="check">✓</span><div><strong>Check-out:</strong> até as <strong>11h</strong>.</div></li>
+            <li><span class="check">✓</span><div><strong>Wi-Fi:</strong> Nome <strong>ubaflatslagoinha</strong> • Senha <strong>avidaficamelhornapraia</strong></div></li>
+            <li><span class="check">✓</span><div><strong>Endereço:</strong> R. Goiás, 291 • Lagoinha, Ubatuba - SP</div></li>
+          </ul>
+        `,
 
-          footSlogan: "Where the sea meets comfort.",
-          footExplore: "Explore",
-          footInfo: "Information",
-          footTalk: "Contact us",
-          footCopy: "© 2026 Ubaflats. All rights reserved.",
-          footPrivacy: "Privacy Policy",
-          floatText: "WhatsApp",
+        modalRulesTitle:"Regras de Convivência",
+        modalRulesBody:`
+          <p class="p">Para manter um ambiente agradável para todos:</p>
+          <ul class="list">
+            <li><span class="check">✓</span><div>Silêncio após <strong>22h</strong>.</div></li>
+            <li><span class="check">✓</span><div>Desligue <strong>luzes</strong> e <strong>ar-condicionado</strong> ao sair.</div></li>
+            <li><span class="check">✓</span><div>Preserve móveis e utensílios.</div></li>
+            <li><span class="check">✓</span><div>Não fumar em ambientes fechados.</div></li>
+            <li><span class="check">✓</span><div>Em caso de necessidade, chame no WhatsApp.</div></li>
+          </ul>
+        `,
 
-          modalCasaTitle: "House Guide",
-          modalCasaBody: `
-            <p class="p">Quick info to make your arrival easier.</p>
-            <ul class="list">
-              <li><span class="check">✓</span><div><strong>Check-in:</strong> from <strong>3:00 PM</strong>.</div></li>
-              <li><span class="check">✓</span><div><strong>Check-out:</strong> until <strong>11:00 AM</strong>.</div></li>
-              <li><span class="check">✓</span><div><strong>Wi-Fi:</strong> <strong>ubaflatslagoinha</strong> • <strong>avidaficamelhornapraia</strong></div></li>
-              <li><span class="check">✓</span><div><strong>Address:</strong> R. Goiás, 291 • Lagoinha, Ubatuba - SP</div></li>
-            </ul>
-          `,
-          modalRulesTitle: "House Rules",
-          modalRulesBody: `
-            <p class="p">To keep a pleasant environment:</p>
-            <ul class="list">
-              <li><span class="check">✓</span><div>Quiet after <strong>10:00 PM</strong>.</div></li>
-              <li><span class="check">✓</span><div>Turn off <strong>lights</strong> and <strong>A/C</strong> when leaving.</div></li>
-              <li><span class="check">✓</span><div>Take good care of furniture and utensils.</div></li>
-              <li><span class="check">✓</span><div>No smoking indoors.</div></li>
-              <li><span class="check">✓</span><div>If you need anything, contact us on WhatsApp.</div></li>
-            </ul>
-          `,
-          modalLocalTitle: "Local Guide",
-          modalLocalBody: `
-            <p class="p">Nearby tips to make your stay easier.</p>
-            <ul class="list">
-              <li><span class="check">✓</span><div><strong>Restaurants:</strong> ${localPlaces.restaurants}</div></li>
-              <li><span class="check">✓</span><div><strong>Markets/Bakeries:</strong> ${localPlaces.markets}</div></li>
-              <li><span class="check">✓</span><div><strong>Pharmacies:</strong> ${localPlaces.pharmacy}</div></li>
-              <li><span class="check">✓</span><div><strong>Things to do:</strong> ${localPlaces.tours}</div></li>
-            </ul>
-            <div style="margin-top:18px;">
-              <p class="p"><strong>Address:</strong> R. Goiás, 291 • Lagoinha, Ubatuba - SP</p>
-              <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;">
-                <a class="btn btn-primary" href="${mapsPlace}" target="_blank" rel="noopener">Open in Google Maps</a>
-                <a class="btn btn-ghost" href="${mapsRoute}" target="_blank" rel="noopener">Get directions</a>
-              </div>
-            </div>
-          `
-        },
+        localIntro:"Sugestões próximas para facilitar sua estadia e aproveitar ainda mais a praia.",
+        localRestaurantsTitle:"Onde comer",
+        localMarketsTitle:"Mercados & Padarias",
+        localPharmacyTitle:"Farmácia",
+        localToursTitle:"Passeios",
+        localLocationTitle:"Onde estamos",
+        localLocationAddress:"R. Goiás, 291 • Lagoinha, Ubatuba - SP",
+        openMaps:"📍 Abrir no Google Maps",
+        getDirections:"🚗 Traçar rota"
+      },
 
-        es: {
-          nav: ["Inicio", "Nuestra Historia", "Flats", "Guía de la Casa", "Reglas", "Consejos"],
-          reserveNow: "Reservar ahora",
-          reserveWA: "Reservar por WhatsApp",
-          contact: "Contacto",
-          heroPill: "🌺 Playa Lagoinha • Ubatuba/SP",
-          heroT1: "Tu refugio de paz",
-          heroT2: "a 10 min del mar",
-          heroSub: `Flat para hasta <strong>4 personas</strong>, con <strong>cama doble</strong> y <strong>sofá cama</strong>. <strong>Aire acondicionado</strong> en todas las unidades, <strong>garaje</strong> privado y <strong>patio</strong> exclusivo.`,
-          seeFlats: "Ver los Flats",
+      en: {
+        nav:["Home","Our Story","Flats","House Guide","Rules","Tips"],
+        reserveNow:"Book now",
+        reserveWA:"Book on WhatsApp",
+        contact:"Contact",
 
-          storyPill: "💛 Hecho con amor",
-          storyTitle: "Hecho por nosotros, para ti",
-          storyP1: `¡Hola! Somos <strong>Neto</strong> y <strong>Daniela</strong>. Hospedar es un placer. Todo fue preparado con cariño.`,
-          storyP2: `Siéntete como en casa — la llave está en la puerta y el mar está justo adelante.`,
-          storySign: "Neto &amp; Daniela",
+        heroPill:"🌺 Lagoinha Beach • Ubatuba/SP",
+        heroT1:"Your peaceful getaway",
+        heroT2:"10 min from the beach",
+        heroSub:`Modern flats for up to <strong>4 guests</strong>.
+          Complete comfort with a <strong>double bed</strong> and <strong>smart sofa bed</strong>.
+          <strong>Air conditioning</strong> in all units, <strong>private garage</strong> and
+          an <strong>exclusive backyard</strong> for your days of rest.`,
+        seeFlats:"See the Flats",
 
-          flatsTitle: "Nuestros Flats",
-          flatsSub: "Elige tu estancia perfecta en Lagoinha, Ubatuba.",
-          tagGuests: "👤 4 personas",
-          badgePopular: "Más buscado",
-          tagAC: "❄️ A/C en todos",
-          tagLocation: "📍 Lagoinha",
-          mapsTitle: "Abrir en Maps",
-          mapsMeta: "Ver la ubicación exacta en Google Maps",
+        storyPill:"💛 Made with love",
+        storyTitle:"Made by us, for you",
+        storyP1:`Hi! We are <strong>Neto</strong> and <strong>Daniela</strong>. Hosting is our pleasure. Everything here was prepared with care.`,
+        storyP2:`Feel at home — the key is at the door and the ocean is right ahead.`,
+        storySign:"Neto &amp; Daniela",
 
-          guideTitle: "Guía del Huésped",
-          guideSub: "Todo lo que necesitas para una estancia tranquila.",
-          tileHouseTitle: "Guía de la Casa",
-          tileHouseSub: "Check-in/out, Wi-Fi y dirección",
-          tileRulesTitle: "Reglas y Consejos",
-          tileRulesSub: "Para una estancia armoniosa",
-          tileLocalTitle: "Guía Local",
-          tileLocalSub: "Restaurantes, mercados y farmacias",
+        flatsTitle:"Our Flats",
+        flatsSub:"Choose your perfect stay in Lagoinha, Ubatuba.",
+        flatPeixeTitle:"Peixe Flat",
+        flatEstrelaTitle:"Estrela Flat",
+        flatMeta:"1 double bed + sofa bed (sleeps 2) • Air conditioning • Garage • Backyard",
+        tagGuests:"👤 4 guests",
+        badgePopular:"Top pick",
+        tagAC:"❄️ A/C in all",
+        tagLocation:"📍 Lagoinha",
+        mapsTitle:"Open in Maps",
+        mapsMeta:"See the exact location on Google Maps",
 
-          valuesPill: "Nuestro estilo",
-          valuesTitle: "Sencillo, con espíritu de playa",
-          valuesSub: "Práctico, acogedor y preparado con cariño.",
-          v1t: "Bienvenida cálida",
-          v1p: "Te recibimos con atención.",
-          v2t: "Conexión con la naturaleza",
-          v2p: "Cerca del mar y de la belleza de Ubatuba.",
-          v3t: "Confort auténtico",
-          v3p: "Confort real y tranquilidad.",
+        guideTitle:"Guest Guide",
+        guideSub:"Everything you need for a smooth stay.",
+        tileHouseTitle:"House Guide",
+        tileHouseSub:"Check-in/out, Wi-Fi & address",
+        tileRulesTitle:"Rules & Tips",
+        tileRulesSub:"For a pleasant stay",
+        tileLocalTitle:"Local Guide",
+        tileLocalSub:"Restaurants, markets & pharmacies",
 
-          ctaTitle: `Tu próxima memoria feliz <span style="color:var(--teal);font-style:italic;font-family:'Playfair Display',serif;">empieza aquí</span>`,
-          ctaBtn: "Reservar por WhatsApp",
-          ctaSub: `Consulta “Reglas y Consejos” para información importante.`,
+        valuesPill:"Our vibe",
+        valuesTitle:"Simple, beach-style comfort",
+        valuesSub:"Practical, cozy and carefully prepared.",
+        v1t:"Warm Hosting",
+        v1p:"We welcome you with care.",
+        v2t:"Nature Connection",
+        v2p:"Near the sea and Ubatuba’s beauty.",
+        v3t:"Authentic Comfort",
+        v3p:"Real comfort, practicality and peace.",
 
-          footSlogan: "Donde el mar se encuentra con el confort.",
-          footExplore: "Explorar",
-          footInfo: "Información",
-          footTalk: "Contáctanos",
-          footCopy: "© 2026 Ubaflats. Todos los derechos reservados.",
-          footPrivacy: "Política de Privacidad",
-          floatText: "WhatsApp",
+        ctaTitle:`Your next happy memory <span style="color:var(--teal);font-style:italic;font-family:'Playfair Display',serif">starts here</span>`,
+        ctaBtn:"Book on WhatsApp",
+        ctaSub:`Check “Rules & Tips” for important information.`,
 
-          modalCasaTitle: "Guía de la Casa",
-          modalCasaBody: `
-            <p class="p">Información rápida para facilitar tu llegada.</p>
-            <ul class="list">
-              <li><span class="check">✓</span><div><strong>Check-in:</strong> desde <strong>15:00</strong>.</div></li>
-              <li><span class="check">✓</span><div><strong>Check-out:</strong> hasta <strong>11:00</strong>.</div></li>
-              <li><span class="check">✓</span><div><strong>Wi-Fi:</strong> <strong>ubaflatslagoinha</strong> • <strong>avidaficamelhornapraia</strong></div></li>
-              <li><span class="check">✓</span><div><strong>Dirección:</strong> R. Goiás, 291 • Lagoinha, Ubatuba - SP</div></li>
-            </ul>
-          `,
-          modalRulesTitle: "Reglas de la Casa",
-          modalRulesBody: `
-            <p class="p">Para mantener un ambiente agradable:</p>
-            <ul class="list">
-              <li><span class="check">✓</span><div>Silencio después de <strong>22:00</strong>.</div></li>
-              <li><span class="check">✓</span><div>Apaga <strong>luces</strong> y <strong>A/C</strong> al salir.</div></li>
-              <li><span class="check">✓</span><div>Cuida muebles y utensilios.</div></li>
-              <li><span class="check">✓</span><div>No fumar en interiores.</div></li>
-              <li><span class="check">✓</span><div>Si necesitas algo, contáctanos por WhatsApp.</div></li>
-            </ul>
-          `,
-          modalLocalTitle: "Guía Local",
-          modalLocalBody: `
-            <p class="p">Recomendaciones cercanas para facilitar tu estancia.</p>
-            <ul class="list">
-              <li><span class="check">✓</span><div><strong>Restaurantes:</strong> ${localPlaces.restaurants}</div></li>
-              <li><span class="check">✓</span><div><strong>Mercados/Panaderías:</strong> ${localPlaces.markets}</div></li>
-              <li><span class="check">✓</span><div><strong>Farmacias:</strong> ${localPlaces.pharmacy}</div></li>
-              <li><span class="check">✓</span><div><strong>Paseos:</strong> ${localPlaces.tours}</div></li>
-            </ul>
-            <div style="margin-top:18px;">
-              <p class="p"><strong>Dirección:</strong> R. Goiás, 291 • Lagoinha, Ubatuba - SP</p>
-              <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;">
-                <a class="btn btn-primary" href="${mapsPlace}" target="_blank" rel="noopener">Abrir en Google Maps</a>
-                <a class="btn btn-ghost" href="${mapsRoute}" target="_blank" rel="noopener">Cómo llegar</a>
-              </div>
-            </div>
-          `
-        }
-      };
+        footSlogan:"Where the sea meets comfort.",
+        footExplore:"Explore",
+        footInfo:"Information",
+        footTalk:"Contact us",
+        footFlats:"Flats",
+        footStory:"Our Story",
+        footHome:"Home",
+        footGuide:"House Guide",
+        footRules:"Rules",
+        footContact:"Contact",
+        footWhatsApp:"WhatsApp • +55 (12) 98203-4767",
+        footCopy:"© 2026 Ubaflats. All rights reserved.",
+        footPrivacy:"Privacy Policy",
+        floatText:"WhatsApp",
 
-      function setActive(lang) {
-        document.querySelectorAll(".langBtn").forEach((b) => {
-          b.classList.toggle("active", b.dataset.lang === lang);
-        });
+        modalCasaTitle:"House Guide",
+        modalCasaBody:`
+          <p class="p">Quick information to make your arrival and stay easier.</p>
+          <ul class="list">
+            <li><span class="check">✓</span><div><strong>Check-in:</strong> from <strong>3:00 PM</strong>.</div></li>
+            <li><span class="check">✓</span><div><strong>Check-out:</strong> until <strong>11:00 AM</strong>.</div></li>
+            <li><span class="check">✓</span><div><strong>Wi-Fi:</strong> Name <strong>ubaflatslagoinha</strong> • Password <strong>avidaficamelhornapraia</strong></div></li>
+            <li><span class="check">✓</span><div><strong>Address:</strong> R. Goiás, 291 • Lagoinha, Ubatuba - SP</div></li>
+          </ul>
+        `,
+
+        modalRulesTitle:"House Rules",
+        modalRulesBody:`
+          <p class="p">To keep a pleasant environment for everyone:</p>
+          <ul class="list">
+            <li><span class="check">✓</span><div>Quiet after <strong>10:00 PM</strong>.</div></li>
+            <li><span class="check">✓</span><div>Turn off <strong>lights</strong> and <strong>A/C</strong> when leaving.</div></li>
+            <li><span class="check">✓</span><div>Take good care of furniture and utensils.</div></li>
+            <li><span class="check">✓</span><div>No smoking indoors.</div></li>
+            <li><span class="check">✓</span><div>If you need anything, contact us on WhatsApp.</div></li>
+          </ul>
+        `,
+
+        localIntro:"Nearby suggestions to make your stay easier and help you enjoy the beach even more.",
+        localRestaurantsTitle:"Where to eat",
+        localMarketsTitle:"Markets & Bakeries",
+        localPharmacyTitle:"Pharmacy",
+        localToursTitle:"Things to do",
+        localLocationTitle:"Where we are",
+        localLocationAddress:"R. Goiás, 291 • Lagoinha, Ubatuba - SP",
+        openMaps:"📍 Open in Google Maps",
+        getDirections:"🚗 Get directions"
+      },
+
+      es: {
+        nav:["Inicio","Nuestra Historia","Flats","Guía de la Casa","Reglas","Consejos"],
+        reserveNow:"Reservar ahora",
+        reserveWA:"Reservar por WhatsApp",
+        contact:"Contacto",
+
+        heroPill:"🌺 Playa Lagoinha • Ubatuba/SP",
+        heroT1:"Tu refugio de paz",
+        heroT2:"a 10 min del mar",
+        heroSub:`Flats modernos para hasta <strong>4 personas</strong>.
+          Confort completo con <strong>cama doble</strong> y <strong>sofá cama inteligente</strong>.
+          <strong>Aire acondicionado</strong> en todas las unidades, <strong>garaje privado</strong> y
+          <strong>patio exclusivo</strong> para tus días de descanso.`,
+        seeFlats:"Ver los Flats",
+
+        storyPill:"💛 Hecho con amor",
+        storyTitle:"Hecho por nosotros, para ti",
+        storyP1:`¡Hola! Somos <strong>Neto</strong> y <strong>Daniela</strong>. Hospedar es un placer. Todo fue preparado con cariño.`,
+        storyP2:`Siéntete como en casa — la llave está en la puerta y el mar está justo adelante.`,
+        storySign:"Neto &amp; Daniela",
+
+        flatsTitle:"Nuestros Flats",
+        flatsSub:"Elige tu estancia perfecta en Lagoinha, Ubatuba.",
+        flatPeixeTitle:"Flat Peixe",
+        flatEstrelaTitle:"Flat Estrela",
+        flatMeta:"1 cama doble + sofá cama (para 2) • Aire acondicionado • Garaje • Patio",
+        tagGuests:"👤 4 personas",
+        badgePopular:"Más buscado",
+        tagAC:"❄️ A/C en todos",
+        tagLocation:"📍 Lagoinha",
+        mapsTitle:"Abrir en Maps",
+        mapsMeta:"Ver la ubicación exacta en Google Maps",
+
+        guideTitle:"Guía del Huésped",
+        guideSub:"Todo lo que necesitas para una estancia tranquila.",
+        tileHouseTitle:"Guía de la Casa",
+        tileHouseSub:"Check-in/out, Wi-Fi y dirección",
+        tileRulesTitle:"Reglas y Consejos",
+        tileRulesSub:"Para una estancia armoniosa",
+        tileLocalTitle:"Guía Local",
+        tileLocalSub:"Restaurantes, mercados y farmacias",
+
+        valuesPill:"Nuestro estilo",
+        valuesTitle:"Sencillo, con espíritu de playa",
+        valuesSub:"Práctico, acogedor y preparado con cariño.",
+        v1t:"Bienvenida cálida",
+        v1p:"Te recibimos con atención.",
+        v2t:"Conexión con la naturaleza",
+        v2p:"Cerca del mar y de la belleza de Ubatuba.",
+        v3t:"Confort auténtico",
+        v3p:"Confort real, practicidad y tranquilidad.",
+
+        ctaTitle:`Tu próxima memoria feliz <span style="color:var(--teal);font-style:italic;font-family:'Playfair Display',serif">empieza aquí</span>`,
+        ctaBtn:"Reservar por WhatsApp",
+        ctaSub:`Consulta “Reglas y Consejos” para información importante.`,
+
+        footSlogan:"Donde el mar se encuentra con el confort.",
+        footExplore:"Explorar",
+        footInfo:"Información",
+        footTalk:"Contáctanos",
+        footFlats:"Flats",
+        footStory:"Nuestra Historia",
+        footHome:"Inicio",
+        footGuide:"Guía de la Casa",
+        footRules:"Reglas",
+        footContact:"Contacto",
+        footWhatsApp:"WhatsApp • +55 (12) 98203-4767",
+        footCopy:"© 2026 Ubaflats. Todos los derechos reservados.",
+        footPrivacy:"Política de Privacidad",
+        floatText:"WhatsApp",
+
+        modalCasaTitle:"Guía de la Casa",
+        modalCasaBody:`
+          <p class="p">Información rápida para facilitar tu llegada y tu estancia.</p>
+          <ul class="list">
+            <li><span class="check">✓</span><div><strong>Check-in:</strong> desde las <strong>15:00</strong>.</div></li>
+            <li><span class="check">✓</span><div><strong>Check-out:</strong> hasta las <strong>11:00</strong>.</div></li>
+            <li><span class="check">✓</span><div><strong>Wi-Fi:</strong> Nombre <strong>ubaflatslagoinha</strong> • Contraseña <strong>avidaficamelhornapraia</strong></div></li>
+            <li><span class="check">✓</span><div><strong>Dirección:</strong> R. Goiás, 291 • Lagoinha, Ubatuba - SP</div></li>
+          </ul>
+        `,
+
+        modalRulesTitle:"Reglas de la Casa",
+        modalRulesBody:`
+          <p class="p">Para mantener un ambiente agradable para todos:</p>
+          <ul class="list">
+            <li><span class="check">✓</span><div>Silencio después de <strong>22:00</strong>.</div></li>
+            <li><span class="check">✓</span><div>Apaga <strong>luces</strong> y <strong>A/C</strong> al salir.</div></li>
+            <li><span class="check">✓</span><div>Cuida muebles y utensilios.</div></li>
+            <li><span class="check">✓</span><div>No fumar en interiores.</div></li>
+            <li><span class="check">✓</span><div>Si necesitas algo, contáctanos por WhatsApp.</div></li>
+          </ul>
+        `,
+
+        localIntro:"Recomendaciones cercanas para facilitar tu estancia y disfrutar aún más de la playa.",
+        localRestaurantsTitle:"Dónde comer",
+        localMarketsTitle:"Mercados y Panaderías",
+        localPharmacyTitle:"Farmacia",
+        localToursTitle:"Paseos",
+        localLocationTitle:"Dónde estamos",
+        localLocationAddress:"R. Goiás, 291 • Lagoinha, Ubatuba - SP",
+        openMaps:"📍 Abrir en Google Maps",
+        getDirections:"🚗 Cómo llegar"
       }
+    };
 
-      function applyLang(lang) {
-        const d = t[lang] || t.pt;
-        document.documentElement.lang = lang === "pt" ? "pt-br" : lang;
+    /* =========================================================
+       APLICA IDIOMA
+    ========================================================= */
+    function setActiveLanguage(lang) {
+      document.querySelectorAll(".langBtn").forEach(button => {
+        button.classList.toggle("active", button.dataset.lang === lang);
+      });
+    }
 
-        $("navHome").textContent = d.nav[0];
-        $("navStory").textContent = d.nav[1];
-        $("navFlats").textContent = d.nav[2];
-        $("navGuide").textContent = d.nav[3];
-        $("navRules").textContent = d.nav[4];
-        $("navTips").textContent = d.nav[5];
+    function applyLanguage(lang) {
+      const d = translations[lang] || translations.pt;
 
-        $("mNavHome").textContent = d.nav[0];
-        $("mNavStory").textContent = d.nav[1];
-        $("mNavFlats").textContent = d.nav[2];
-        $("mNavGuide").textContent = d.nav[3];
-        $("mNavRules").textContent = d.nav[4];
-        $("mNavTips").textContent = d.nav[5];
+      document.documentElement.lang = lang === "pt" ? "pt-BR" : lang;
 
-        $("btnTopReserve").textContent = d.reserveNow;
-        $("mBtnReserve").textContent = d.reserveWA;
-        $("mBtnContact").textContent = d.contact;
+      const navIds = [
+        "navHome","navStory","navFlats","navGuide","navRules","navTips"
+      ];
+      const mobileNavIds = [
+        "mNavHome","mNavStory","mNavFlats","mNavGuide","mNavRules","mNavTips"
+      ];
 
-        $("heroPill").textContent = d.heroPill;
-        $("heroTitleLine1").textContent = d.heroT1;
-        $("heroTitleLine2").textContent = d.heroT2;
-        $("heroSub").innerHTML = d.heroSub;
-        $("heroBtnFlats").textContent = d.seeFlats;
-        $("heroBtnReserve").textContent = d.reserveWA;
-
-        $("storyPill").textContent = d.storyPill;
-        $("storyTitle").textContent = d.storyTitle;
-        $("storyP1").innerHTML = d.storyP1;
-        $("storyP2").innerHTML = d.storyP2;
-        $("storySignature").innerHTML = d.storySign;
-
-        $("flatsTitle").textContent = d.flatsTitle;
-        $("flatsSub").textContent = d.flatsSub;
-        $("flatsReserveBtn").textContent = d.reserveNow;
-
-        $("tagGuests").textContent = d.tagGuests;
-        $("badgePopular").textContent = d.badgePopular;
-        $("tagAC").textContent = d.tagAC;
-        $("tagLocation").textContent = d.tagLocation;
-        $("cardMapsTitle").textContent = d.mapsTitle;
-        $("cardMapsMeta").textContent = d.mapsMeta;
-
-        $("guideTitle").textContent = d.guideTitle;
-        $("guideSub").textContent = d.guideSub;
-        $("tileHouseTitle").textContent = d.tileHouseTitle;
-        $("tileHouseSub").textContent = d.tileHouseSub;
-        $("tileRulesTitle").textContent = d.tileRulesTitle;
-        $("tileRulesSub").textContent = d.tileRulesSub;
-        $("tileLocalTitle").textContent = d.tileLocalTitle;
-        $("tileLocalSub").textContent = d.tileLocalSub;
-
-        $("valuesPill").textContent = d.valuesPill;
-        $("valuesTitle").textContent = d.valuesTitle;
-        $("valuesSub").textContent = d.valuesSub;
-        $("v1Title").textContent = d.v1t;
-        $("v1Text").textContent = d.v1p;
-        $("v2Title").textContent = d.v2t;
-        $("v2Text").textContent = d.v2p;
-        $("v3Title").textContent = d.v3t;
-        $("v3Text").textContent = d.v3p;
-
-        $("ctaTitle").innerHTML = d.ctaTitle;
-        $("ctaBtn").textContent = d.ctaBtn;
-        $("ctaSub").innerHTML = d.ctaSub;
-
-        $("footSlogan").textContent = d.footSlogan;
-        $("footExploreTitle").textContent = d.footExplore;
-        $("footInfoTitle").textContent = d.footInfo;
-        $("footTalkTitle").textContent = d.footTalk;
-        $("footCopy").textContent = d.footCopy;
-        $("footPrivacy").textContent = d.footPrivacy;
-        $("floatText").textContent = d.floatText;
-
-        $("modalCasaTitle").textContent = d.modalCasaTitle;
-        $("modalCasaBody").innerHTML = d.modalCasaBody;
-
-        $("modalRegrasTitle").textContent = d.modalRulesTitle;
-        $("modalRegrasBody").innerHTML = d.modalRulesBody;
-
-        $("modalLocalTitle").textContent = d.modalLocalTitle;
-        $("modalLocalBody").innerHTML = d.modalLocalBody;
-
-        setActive(lang);
-        localStorage.setItem("ubaflats_lang", lang);
-      }
-
-      document.addEventListener("click", (e) => {
-        const btn = e.target.closest(".langBtn");
-        if (!btn) return;
-        applyLang(btn.dataset.lang);
+      navIds.forEach((id, index) => {
+        $(id).textContent = d.nav[index];
       });
 
-      const saved = localStorage.getItem("ubaflats_lang") || "pt";
-      applyLang(saved);
-    })();
+      mobileNavIds.forEach((id, index) => {
+        $(id).textContent = d.nav[index];
+      });
+
+      $("btnTopReserve").textContent = d.reserveNow;
+      $("mBtnReserve").textContent = d.reserveWA;
+      $("mBtnContact").textContent = d.contact;
+
+      $("heroPill").textContent = d.heroPill;
+      $("heroTitleLine1").textContent = d.heroT1;
+      $("heroTitleLine2").textContent = d.heroT2;
+      $("heroSub").innerHTML = d.heroSub;
+      $("heroBtnFlats").textContent = d.seeFlats;
+      $("heroBtnReserve").textContent = d.reserveWA;
+
+      $("storyPill").textContent = d.storyPill;
+      $("storyTitle").textContent = d.storyTitle;
+      $("storyP1").innerHTML = d.storyP1;
+      $("storyP2").innerHTML = d.storyP2;
+      $("storySignature").innerHTML = d.storySign;
+
+      $("flatsTitle").textContent = d.flatsTitle;
+      $("flatsSub").textContent = d.flatsSub;
+      $("flatsReserveBtn").textContent = d.reserveNow;
+
+      $("cardPeixeTitle").textContent = d.flatPeixeTitle;
+      $("cardEstrelaTitle").textContent = d.flatEstrelaTitle;
+      $("cardPeixeMeta").textContent = d.flatMeta;
+      $("cardEstrelaMeta").textContent = d.flatMeta;
+
+      $("tagGuests").textContent = d.tagGuests;
+      $("badgePopular").textContent = d.badgePopular;
+      $("tagAC").textContent = d.tagAC;
+      $("tagLocation").textContent = d.tagLocation;
+      $("cardMapsTitle").textContent = d.mapsTitle;
+      $("cardMapsMeta").textContent = d.mapsMeta;
+
+      $("guideTitle").textContent = d.guideTitle;
+      $("guideSub").textContent = d.guideSub;
+      $("tileHouseTitle").textContent = d.tileHouseTitle;
+      $("tileHouseSub").textContent = d.tileHouseSub;
+      $("tileRulesTitle").textContent = d.tileRulesTitle;
+      $("tileRulesSub").textContent = d.tileRulesSub;
+      $("tileLocalTitle").textContent = d.tileLocalTitle;
+      $("tileLocalSub").textContent = d.tileLocalSub;
+
+      $("valuesPill").textContent = d.valuesPill;
+      $("valuesTitle").textContent = d.valuesTitle;
+      $("valuesSub").textContent = d.valuesSub;
+      $("v1Title").textContent = d.v1t;
+      $("v1Text").textContent = d.v1p;
+      $("v2Title").textContent = d.v2t;
+      $("v2Text").textContent = d.v2p;
+      $("v3Title").textContent = d.v3t;
+      $("v3Text").textContent = d.v3p;
+
+      $("ctaTitle").innerHTML = d.ctaTitle;
+      $("ctaBtn").textContent = d.ctaBtn;
+      $("ctaSub").innerHTML = d.ctaSub;
+
+      $("footSlogan").textContent = d.footSlogan;
+      $("footExploreTitle").textContent = d.footExplore;
+      $("footInfoTitle").textContent = d.footInfo;
+      $("footTalkTitle").textContent = d.footTalk;
+      $("footFlats").textContent = d.footFlats;
+      $("footStory").textContent = d.footStory;
+      $("footHome").textContent = d.footHome;
+      $("footGuide").textContent = d.footGuide;
+      $("footRules").textContent = d.footRules;
+      $("footContact").textContent = d.footContact;
+      $("footWhatsApp").textContent = d.footWhatsApp;
+      $("footCopy").textContent = d.footCopy;
+      $("footPrivacy").textContent = d.footPrivacy;
+      $("floatText").textContent = d.floatText;
+
+      $("modalCasaTitle").textContent = d.modalCasaTitle;
+      $("modalCasaBody").innerHTML = d.modalCasaBody;
+
+      $("modalRegrasTitle").textContent = d.modalRulesTitle;
+      $("modalRegrasBody").innerHTML = d.modalRulesBody;
+
+      renderLocalGuide(d);
+
+      setActiveLanguage(lang);
+      localStorage.setItem("ubaflats_lang", lang);
+    }
+
+    document.addEventListener("click", event => {
+      const button = event.target.closest(".langBtn");
+      if (!button) return;
+
+      applyLanguage(button.dataset.lang);
+    });
+
+    /* =========================================================
+       INICIALIZAÇÃO
+    ========================================================= */
+    const savedLanguage = localStorage.getItem("ubaflats_lang") || "pt";
+    applyLanguage(savedLanguage);
+
+    /*
+      Garante que os botões de reserva usem sempre o mesmo WhatsApp.
+    */
+    document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+      link.href = WHATSAPP_URL;
+    });
   </script>
 </body>
 </html>
